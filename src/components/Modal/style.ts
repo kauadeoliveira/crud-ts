@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
 export const ModalWrapper = styled.div`
-    background-color: ${({ theme }) => theme.palette};
+    width: 100px;
+    height: 100px;
 `
