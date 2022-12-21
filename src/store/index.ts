@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit/dist/configureStore";
+import { configureStore } from "@reduxjs/toolkit";
 import { modalSlice } from "./slices/modalSlice";
 
 export const store = configureStore({
