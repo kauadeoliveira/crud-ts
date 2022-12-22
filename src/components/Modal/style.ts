@@ -4,6 +4,10 @@ interface BackdropProps {
     state: boolean;
 }
 
+interface CloseButtonProps {
+    icon: string;
+}
+
 export const ModalBackdrop = styled.div<BackdropProps>`
     display: ${({ state }) => state ? 'flex' : 'none'};
     justify-content: center;
@@ -13,20 +17,31 @@ export const ModalBackdrop = styled.div<BackdropProps>`
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgb(0 0 0 / 57%);
+    background-color: rgba(0,0,0,0.48);
 `
 export const ModalWrapper = styled.div`
     width: 500px;
     height: 300px;
-    background-color: rebeccapurple;
+    background-color: ${({ theme }) => theme.palette.colors.background.main};
 `
 export const ModalHeader = styled.div`
     width: 100%;
-    background-color: blue;
     color: white;
+`
 
+export const CloseButton = styled.div<CloseButtonProps>`
+    width: 15px;
+    height: 15px;
+    background-image: url(${({ icon }) => icon});
+    background-repeat: no-repeat;
+    cursor: pointer;
+`
 
-    span{
-        cursor: pointer;
-    }
+export const ModalContent = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 `

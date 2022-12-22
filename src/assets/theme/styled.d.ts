@@ -12,6 +12,14 @@ declare module 'styled-components' {
                     main: string;
                     dark: string;
                 },
+                background: {
+                    dark: string;
+                    main: string;
+                    light: string;
+                }
+            },
+            text: {
+                primary: string;
             }
         }
     }
