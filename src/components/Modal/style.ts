@@ -23,6 +23,7 @@ export const ModalWrapper = styled.div`
     width: 500px;
     height: 300px;
     background-color: ${({ theme }) => theme.palette.colors.background.main};
+    position: relative;
 `
 export const ModalHeader = styled.div`
     width: 100%;
@@ -39,9 +40,14 @@ export const CloseButton = styled.div<CloseButtonProps>`
 
 export const ModalContent = styled.div`
     width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
+`
+
+export const ModalButton = styled.div`
+    width: 100%;
+    position: absolute;
+    bottom: 0;    
 `
