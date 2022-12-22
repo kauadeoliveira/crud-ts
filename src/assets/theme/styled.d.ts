@@ -20,6 +20,11 @@ declare module 'styled-components' {
             },
             text: {
                 primary: string;
+            },
+        },
+        dimensions: {
+            button: {
+                borderRadius: string;
             }
         }
     }

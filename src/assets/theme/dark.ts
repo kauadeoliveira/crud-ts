@@ -16,6 +16,11 @@ export default {
         },
         text: {
             primary: '#657575'
+        },
+    },
+    dimensions: {
+        button: {
+            borderRadius: '10px',
         }
     }
 }
