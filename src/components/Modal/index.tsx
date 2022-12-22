@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { store } from "../../store";
 import { modalSlice } from "../../store/slices/modalSlice";
-import { CloseButton, ModalBackdrop, ModalButton, ModalContent, ModalHeader, ModalWrapper } from "./style";
+import { CloseButton, ModalBackdrop, ModalContent, ModalHeader, ModalWrapper } from "./style";
 import { RootState } from "../../types";
 import { useEffect } from "react";
 import { useAppSelector } from "../../hooks/useAppSelector";
@@ -29,11 +29,9 @@ export default function Modal() {
                     <Input
                      type="date"
                      width="80%"
-                    />
+                     />
                 </ModalContent>
-                <ModalButton>
-                    <Button>a</Button>
-                </ModalButton>
+                <Button width="70%">Create Task</Button>
             </ModalWrapper>
         </ModalBackdrop>
     )

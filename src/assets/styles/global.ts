@@ -12,6 +12,7 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 10px;
         font-family: sans-serif;
         background-color: rgb(18, 18, 20);
+        color: #fff;
     }
 
 `

@@ -21,9 +21,11 @@ export const ModalBackdrop = styled.div<BackdropProps>`
 `
 export const ModalWrapper = styled.div`
     width: 500px;
-    height: 300px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     background-color: ${({ theme }) => theme.palette.colors.background.main};
-    position: relative;
 `
 export const ModalHeader = styled.div`
     width: 100%;
@@ -44,10 +46,4 @@ export const ModalContent = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 10px;
-`
-
-export const ModalButton = styled.div`
-    width: 100%;
-    position: absolute;
-    bottom: 0;    
 `

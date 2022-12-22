@@ -4,6 +4,7 @@ interface MyButton {
     background?: string;
     backgroundHover?: string;
     textColor?: string;
+    width?: string;
 }
 
 export const MyButton = styled.div<MyButton>`
@@ -20,12 +21,16 @@ export const MyButton = styled.div<MyButton>`
         if(textColor != undefined){
             return textColor;
         }
-        else{
-            return '#fff';
-        }
     }};
     border-radius: ${({ theme }) => theme.dimensions.button.borderRadius};
-    width: 70%;
+    width: ${({ width }) => {
+        if(width != undefined){
+            return width;
+        }
+        else{
+            return '50%';
+        }
+    }};
     height: 50px;
 
     text-align: center;
