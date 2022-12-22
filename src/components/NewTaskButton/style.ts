@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 export const FloatingButton = styled.div`
     background-color: ${({ theme }) => theme.palette.colors.primary.main};
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
     text-align: center;
-    line-height: 80px;
-    font-size: 5em;
-    width: 80px;
-    height: 80px;
+    font-size: 4em;
     border-radius: 100%;
     position: fixed;
     bottom: 50px;

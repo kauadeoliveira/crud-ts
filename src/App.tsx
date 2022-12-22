@@ -10,6 +10,7 @@ function App() {
       <ThemeProvider theme={dark}>
         <GlobalStyle />
         <NewTaskButton />
+        <Modal />
       </ThemeProvider>
     </div>
   )
