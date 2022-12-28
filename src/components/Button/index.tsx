@@ -7,15 +7,17 @@ interface ButtonProps {
     backgroundHover?: string;
     textColor?: string;
     width?: string;
+    onClick?: () => void;
 }
 
-export default function Button({ children, background, backgroundHover, textColor, width }: ButtonProps) {
+export default function Button({ children, background, backgroundHover, textColor, width, onClick }: ButtonProps) {
     return(
         <MyButton 
          background={background}
          backgroundHover={backgroundHover}
          textColor={textColor}
          width={width}
+         onClick={onClick}
         >
             {children}
         </MyButton>

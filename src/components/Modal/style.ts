@@ -30,7 +30,12 @@ export const ModalWrapper = styled.div`
 `
 export const ModalHeader = styled.div`
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    
     color: white;
+    font-size: 1.3em;
+    font-weight: bold;
 `
 
 export const CloseButton = styled.div<CloseButtonProps>`
