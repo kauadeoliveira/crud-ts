@@ -16,6 +16,20 @@ declare module 'styled-components' {
                     dark: string;
                     main: string;
                     light: string;
+                },
+                priorities: {
+                    high: {
+                        background: string;
+                        hover: string;
+                    },
+                    middle: {
+                        background: string;
+                        hover:string;
+                    },
+                    low: {
+                        background: string;
+                        hover: string;
+                    }
                 }
             },
             text: {

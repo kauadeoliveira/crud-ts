@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { store } from "../../store";
 import { modalSlice } from "../../store/slices/modalSlice";
-import { CloseButton, ModalBackdrop, ModalContent, ModalHeader, ModalWrapper } from "./style";
+import { CloseButton, ModalBackdrop, ModalContent, ModalHeader, ModalPriorityTask, ModalWrapper } from "./style";
 import { RootState } from "../../types";
 import { useEffect } from "react";
 import { useAppSelector } from "../../hooks/useAppSelector";
@@ -30,6 +30,14 @@ export default function Modal() {
                      type="date"
                      width="80%"
                      />
+                    <ModalPriorityTask>
+                        <input type="radio" name="priority" id="high" />
+                        <label htmlFor="high" className="high">High Priority</label>
+                        <input type="radio" name="priority" id="middle" />
+                        <label htmlFor="middle" className="middle">Middle Priority</label>
+                        <input type="radio" name="priority" id="low" />
+                        <label htmlFor="low" className="low">Low Priority</label>
+                    </ModalPriorityTask>
                 </ModalContent>
                 <Button width="70%">Create Task</Button>
             </ModalWrapper>

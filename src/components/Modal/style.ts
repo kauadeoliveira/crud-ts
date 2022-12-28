@@ -21,8 +21,9 @@ export const ModalBackdrop = styled.div<BackdropProps>`
 `
 export const ModalWrapper = styled.div`
     width: 500px;
-    height: 200px;
     display: flex;
+    gap: 15px;
+    padding: 15px;
     justify-content: center;
     flex-wrap: wrap;
     background-color: ${({ theme }) => theme.palette.colors.background.main};
@@ -46,4 +47,63 @@ export const ModalContent = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 10px;
+`
+
+export const ModalPriorityTask = styled.div`
+    .priority-title{
+        font-size: 1.6em;
+    }
+
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    
+    input{
+        display: none;
+    }
+
+    label{
+        width: 80px;
+        padding: 8px;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .high{
+        background-color: ${({ theme }) => theme.palette.colors.priorities.high.background};
+
+        &:hover{
+            background-color: ${({ theme }) => theme.palette.colors.priorities.high.hover};
+        }
+    }
+    .middle{
+        background-color: ${({ theme }) => theme.palette.colors.priorities.middle.background};
+
+        &:hover{
+            background-color: ${({ theme }) => theme.palette.colors.priorities.middle.hover};
+        }
+    }
+    .low{
+        background-color: ${({ theme }) => theme.palette.colors.priorities.low.background};
+
+        &:hover{
+            background-color: ${({ theme }) => theme.palette.colors.priorities.low.hover};
+        }
+    }
+
+
+    /* Checked Priority */
+    #high:checked ~ .high{
+        background-color: ${({ theme }) => theme.palette.colors.priorities.high.hover};
+    }
+
+    #middle:checked ~ .middle{
+        background-color: ${({ theme }) => theme.palette.colors.priorities.middle.hover};
+    }
+
+    #low:checked ~ .low{
+        background-color: ${({ theme }) => theme.palette.colors.priorities.low.hover};
+    }
+
 `
