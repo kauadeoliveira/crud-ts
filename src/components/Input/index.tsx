@@ -10,7 +10,6 @@ interface InputProps {
     placeholder?: string;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     errorTitle?: boolean
-
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(({ type, maxLength, width, placeholder, onChange, errorTitle }, ref) => {

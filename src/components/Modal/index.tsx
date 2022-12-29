@@ -97,7 +97,13 @@ export default function Modal() {
                     <CloseButton icon={[close, closeHover]} onClick={handleClose}/>
                 </ModalHeader>
                 <ModalContent>
-                    <Input type="text" width="80%" placeholder="Title" ref={titleRef} errorTitle={errorTitle}/>
+                    <Input
+                     type="text"
+                     width="80%"
+                     placeholder="Title" 
+                     ref={titleRef}
+                     errorTitle={errorTitle}
+                    />
                     <Input
                      type="date"
                      width="80%"
@@ -119,3 +125,6 @@ export default function Modal() {
         </ModalBackdrop>
     )
 }
+
+
+// A6A6A6
