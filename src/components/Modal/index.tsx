@@ -7,6 +7,7 @@ import { RootState, Task } from "../../types";
 import React, { createRef, useEffect, useRef, useState } from "react";
 import { useAppSelector } from "../../hooks/useAppSelector";
 import close from "../../assets/images/close.png"
+import closeHover from "../../assets/images/close-hover.png"
 import Input from "../Input";
 import Button from "../Button";
 import { tasksSlice } from "../../store/slices/tasksSlice";
@@ -93,7 +94,7 @@ export default function Modal() {
             <ModalWrapper>
                 <ModalHeader>
                     <span>New Task</span>
-                    <CloseButton icon={close} onClick={handleClose}/>
+                    <CloseButton icon={[close, closeHover]} onClick={handleClose}/>
                 </ModalHeader>
                 <ModalContent>
                     <Input type="text" width="80%" placeholder="Title" ref={titleRef} errorTitle={errorTitle}/>

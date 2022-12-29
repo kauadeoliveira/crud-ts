@@ -5,7 +5,7 @@ interface BackdropProps {
 }
 
 interface CloseButtonProps {
-    icon: string;
+    icon: string[];
 }
 
 export const ModalBackdrop = styled.div<BackdropProps>`
@@ -27,6 +27,7 @@ export const ModalWrapper = styled.div`
     justify-content: center;
     flex-wrap: wrap;
     background-color: ${({ theme }) => theme.palette.colors.background.main};
+    border-radius: ${({ theme }) => theme.dimensions.modal.borderRadius};
 `
 export const ModalHeader = styled.div`
     width: 100%;
@@ -41,9 +42,14 @@ export const ModalHeader = styled.div`
 export const CloseButton = styled.div<CloseButtonProps>`
     width: 15px;
     height: 15px;
-    background-image: url(${({ icon }) => icon});
+    background-image: url(${({ icon }) => icon[0]});
     background-repeat: no-repeat;
     cursor: pointer;
+    transition: all .3s;
+
+    &:hover{
+        background-image: url(${({ icon }) => icon[1]});
+    }
 `
 
 export const ModalContent = styled.div`
@@ -73,6 +79,7 @@ export const ModalPriorityTask = styled.div`
         text-align: center;
         cursor: pointer;
         border-radius: 5px;
+        transition: all .3s;
     }
 
     .high{

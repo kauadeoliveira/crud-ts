@@ -1,8 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { Task } from "../../types";
 
-
-
 interface Tasks {
     tasks: Task[];
 }
@@ -17,14 +15,12 @@ export const tasksSlice = createSlice({
     reducers: {
         addTask: (state, action) => {
             if(state.tasks.length < 1){
-                console.log('passou')
                 state.tasks.push({...action.payload, id: 1});
             }
             else{
                 const lastId = state.tasks[state.tasks.length -1].id
                 state.tasks.push({...action.payload, id: lastId + 1});
             }
-
         }
     }
 })

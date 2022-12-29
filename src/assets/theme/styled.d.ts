@@ -39,6 +39,9 @@ declare module 'styled-components' {
         dimensions: {
             button: {
                 borderRadius: string;
+            },
+            modal: {
+                borderRadius: string;
             }
         }
     }
