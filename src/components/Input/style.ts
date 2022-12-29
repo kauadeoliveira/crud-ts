@@ -4,9 +4,14 @@ interface MyInputProps {
     icon: string[];
 }
 
+interface InputWrapper {
+    width?: string;
+    errorTitle?: boolean
+}
+
 export const MyInput = styled.input<MyInputProps>`
     outline: none;
-    width: ${({ width }) => width ? width : '100%'};
+    width: 100%;
     border-radius: 5px;
     padding: 3px 5px;
     height: 40px;
@@ -26,5 +31,16 @@ export const MyInput = styled.input<MyInputProps>`
             background-image: url(${({ icon }) => icon[1]});
         }
     }
+`
 
+export const InputWrapper = styled.div<InputWrapper>`
+    width: ${({ width }) => width ? width : '100%'};
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    .error-message{
+        display: ${({ errorTitle }) => errorTitle ? 'inline-block' : 'none'};
+        color: ${({ theme }) => theme.palette.colors.priorities.high.background};
+        margin-left: 3px;
+    }
 `

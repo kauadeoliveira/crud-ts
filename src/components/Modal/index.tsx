@@ -20,11 +20,10 @@ export default function Modal() {
     const { openModal } = useAppSelector(store => store.modal);
     
     // Task values
-    // const [titleErrorMsg, setTitleErrorMsg]
-    const [title, setTitle] = useState<string>();
-    const [date, setDate] = useState<string>();
+    const [titleErrorMsg, setTitleErrorMsg] = useState<boolean>();
     const [priority, setPriority] = useState<string>();
     const [taskValues, setTaskValues] = useState<Task>();
+    const [errorTitle, setErrorTitle] = useState<boolean>(false);
     
     const titleRef = createRef<HTMLInputElement>();
     const dateRef = createRef<HTMLInputElement>();
@@ -32,8 +31,6 @@ export default function Modal() {
     const middleRef = createRef<HTMLInputElement>();
     const lowRef = createRef<HTMLInputElement>();
 
-    const handleTitle = (e: React.ChangeEvent<HTMLInputElement>) => setTitle(e.target.value);
-    const handleDate = (e: React.ChangeEvent<HTMLInputElement>) => setDate(e.target.value);
     const handlePriority = () => {
         if(highRef.current?.checked){
             setPriority('high');
@@ -48,6 +45,15 @@ export default function Modal() {
 
     const handleClose = () => dispatch(open()) ;
 
+    // const createTask = () => {
+    //     if(titleRef.current?.value && titleRef.current.value != ''){
+    //         dispatch(addTask({
+    //             title: titleRef.current.value,
+    //             dateRef: titleRef.current.value,
+    //             priority: priority
+    //         }))
+    //     }
+    // }
 
     store.subscribe(() => console.log(store.getState()));
     return(
@@ -58,11 +64,10 @@ export default function Modal() {
                     <CloseButton icon={close} onClick={handleClose}/>
                 </ModalHeader>
                 <ModalContent>
-                    <Input type="text" width="80%" placeholder="Title" onChange={handleTitle} ref={titleRef}/>
+                    <Input type="text" width="80%" placeholder="Title" ref={titleRef} errorTitle={true}/>
                     <Input
                      type="date"
                      width="80%"
-                     onChange={handleDate}
                      ref={dateRef}
                      />
                     <ModalPriorityTask>
@@ -76,7 +81,7 @@ export default function Modal() {
                         <label htmlFor="low" className="low">Low Priority</label>
                     </ModalPriorityTask>
                 </ModalContent>
-                <Button width="70%" >Create Task</Button>
+                <Button width="70%">Create Task</Button>
             </ModalWrapper>
         </ModalBackdrop>
     )
