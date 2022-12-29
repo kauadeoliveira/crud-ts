@@ -22,7 +22,6 @@ export default function Modal() {
     // Task values
     const [titleErrorMsg, setTitleErrorMsg] = useState<boolean>();
     const [priority, setPriority] = useState<string>();
-    const [taskValues, setTaskValues] = useState<Task>();
     const [errorTitle, setErrorTitle] = useState<boolean>(false);
     
     const titleRef = createRef<HTMLInputElement>();

@@ -16,7 +16,15 @@ export const tasksSlice = createSlice({
     initialState,
     reducers: {
         addTask: (state, action) => {
-            state.tasks.push({...action.payload, id: Math.floor(Math.random()*100)})
+            if(state.tasks.length < 1){
+                console.log('passou')
+                state.tasks.push({...action.payload, id: 1});
+            }
+            else{
+                const lastId = state.tasks[state.tasks.length -1].id
+                state.tasks.push({...action.payload, id: lastId + 1});
+            }
+
         }
     }
 })
