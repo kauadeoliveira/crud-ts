@@ -73,20 +73,20 @@ export default function Modal() {
         }
     }
 
-    // const createTask = () => {
-    //     if(titleRef.current?.value && titleRef.current.value != ''){
-    //         dispatch(addTask({
-    //             title: titleRef.current.value,
-    //             dateRef: titleRef.current.value,
-    //             priority: priority
-    //         }))
-    //         setErrorTitle(false)
-    //         handleClose()
-    //     }
-    //     else{
-    //         setErrorTitle(true)
-    //     }
-    // }
+    const createTask = () => {
+        if(titleRef.current?.value && titleRef.current.value != ''){
+            dispatch(addTask({
+                title: titleRef.current.value,
+                dateRef: titleRef.current.value,
+                priority: priority
+            }))
+            setErrorTitle(false)
+            handleClose()
+        }
+        else{
+            setErrorTitle(true)
+        }
+    }
 
     store.subscribe(() => console.log(store.getState()));
     return(
