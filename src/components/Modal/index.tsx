@@ -43,7 +43,35 @@ export default function Modal() {
         }
     }
 
-    const handleClose = () => dispatch(open()) ;
+    const handleClose = () => {
+        dispatch(open()) ;
+        resetInputs()
+    }
+    const resetInputs = () => {
+        const titleRefCurrent = titleRef.current;
+        const dateRefCurrent = dateRef.current;
+        const highRefCurrent = highRef.current;
+        const middleRefCurrent = middleRef.current;
+        const lowRefCurrent = lowRef.current;
+
+        if(titleRefCurrent?.value && dateRefCurrent?.value){
+            titleRefCurrent.value = '';
+            dateRefCurrent.value = '';
+            setPriority('');
+        }
+
+        if(highRefCurrent?.checked){
+            highRefCurrent.checked = false;
+        }
+
+        if(middleRefCurrent?.checked){
+            middleRefCurrent.checked = false;
+        }
+
+        if(lowRefCurrent?.checked){
+            lowRefCurrent.checked = false;
+        }
+    }
 
     // const createTask = () => {
     //     if(titleRef.current?.value && titleRef.current.value != ''){
@@ -52,6 +80,11 @@ export default function Modal() {
     //             dateRef: titleRef.current.value,
     //             priority: priority
     //         }))
+    //         setErrorTitle(false)
+    //         handleClose()
+    //     }
+    //     else{
+    //         setErrorTitle(true)
     //     }
     // }
 
@@ -64,7 +97,7 @@ export default function Modal() {
                     <CloseButton icon={close} onClick={handleClose}/>
                 </ModalHeader>
                 <ModalContent>
-                    <Input type="text" width="80%" placeholder="Title" ref={titleRef} errorTitle={true}/>
+                    <Input type="text" width="80%" placeholder="Title" ref={titleRef} errorTitle={errorTitle}/>
                     <Input
                      type="date"
                      width="80%"
@@ -81,7 +114,7 @@ export default function Modal() {
                         <label htmlFor="low" className="low">Low Priority</label>
                     </ModalPriorityTask>
                 </ModalContent>
-                <Button width="70%">Create Task</Button>
+                <Button width="70%" onClick={createTask}>Create Task</Button>
             </ModalWrapper>
         </ModalBackdrop>
     )
