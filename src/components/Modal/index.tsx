@@ -15,13 +15,13 @@ import { tasksSlice } from "../../store/slices/tasksSlice";
 
 
 export default function Modal() {
+    // Redux
     const dispatch = useDispatch();
     const { open } = modalSlice.actions;
     const { addTask } = tasksSlice.actions;
     const { openModal } = useAppSelector(store => store.modal);
     
     // Task values
-    const [titleErrorMsg, setTitleErrorMsg] = useState<boolean>();
     const [priority, setPriority] = useState<string>();
     const [errorTitle, setErrorTitle] = useState<boolean>(false);
     
@@ -43,10 +43,6 @@ export default function Modal() {
         }
     }
 
-    const handleClose = () => {
-        dispatch(open()) ;
-        resetInputs()
-    }
     const resetInputs = () => {
         const titleRefCurrent = titleRef.current;
         const dateRefCurrent = dateRef.current;
@@ -54,10 +50,13 @@ export default function Modal() {
         const middleRefCurrent = middleRef.current;
         const lowRefCurrent = lowRef.current;
 
-        if(titleRefCurrent?.value && dateRefCurrent?.value){
+        if(titleRefCurrent?.value){
             titleRefCurrent.value = '';
-            dateRefCurrent.value = '';
             setPriority('');
+        }
+
+        if(dateRefCurrent?.value){
+            dateRefCurrent.value = '';
         }
 
         if(highRefCurrent?.checked){
@@ -73,6 +72,13 @@ export default function Modal() {
         }
     }
 
+    // Close Modal Function
+    const handleClose = () => {
+        dispatch(open()) ;
+        resetInputs()
+    }
+
+    // Create Task Function
     const createTask = () => {
         if(titleRef.current?.value && titleRef.current.value != ''){
             dispatch(addTask({
@@ -87,8 +93,7 @@ export default function Modal() {
             setErrorTitle(true)
         }
     }
-
-    store.subscribe(() => console.log(store.getState()));
+    useEffect(() => console.log(titleRef.current?.value), [titleRef])
     return(
         <ModalBackdrop state={openModal}>
             <ModalWrapper>
@@ -108,15 +113,33 @@ export default function Modal() {
                      type="date"
                      width="80%"
                      ref={dateRef}
-                     />
+                    />
                     <ModalPriorityTask>
-                        <input type="radio" name="priority" id="high" onChange={handlePriority} ref={highRef}/>
+                        <input 
+                         type="radio"
+                         name="priority"
+                         id="high"
+                         onChange={handlePriority}
+                         ref={highRef}
+                        />
                         <label htmlFor="high" className="high">High Priority</label>
-
-                        <input type="radio" name="priority" id="middle" onChange={handlePriority} ref={middleRef}/>
+ 
+                        <input 
+                         type="radio" 
+                         name="priority" 
+                         id="middle" 
+                         onChange={handlePriority} 
+                         ref={middleRef}
+                        />
                         <label htmlFor="middle" className="middle">Middle Priority</label>
-                        
-                        <input type="radio" name="priority" id="low" onChange={handlePriority} ref={lowRef}/>
+                         
+                        <input 
+                         type="radio" 
+                         name="priority" 
+                         id="low" 
+                         onChange={handlePriority} 
+                         ref={lowRef}
+                        />
                         <label htmlFor="low" className="low">Low Priority</label>
                     </ModalPriorityTask>
                 </ModalContent>
@@ -125,6 +148,3 @@ export default function Modal() {
         </ModalBackdrop>
     )
 }
-
-
-// A6A6A6

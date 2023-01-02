@@ -12,9 +12,11 @@ interface InputProps {
     errorTitle?: boolean
 }
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>(({ type, maxLength, width, placeholder, onChange, errorTitle }, ref) => {
+const Input = React.forwardRef<HTMLInputElement, InputProps>((
+    { type, maxLength, width, placeholder, onChange, errorTitle }, ref
+    ) => {
     return(
-        <InputWrapper errorTitle={errorTitle}>
+        <InputWrapper errorTitle={errorTitle} width={width}>
             <MyInput
              type={type}
              maxLength={maxLength}
