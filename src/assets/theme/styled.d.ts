@@ -34,6 +34,7 @@ declare module 'styled-components' {
             },
             text: {
                 primary: string;
+                disabled: string;
             },
         },
         dimensions: {

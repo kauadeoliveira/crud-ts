@@ -3,6 +3,7 @@ import { GlobalStyle } from "./assets/styles/global"
 import dark from "./assets/theme/dark"
 import Modal from "./components/Modal"
 import NewTaskButton from "./components/NewTaskButton"
+import Task from "./components/Task"
 
 function App() {
   return(
@@ -11,6 +12,7 @@ function App() {
         <GlobalStyle />
         <NewTaskButton />
         <Modal />
+        <Task />
       </ThemeProvider>
     </div>
   )

@@ -70,6 +70,8 @@ export default function Modal() {
         if(lowRefCurrent?.checked){
             lowRefCurrent.checked = false;
         }
+
+        setErrorTitle(false)
     }
 
     // Close Modal Function
@@ -80,10 +82,10 @@ export default function Modal() {
 
     // Create Task Function
     const createTask = () => {
-        if(titleRef.current?.value && titleRef.current.value != ''){
+        if(titleRef.current?.value){
             dispatch(addTask({
                 title: titleRef.current.value,
-                dateRef: titleRef.current.value,
+                date: dateRef.current?.value,
                 priority: priority
             }))
             setErrorTitle(false)
@@ -93,7 +95,7 @@ export default function Modal() {
             setErrorTitle(true)
         }
     }
-    useEffect(() => console.log(titleRef.current?.value), [titleRef])
+    
     return(
         <ModalBackdrop state={openModal}>
             <ModalWrapper>

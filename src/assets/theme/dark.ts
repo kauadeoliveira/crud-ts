@@ -29,7 +29,8 @@ export default {
             }
         },
         text: {
-            primary: '#657575'
+            primary: '#657575',
+            disabled: '#A0AAB4'
         },
     },
     dimensions: {
