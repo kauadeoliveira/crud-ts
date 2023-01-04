@@ -5,6 +5,6 @@ import { tasksSlice } from "./slices/tasksSlice";
 export const store = configureStore({
     reducer: {
         modal: modalSlice.reducer,
-        task: tasksSlice.reducer
+        tasks: tasksSlice.reducer
     }
 })

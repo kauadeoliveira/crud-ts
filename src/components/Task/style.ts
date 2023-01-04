@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+interface CheckTaskProps {
+    check: boolean;
+}
+
 export const TaskWrapper = styled.div`
     width: 100%;
     height: 50px;
@@ -28,4 +32,10 @@ export const TaskDetails = styled.div`
     .task-date{
         color: ${({ theme }) => theme.palette.text.disabled};
     }
+`
+export const CheckTask = styled.div<CheckTaskProps>`
+    width: 25px;
+    height: 25px;
+    background-color: ${({ check, theme }) => check ? theme.palette.colors.primary.main : '#fff'};
+    cursor: pointer;
 `
