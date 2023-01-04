@@ -13,15 +13,13 @@ interface TaskComponent extends TaskProps {
 export default function Task({ title, date, id, priority, completed, classAnimate }: TaskComponent) {
     const { completeTask } = tasksSlice.actions
     const dispatch = useDispatch()
-    const [check, setCheck] = useState<boolean>(false);
     const handleClick = () => dispatch(completeTask({id, completed}))
 
-    store.subscribe(() => console.log(store.getState()))
     return(
         <TaskWrapper className={classAnimate}>
             <TaskPriority priority={priority}/>
             <TaskContent>
-                <TaskDetails>
+                <TaskDetails check={completed}>
                     <span className="task-title">{title}</span>
                     <span className="task-date">{date}</span>
                 </TaskDetails>

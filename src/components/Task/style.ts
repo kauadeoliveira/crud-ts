@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 interface CheckTaskStyleProps {
     check: boolean | undefined;
-    icon: string;
+    icon?: string;
 }
 
 interface TaskStyleProps {
@@ -40,7 +40,7 @@ export const TaskPriority = styled.div<TaskStyleProps>`
     border-bottom-left-radius: inherit;
 `
 
-export const TaskDetails = styled.div`
+export const TaskDetails = styled.div<CheckTaskStyleProps>`
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -48,6 +48,10 @@ export const TaskDetails = styled.div`
     gap: 5px;
     font-weight: bold;
 
+    span{
+        text-decoration: ${({ check }) => check ? 'line-through' : 'none'};
+        color: ${({ theme }) => theme.palette.text.disabled};
+    }
     .task-title{
         font-size: 1.8em;
     }
