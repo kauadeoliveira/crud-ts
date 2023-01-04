@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface CheckTaskProps {
-    check: boolean;
+    check: boolean | undefined;
 }
 
 export const TaskWrapper = styled.div`

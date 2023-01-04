@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { store } from "../../store";
 import { tasksSlice } from "../../store/slices/tasksSlice";
@@ -9,7 +9,7 @@ export default function Task({ title, date, id, priority, completed }: TaskProps
     const { completeTask } = tasksSlice.actions
     const dispatch = useDispatch()
     const [check, setCheck] = useState<boolean>(false);
-    const handleClick = () => dispatch(completeTask(id))
+    const handleClick = () => dispatch(completeTask({id, completed}))
 
     store.subscribe(() => console.log(store.getState()))
     return(
@@ -19,7 +19,7 @@ export default function Task({ title, date, id, priority, completed }: TaskProps
                 <span className="task-title">{id}</span>
                 <span className="task-date">1/1/2023</span>
             </TaskDetails>
-            <CheckTask check={check} onClick={handleClick}/>
+            <CheckTask check={completed} onClick={handleClick}/>
         </TaskWrapper>
     )
 }

@@ -9,7 +9,7 @@ import Task from "./components/Task"
 import { useAppSelector } from "./hooks/useAppSelector"
 
 function App() {
-  const { incompleteTasks } = useAppSelector(store => store.tasks)
+  const { tasks } = useAppSelector(store => store.tasks)
 
   return(
     <div>
@@ -17,9 +17,11 @@ function App() {
         <GlobalStyle />
         <NewTaskButton />
         <Modal />
-        {incompleteTasks.map(task => {
-          return(
-            <Task 
+        <h2>incomplete:</h2>
+        {tasks.map(task => {
+          if(!task.completed){
+            return(
+              <Task 
               date={task.date}
               id={task.id}
               priority={task.priority}
@@ -27,7 +29,23 @@ function App() {
               completed={task.completed}
               key={task.id}
             />
-          )
+            )
+          }
+        })}
+        <h2>complete</h2>
+        {tasks.map(task => {
+          if(task.completed){
+            return(
+              <Task 
+              date={task.date}
+              id={task.id}
+              priority={task.priority}
+              title={task.title}
+              completed={task.completed}
+              key={task.id}
+            />
+            )
+          }
         })}
       </ThemeProvider>
     </div>

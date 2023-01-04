@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { store } from "../../store";
 import { modalSlice } from "../../store/slices/modalSlice";
 import { CloseButton, ModalBackdrop, ModalContent, ModalHeader, ModalPriorityTask, ModalWrapper } from "./style";
-import { RootState, Task } from "../../types";
+import { RootState, TaskProps } from "../../types";
 import React, { createRef, useEffect, useRef, useState } from "react";
 import { useAppSelector } from "../../hooks/useAppSelector";
 import close from "../../assets/images/close.png"
@@ -96,6 +96,9 @@ export default function Modal() {
         }
     }
     
+
+    store.subscribe(() => console.log(store.getState()))
+
     return(
         <ModalBackdrop state={openModal}>
             <ModalWrapper>

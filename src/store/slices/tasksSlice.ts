@@ -2,13 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 import { TaskProps } from "../../types";
 
 interface Tasks {
-    incompleteTasks: TaskProps[];
-    completeTasks: TaskProps[];
+    tasks: TaskProps[];
 }
 
 const initialState: Tasks = {
-    incompleteTasks: [],
-    completeTasks: []
+    tasks: [],
 }
 
 export const tasksSlice = createSlice({
@@ -16,19 +14,19 @@ export const tasksSlice = createSlice({
     initialState,
     reducers: {
         addTask: (state, action) => {
-            if(state.incompleteTasks.length < 1){
-                state.incompleteTasks.push({...action.payload, id: 1, completed: false});
+            if(state.tasks.length < 1){
+                state.tasks.push({...action.payload, id: 1, completed: false});
             }
             else{
-                const lastId = state.incompleteTasks[state.incompleteTasks.length -1].id
-                state.incompleteTasks.push({...action.payload, id: lastId + 1, completed: false});
+                const lastId = state.tasks[state.tasks.length -1].id
+                state.tasks.push({...action.payload, id: lastId + 1, completed: false});
             }
         },
         completeTask: (state, action) => {
-            const completeTask = state.incompleteTasks.filter(task => task.id === action.payload);
-            state.completeTasks.push({...completeTask[0], completed: true})
-            
-            state.incompleteTasks = state.incompleteTasks.filter(task => task.id != action.payload);
+            const taskSelected = state.tasks.filter(task => task.id === action.payload.id);
+            state.tasks = state.tasks.filter(task => task.id != action.payload.id)
+
+            state.tasks.push({...taskSelected[0], completed: !action.payload.completed})
         }
     }
 })
