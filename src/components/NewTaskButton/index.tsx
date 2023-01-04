@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux"
 import { useEffect } from "react"
 import { modalSlice } from "../../store/slices/modalSlice"
 import { FloatingButton } from "./style"
+import newTaskIcon from "../../assets/images/new-task.png"
 
 export default function NewTaskButton() {
     const dispatch = useDispatch();
@@ -11,6 +12,6 @@ export default function NewTaskButton() {
     const handleClick = () => dispatch(open());
 
     return(
-        <FloatingButton onClick={handleClick}>+</FloatingButton>
+        <FloatingButton onClick={handleClick} icon={newTaskIcon}/>
     )
 }

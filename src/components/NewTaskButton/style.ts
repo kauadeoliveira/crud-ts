@@ -1,7 +1,14 @@
 import styled from "styled-components";
 
-export const FloatingButton = styled.div`
+
+interface FloatingButtonStyleProps {
+    icon?: string
+}
+export const FloatingButton = styled.div<FloatingButtonStyleProps>`
     background-color: ${({ theme }) => theme.palette.colors.primary.main};
+    background-image: url(${({ icon }) => icon});
+    background-repeat: no-repeat;
+    background-position: center;
     height: 50px;
     width: 50px;
     line-height: 50px;
