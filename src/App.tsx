@@ -7,6 +7,7 @@ import Modal from "./components/Modal"
 import NewTaskButton from "./components/NewTaskButton"
 import Task from "./components/Task"
 import { useAppSelector } from "./hooks/useAppSelector"
+import 'animate.css'
 
 function App() {
   const { tasks } = useAppSelector(store => store.tasks)

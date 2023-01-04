@@ -11,6 +11,7 @@ import closeHover from "../../assets/images/close-hover.png"
 import Input from "../Input";
 import Button from "../Button";
 import { tasksSlice } from "../../store/slices/tasksSlice";
+import 'animate.css'
 
 
 
@@ -101,7 +102,7 @@ export default function Modal() {
 
     return(
         <ModalBackdrop state={openModal}>
-            <ModalWrapper>
+            <ModalWrapper className="animate__animated animate__bounceIn">
                 <ModalHeader>
                     <span>New Task</span>
                     <CloseButton icon={[close, closeHover]} onClick={handleClose}/>

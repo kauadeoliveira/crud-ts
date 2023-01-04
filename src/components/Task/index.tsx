@@ -4,8 +4,12 @@ import { store } from "../../store";
 import { tasksSlice } from "../../store/slices/tasksSlice";
 import { TaskProps } from "../../types";
 import { CheckTask, TaskDetails, TaskPriority, TaskWrapper } from "./style";
+import 'animate.css'
 
-export default function Task({ title, date, id, priority, completed }: TaskProps) {
+interface TaskComponent extends TaskProps {
+    classAnimate?: string;
+}
+export default function Task({ title, date, id, priority, completed, classAnimate }: TaskComponent) {
     const { completeTask } = tasksSlice.actions
     const dispatch = useDispatch()
     const [check, setCheck] = useState<boolean>(false);
@@ -13,7 +17,7 @@ export default function Task({ title, date, id, priority, completed }: TaskProps
 
     store.subscribe(() => console.log(store.getState()))
     return(
-        <TaskWrapper>
+        <TaskWrapper className={classAnimate}>
             <TaskPriority />
             <TaskDetails>
                 <span className="task-title">{id}</span>
