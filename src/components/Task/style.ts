@@ -50,7 +50,7 @@ export const TaskDetails = styled.div<CheckTaskStyleProps>`
 
     span{
         text-decoration: ${({ check }) => check ? 'line-through' : 'none'};
-        color: ${({ theme }) => theme.palette.text.disabled};
+        color: ${({ check, theme }) => check ? theme.palette.text.disabled : ''};
     }
     .task-title{
         font-size: 1.8em;

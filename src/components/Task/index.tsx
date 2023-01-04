@@ -6,6 +6,7 @@ import { TaskProps } from "../../types";
 import { CheckTask, TaskContent, TaskDetails, TaskPriority, TaskWrapper } from "./style";
 import 'animate.css'
 import doneIcon from "../../assets/images/done.png"
+import { abbreviateDate } from "../../utils/abbreviateDate";
 
 interface TaskComponent extends TaskProps {
     classAnimate?: string;
@@ -15,6 +16,11 @@ export default function Task({ title, date, id, priority, completed, classAnimat
     const dispatch = useDispatch()
     const handleClick = () => dispatch(completeTask({id, completed}))
 
+
+    useEffect(() => {
+        const date = new Date(Date.now())
+        console.log('atual: ', abbreviateDate(date.toString()))
+    }, [])
     return(
         <TaskWrapper className={classAnimate}>
             <TaskPriority priority={priority}/>
