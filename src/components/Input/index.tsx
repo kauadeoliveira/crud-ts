@@ -10,10 +10,11 @@ interface InputProps {
     placeholder?: string;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     errorTitle?: boolean
+    value? : string
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>((
-    { type, maxLength, width, placeholder, onChange, errorTitle }, ref
+    { type, maxLength, width, placeholder, onChange, errorTitle, value }, ref
     ) => {
     return(
         <InputWrapper errorTitle={errorTitle} width={width}>
@@ -24,6 +25,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((
              icon={[calendar, calendarFocus]}
              onChange={onChange}
              ref={ref}
+             defaultValue={value}
             />
             <span className="error-message">Title is required.</span>
         </InputWrapper>

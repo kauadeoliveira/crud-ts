@@ -12,6 +12,7 @@ import Input from "../Input";
 import Button from "../Button";
 import { tasksSlice } from "../../store/slices/tasksSlice";
 import 'animate.css'
+import { abbreviateDate } from "../../utils/abbreviateDate";
 
 
 
@@ -57,7 +58,7 @@ export default function Modal() {
         }
 
         if(dateRefCurrent?.value){
-            dateRefCurrent.value = '';
+            dateRefCurrent.value = abbreviateDate(new Date(Date.now()).toString());
         }
 
         if(highRefCurrent?.checked){
@@ -119,6 +120,7 @@ export default function Modal() {
                      type="date"
                      width="80%"
                      ref={dateRef}
+                     value={abbreviateDate(new Date(Date.now()).toString())}
                     />
                     <ModalPriorityTask>
                         <input 
