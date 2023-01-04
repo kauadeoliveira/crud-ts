@@ -9,12 +9,19 @@ interface TaskStyleProps {
     priority?: string;
 }
 
+interface DeleteTaskStyleProps {
+    icon: string;
+}
+
 export const TaskWrapper = styled.div`
     width: 100%;
+    gap: 10px;
     height: 60px;
     display: flex;
+    align-items: center;
     background-color: ${({ theme }) => theme.palette.colors.background.main};
     border-radius: 5px;
+    padding-right: 10px;
 `
 
 export const TaskPriority = styled.div<TaskStyleProps>`
@@ -41,12 +48,12 @@ export const TaskPriority = styled.div<TaskStyleProps>`
 `
 
 export const TaskDetails = styled.div<CheckTaskStyleProps>`
-    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 5px;
     font-weight: bold;
+    width: 100%;
 
     span{
         text-decoration: ${({ check }) => check ? 'line-through' : 'none'};
@@ -62,11 +69,12 @@ export const TaskDetails = styled.div<CheckTaskStyleProps>`
     }
 `
 export const CheckTask = styled.div<CheckTaskStyleProps>`
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     background-color: ${({ check, theme }) => check ? theme.palette.colors.primary.main : '#F5F5F7'};
     background-image: url(${({ check, icon }) => check ? icon : ''});
     background-repeat: no-repeat;
+    background-position: center;
     cursor: pointer;
     border-radius: 100%;
 
@@ -78,7 +86,12 @@ export const CheckTask = styled.div<CheckTaskStyleProps>`
 export const TaskContent = styled.div`
     width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 5px;
+`
+
+export const DeleteTaskButton = styled.div<DeleteTaskStyleProps>`
+    background-image: url(${({ icon }) => icon});
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
 `
