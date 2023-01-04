@@ -69,14 +69,15 @@ export const TaskDetails = styled.div<CheckTaskStyleProps>`
     }
 `
 export const CheckTask = styled.div<CheckTaskStyleProps>`
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     background-color: ${({ check, theme }) => check ? theme.palette.colors.primary.main : '#F5F5F7'};
     background-image: url(${({ check, icon }) => check ? icon : ''});
     background-repeat: no-repeat;
     background-position: center;
+    background-size: contain;
     cursor: pointer;
-    border-radius: 100%;
+    border-radius: 5px;
 
     &:hover{
         background-color: ${({ check, theme }) => check ? theme.palette.colors.primary.light : '#FFF'};
@@ -91,7 +92,8 @@ export const TaskContent = styled.div`
 
 export const DeleteTaskButton = styled.div<DeleteTaskStyleProps>`
     background-image: url(${({ icon }) => icon});
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
+    background-position: center;
     cursor: pointer;
 `

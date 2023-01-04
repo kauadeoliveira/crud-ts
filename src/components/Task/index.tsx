@@ -15,8 +15,10 @@ interface TaskComponent extends TaskProps {
 }
 export default function Task({ title, date, id, priority, completed, classAnimate }: TaskComponent) {
     const { completeTask } = tasksSlice.actions
+    const { deleteTask } = tasksSlice.actions
     const dispatch = useDispatch()
-    const handleClick = () => dispatch(completeTask({id, completed}))
+    const handleComplete = () => dispatch(completeTask({id, completed}))
+    const handleDelete = () => dispatch(deleteTask(id))
 
 
     useEffect(() => {
@@ -26,12 +28,12 @@ export default function Task({ title, date, id, priority, completed, classAnimat
     return(
             <TaskWrapper className={classAnimate}>
                 <TaskPriority priority={priority}/>
-                <CheckTask check={completed} icon={doneIcon} onClick={handleClick}/>
+                <CheckTask check={completed} icon={doneIcon} onClick={handleComplete}/>
                 <TaskDetails check={completed}>
                     <span className="task-title">{title}</span>
                     <span className="task-date">{formatDate(date ? date.toString() : '')}</span>
                 </TaskDetails>
-                <DeleteTaskButton icon={trashIcon}/>
+                <DeleteTaskButton icon={trashIcon} onClick={handleDelete}/>
             </TaskWrapper>
     )
 }

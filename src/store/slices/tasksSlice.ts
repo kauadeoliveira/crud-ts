@@ -27,6 +27,9 @@ export const tasksSlice = createSlice({
             state.tasks = state.tasks.filter(task => task.id != action.payload.id)
 
             state.tasks.push({...taskSelected[0], completed: !action.payload.completed})
+        },
+        deleteTask: (state, action) => {
+            state.tasks = state.tasks.filter(task => task.id != action.payload);
         }
     }
 })
