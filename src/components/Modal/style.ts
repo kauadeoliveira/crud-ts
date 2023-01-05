@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-interface BackdropProps {
+interface ModalStyleProps {
     state: boolean;
 }
 
@@ -8,7 +8,7 @@ interface CloseButtonProps {
     icon: string[];
 }
 
-export const ModalBackdrop = styled.div<BackdropProps>`
+export const ModalBackdrop = styled.div<ModalStyleProps>`
     display: ${({ state }) => state ? 'flex' : 'none'};
     justify-content: center;
     align-items: center;
@@ -28,6 +28,9 @@ export const ModalWrapper = styled.div`
     flex-wrap: wrap;
     background-color: ${({ theme }) => theme.palette.colors.background.main};
     border-radius: ${({ theme }) => theme.dimensions.modal.borderRadius};
+
+    animation: bounceIn;
+    animation-duration: .7s;
 `
 export const ModalHeader = styled.div`
     width: 100%;

@@ -7,13 +7,14 @@ interface CheckTaskStyleProps {
 
 interface TaskStyleProps {
     priority?: string;
+    animation?: 'fadeIn' | 'fadeOut';
 }
 
 interface DeleteTaskStyleProps {
     icon: string;
 }
 
-export const TaskWrapper = styled.div`
+export const TaskWrapper = styled.div<TaskStyleProps>`
     width: 100%;
     gap: 10px;
     height: 60px;
@@ -22,6 +23,10 @@ export const TaskWrapper = styled.div`
     background-color: ${({ theme }) => theme.palette.colors.background.main};
     border-radius: 5px;
     padding-right: 10px;
+
+    animation: ${({ animation }) => animation};
+
+    animation-duration: 1s;
 `
 
 export const TaskPriority = styled.div<TaskStyleProps>`

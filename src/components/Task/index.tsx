@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { store } from "../../store";
 import { tasksSlice } from "../../store/slices/tasksSlice";
@@ -10,23 +10,24 @@ import { abbreviateDate } from "../../utils/abbreviateDate";
 import { formatDate } from "../../utils/formatDate";
 import trashIcon from "../../assets/images/trash.png"
 
-interface TaskComponent extends TaskProps {
-    classAnimate?: string;
-}
-export default function Task({ title, date, id, priority, completed, classAnimate }: TaskComponent) {
+export default function Task({ title, date, id, priority, completed }: TaskProps) {
     const { completeTask } = tasksSlice.actions
     const { deleteTask } = tasksSlice.actions
     const dispatch = useDispatch()
-    const handleComplete = () => dispatch(completeTask({id, completed}))
-    const handleDelete = () => dispatch(deleteTask(id))
+    const handleComplete = () => dispatch(completeTask({id, completed}));
+
+    const [animation, setAnimation] = useState<'fadeIn' | 'fadeOut'>('fadeIn')
+    const handleDelete = () => {
+        setAnimation('fadeOut')
+        setTimeout(() => dispatch(deleteTask(id)), 1000)
+    }
 
 
     useEffect(() => {
-        if(date)
-        console.log(formatDate(date.toString()))
-    }, [])
+        console.log(animation)
+    }, [animation])
     return(
-            <TaskWrapper className={classAnimate}>
+            <TaskWrapper className='animate__animated animate__fadeIn' animation={animation}>
                 <TaskPriority priority={priority}/>
                 <CheckTask check={completed} icon={doneIcon} onClick={handleComplete}/>
                 <TaskDetails check={completed}>

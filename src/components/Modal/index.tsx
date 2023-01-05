@@ -103,7 +103,7 @@ export default function Modal() {
 
     return(
         <ModalBackdrop state={openModal}>
-            <ModalWrapper className="animate__animated animate__bounceIn">
+            <ModalWrapper>
                 <ModalHeader>
                     <span>New Task</span>
                     <CloseButton icon={[close, closeHover]} onClick={handleClose}/>
