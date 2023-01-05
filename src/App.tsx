@@ -8,6 +8,7 @@ import NewTaskButton from "./components/NewTaskButton"
 import Task from "./components/Task"
 import { useAppSelector } from "./hooks/useAppSelector"
 import 'animate.css'
+import Accordion from "./components/Accordion"
 
 function App() {
   const { tasks } = useAppSelector(store => store.tasks)
@@ -18,7 +19,6 @@ function App() {
         <GlobalStyle />
         <NewTaskButton />
         <Modal />
-        <h2>incomplete:</h2>
         {tasks.map(task => {
           if(!task.completed){
             return(
@@ -33,21 +33,22 @@ function App() {
             )
           }
         })}
-        <h2>complete</h2>
-        {tasks.map(task => {
-          if(task.completed){
-            return(
-              <Task 
-              date={task.date}
-              id={task.id}
-              priority={task.priority}
-              title={task.title}
-              completed={task.completed}
-              key={task.id}
-            />
-            )
-          }
-        })}
+        <Accordion title="Complete">
+          {tasks.map(task => {
+            if(task.completed){
+              return (
+                <Task 
+                date={task.date}
+                id={task.id}
+                priority={task.priority}
+                title={task.title}
+                completed={task.completed}
+                key={task.id}
+              />
+              )
+            }
+          })}
+        </Accordion>
       </ThemeProvider>
     </div>
   )
