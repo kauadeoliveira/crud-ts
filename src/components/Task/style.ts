@@ -1,40 +1,34 @@
 import styled from "styled-components";
+import { TaskProps } from "../../types";
+
+interface TaskStyleProps extends TaskProps{
+    editMode: boolean;
+}
 
 interface CheckTaskStyleProps {
     check: boolean | undefined;
-    icon?: string;
-}
-
-interface TaskStyleProps {
-    priority?: string;
-    animation?: 'fadeIn' | 'fadeOut';
-}
-
-interface DeleteTaskStyleProps {
     icon: string;
 }
 
-export const TaskWrapper = styled.div<TaskStyleProps>`
-    width: 100%;
-    gap: 10px;
-    height: 60px;
-    display: flex;
-    align-items: center;
+export const TaskContainer = styled.div<Pick<TaskStyleProps, 'editMode'>>`
     background-color: ${({ theme }) => theme.palette.colors.background.main};
-    border-radius: 5px;
-    padding-right: 10px;
-    transition: all .3s;
-    cursor: pointer;
+    height: 70px;
+    width: 100%;
+    border-radius: 10px;
 
-    animation: ${({ animation }) => animation};
-    animation-duration: 1s;
+    .edit-mode{
+        display: ${({ editMode }) => editMode ? 'flex' : 'none'};
+    }
 
-    &:hover{
-        background-color: ${({ theme }) => theme.palette.colors.background.light};
+    .default-mode{
+        display: ${({ editMode }) => editMode ? 'none' : 'flex'};
     }
 `
 
-export const TaskPriority = styled.div<TaskStyleProps>`
+
+export const TaskPriority = styled.div<Pick<TaskStyleProps, 'priority'>>`
+    height: 70px;
+    width: 10px;
     background-color: ${({ priority, theme }) => {
         switch(priority){
             case 'high': 
@@ -43,67 +37,21 @@ export const TaskPriority = styled.div<TaskStyleProps>`
             case 'middle':
                 return theme.palette.colors.priorities.middle.background;
             break;
-            case 'low':
-                return theme.palette.colors.priorities.low.background;
-            break;
-            default: 
+            default:
                 return theme.palette.colors.priorities.low.background;
             break;
         }
     }};
-    height: 100%;
-    width: 5px;
-    border-top-left-radius: inherit;
-    border-bottom-left-radius: inherit;
-`
-
-export const TaskDetails = styled.div<CheckTaskStyleProps>`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    font-weight: bold;
-    width: 100%;
-
-    span{
-        text-decoration: ${({ check }) => check ? 'line-through' : 'none'};
-        color: ${({ check, theme }) => check ? theme.palette.text.disabled : ''};
-    }
-    .task-title{
-        font-size: 1.8em;
-    }
-
-    .task-date{
-        color: ${({ theme }) => theme.palette.text.disabled};
-        font-size: 1.3em;
-    }
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
 `
 export const CheckTask = styled.div<CheckTaskStyleProps>`
     width: 20px;
     height: 20px;
-    background-color: ${({ check, theme }) => check ? theme.palette.colors.primary.main : '#F5F5F7'};
-    background-image: url(${({ check, icon }) => check ? icon : ''});
+    border-radius: 5px;
+    background-color: ${({ check, theme }) => check ? theme.palette.colors.primary.main : '#fff'};
+    background-image: url(${({ icon }) => icon});
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
-    cursor: pointer;
-    border-radius: 5px;
-
-    &:hover{
-        background-color: ${({ check, theme }) => check ? theme.palette.colors.primary.light : '#FFF'};
-    }
-`
-
-export const TaskContent = styled.div`
-    width: 100%;
-    display: flex;
-    align-items: center;
-`
-
-export const DeleteTaskButton = styled.div<DeleteTaskStyleProps>`
-    background-image: url(${({ icon }) => icon});
-    width: 20px;
-    height: 20px;
-    background-position: center;
-    cursor: pointer;
+    background-size: cover;
 `
