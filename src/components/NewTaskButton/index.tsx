@@ -7,9 +7,9 @@ import newTaskIcon from "../../assets/images/new-task.png"
 
 export default function NewTaskButton() {
     const dispatch = useDispatch();
-    const { open } = modalSlice.actions;
+    const { openModalCreateTask } = modalSlice.actions;
 
-    const handleClick = () => dispatch(open());
+    const handleClick = () => dispatch(openModalCreateTask());
 
     return(
         <FloatingButton onClick={handleClick} icon={newTaskIcon}/>

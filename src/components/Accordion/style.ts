@@ -11,7 +11,6 @@ export const AccordionHead = styled.div<Pick<AccordionStyleProps, 'expand'>>`
     border-bottom: ${({ expand }) => expand ? 'none' : '0.5px solid #fff'};
     display: flex;
     align-items: center;
-    padding: 0 10px;
     height: 50px;
     cursor: pointer;
     font-size: 1.5em;

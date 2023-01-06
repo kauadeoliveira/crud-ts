@@ -22,7 +22,7 @@ export const modalSlice = createSlice({
     initialState,
     reducers: {
         openModalEditTask: (state) => {
-            state.modalEditTask.open = !state.modalCreateTask.open
+            state.modalEditTask.open = !state.modalEditTask.open
         },
         openModalCreateTask: (state) => {
             state.modalCreateTask.open = !state.modalCreateTask.open

@@ -11,3 +11,9 @@ export interface TaskProps {
     priority: string | undefined
     completed?: boolean;
 }
+
+// Action Parameter Redux
+export interface ActionParameter {
+    payload: any;
+    type: string;
+}

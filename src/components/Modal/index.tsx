@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { store } from "../../store";
 import { modalSlice } from "../../store/slices/modalSlice";
 import { CloseButton, ModalBackdrop, ModalBody, ModalHead, ModalPriorityTask, ModalContainer } from "./style";
-import { RootState, TaskProps } from "../../types";
+import { ActionParameter, RootState, TaskProps } from "../../types";
 import React, { createRef, useEffect, useRef, useState } from "react";
 import { useAppSelector } from "../../hooks/useAppSelector";
 import close from "../../assets/images/close.png"
@@ -16,9 +16,12 @@ import { abbreviateDate } from "../../utils/abbreviateDate";
 
 interface ModalComponentProps {
     title: string;
+    open: boolean;
+    taskAction: (action?: any) => any
+    modalAction: () => any;
 }
 
-export default function Modal({ title }: ModalComponentProps) {
+export default function Modal({ title, modalAction, taskAction, open }: ModalComponentProps) {
     // Redux
     const dispatch = useDispatch();
     // const { open } = modalSlice.actions;
@@ -80,18 +83,18 @@ export default function Modal({ title }: ModalComponentProps) {
 
     // Close Modal Function
     const handleClose = () => {
-        // dispatch(open()) ;
+        dispatch(modalAction()) ;
         resetInputs()
     }
 
     // Create Task Function
     const createTask = () => {
         if(titleRef.current?.value){
-            // dispatch(addTask({
-            //     title: titleRef.current.value,
-            //     date: dateRef.current?.value,
-            //     priority: priority
-            // }))
+            dispatch(taskAction({
+                title: titleRef.current.value,
+                date: dateRef.current?.value,
+                priority: priority
+            }))
             setErrorTitle(false)
             handleClose()
         }
@@ -99,9 +102,9 @@ export default function Modal({ title }: ModalComponentProps) {
             setErrorTitle(true)
         }
     }
-
+    store.subscribe(() => console.log(store.getState()))
     return(
-        <ModalBackdrop state={}>
+        <ModalBackdrop state={open}>
             <ModalContainer>
                 <ModalHead>
                     <span>{title}</span>

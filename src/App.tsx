@@ -10,16 +10,33 @@ import { useAppSelector } from "./hooks/useAppSelector"
 import 'animate.css'
 import Accordion from "./components/Accordion"
 import List from "./components/List"
-
+import { modalSlice } from "./store/slices/modalSlice"
+import { tasksSlice } from "./store/slices/tasksSlice"
 function App() {
   const { tasks } = useAppSelector(store => store.tasks)
-
+  const { modalCreateTask } = useAppSelector(store => store.modal)
+  const { modalEditTask } = useAppSelector(store => store.modal)
+  const { openModalCreateTask } = modalSlice.actions
+  const { openModalEditTask } = modalSlice.actions
+  const { addTask } = tasksSlice.actions
   return(
     <div>
       <ThemeProvider theme={dark}>
         <GlobalStyle />
         <NewTaskButton />
-        <Modal title="Create Task"/>
+        <Modal 
+         title="Create Task"
+         open={modalCreateTask.open}
+         modalAction={openModalCreateTask}
+         taskAction={addTask}
+        />
+
+        <Modal 
+         title="Edit Task"
+         open={modalEditTask.open}
+         modalAction={openModalEditTask}
+         taskAction={addTask}
+        />
         <List>
           {tasks.map(task => {
             if(!task.completed){
