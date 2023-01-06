@@ -33,11 +33,7 @@ export const TaskContainer = styled.div<Pick<TaskStyleProps, 'editMode'>>`
     }
 `
 export const DefaultModeTask = styled.div<Pick<TaskStyleProps, 'priority'>>`
-    height: 100%;
-    border-radius: inherit;
     border-left: 10px solid;
-    justify-content: space-between;
-    padding: 5px;
     border-color: ${({ priority, theme }) => {
         switch(priority){
             case 'high': 
@@ -52,12 +48,18 @@ export const DefaultModeTask = styled.div<Pick<TaskStyleProps, 'priority'>>`
         }
     }};
 
+    height: 100%;
+    border-radius: inherit;
+    justify-content: space-between;
+    padding: 5px;
 `
+
 export const TaskDetails = styled.div`
     display: flex;
     align-items: center;
     gap: 10px;
 `
+
 export const CheckTask = styled.div<CheckTaskStyleProps>`
     width: 20px;
     height: 20px;
@@ -88,16 +90,12 @@ export const TaskButtons = styled.div`
     gap: 5px;
 `
 
-export const DeleteTaskButton = styled.div<TaskButton>`
+export const TaskButton = styled.div<TaskButton>`
     height: 20px;
     width: 20px;
-    background-image: url(${({ icon }) => icon});
     cursor: pointer;
-`
-
-export const EditTaskButton = styled.div<TaskButton>`
-    height: 20px;
-    width: 20px;
     background-image: url(${({ icon }) => icon});
-    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 100%;
 `
