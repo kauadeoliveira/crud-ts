@@ -23,10 +23,15 @@ export const TaskWrapper = styled.div<TaskStyleProps>`
     background-color: ${({ theme }) => theme.palette.colors.background.main};
     border-radius: 5px;
     padding-right: 10px;
+    transition: all .3s;
+    cursor: pointer;
 
     animation: ${({ animation }) => animation};
-
     animation-duration: 1s;
+
+    &:hover{
+        background-color: ${({ theme }) => theme.palette.colors.background.light};
+    }
 `
 
 export const TaskPriority = styled.div<TaskStyleProps>`

@@ -28,9 +28,6 @@ export const ModalWrapper = styled.div`
     flex-wrap: wrap;
     background-color: ${({ theme }) => theme.palette.colors.background.main};
     border-radius: ${({ theme }) => theme.dimensions.modal.borderRadius};
-
-    animation: bounceIn;
-    animation-duration: .7s;
 `
 export const ModalHeader = styled.div`
     width: 100%;

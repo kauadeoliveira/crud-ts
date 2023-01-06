@@ -2,8 +2,10 @@ import styled from "styled-components";
 
 interface AccordionStyleProps {
     expand: boolean;
+    amountTasks: number
 }
-export const AccordionWrapper = styled.div`
+export const AccordionWrapper = styled.div<Pick<AccordionStyleProps, 'amountTasks'>>`
+    display: ${({ amountTasks }) => amountTasks > 0 ? 'block' : 'none'};
 `
 export const AccordionHead = styled.div<Pick<AccordionStyleProps, 'expand'>>`
     border-bottom: ${({ expand }) => expand ? 'none' : '0.5px solid #fff'};
@@ -16,7 +18,7 @@ export const AccordionHead = styled.div<Pick<AccordionStyleProps, 'expand'>>`
     font-weight: bold;
 `
 
-export const AccordionButton = styled.div<AccordionStyleProps>`
+export const AccordionButton = styled.div<Pick<AccordionStyleProps, 'expand'>>`
     height: 20px;
     width: 20px;
 

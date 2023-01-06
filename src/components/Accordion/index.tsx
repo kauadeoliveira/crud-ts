@@ -13,22 +13,26 @@ export default function Accordion({ children, title }: AccordionProps) {
 
     const handleExpand = () => setExpandAccordion(!expandAccordion);
 
-    const [amount, setAmount] = useState<string>('0')
+    const [amountCompleteTasks, setAmountCompleteTasks] = useState<string>('0')
+    const [amountTasks, setAmountTasks] = useState<number>(0) 
 
     const handleChangeChildrenAmount = () => {
         const amountValue = (children.filter((childrenElement: any) => childrenElement != undefined)).length 
-        setAmount(amountValue.toString())
+        setAmountCompleteTasks(amountValue.toString())
     }
 
-    useEffect(() => handleChangeChildrenAmount(), [children])
+    useEffect(() => {
+        handleChangeChildrenAmount()
+        setAmountTasks(children.length)
+    }, [children])
 
     return(
-        <AccordionWrapper>
+        <AccordionWrapper amountTasks={amountTasks}>
             <AccordionHead expand={expandAccordion} onClick={handleExpand}>
                 <AccordionButton expand={expandAccordion}> 
                     <img src={expandIcon}/>
                 </AccordionButton>
-                <span>{title} ({amount})</span>
+                <span>{title} ({amountCompleteTasks})</span>
             </AccordionHead>
             <AccordionBody expand={expandAccordion}>
                 {children}
