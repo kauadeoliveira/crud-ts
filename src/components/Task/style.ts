@@ -16,11 +16,15 @@ export const TaskContainer = styled.div<Pick<TaskStyleProps, 'editMode'>>`
     width: 100%;
     border-radius: 10px;
 
+    .edit-mode, .default-mode{
+        align-items: center;
+    }
     .edit-mode{
         display: ${({ editMode }) => editMode ? 'flex' : 'none'};
     }
-
+    
     .default-mode{
+        gap: 10px;
         display: ${({ editMode }) => editMode ? 'none' : 'flex'};
     }
 `
@@ -55,3 +59,19 @@ export const CheckTask = styled.div<CheckTaskStyleProps>`
     background-position: center;
     background-size: cover;
 `
+
+export const TaskDescription = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .title-task{
+        font-size: 1.8em;
+        font-weight: bold;
+    }
+
+    .date-task{
+        font-size: 1.3em;
+    }
+`
+

@@ -10,7 +10,7 @@ import { formatDate } from "../../utils/formatDate";
 import trashIcon from "../../assets/images/trash.png"
 import { modalSlice } from "../../store/slices/modalSlice";
 import Input from "../Input";
-import { CheckTask, TaskContainer, TaskPriority } from "./style";
+import { CheckTask, TaskContainer, TaskDescription, TaskPriority } from "./style";
 
 
 export default function Task({ title, date, id, priority, completed }: TaskProps) {
@@ -40,6 +40,10 @@ export default function Task({ title, date, id, priority, completed }: TaskProps
             <div className="default-mode">
                 <TaskPriority priority={priority}/>
                 <CheckTask check={check} onClick={handleComplete} icon={doneIcon}/>
+                <TaskDescription>
+                    <span className="title-task">{title}</span>
+                    <span className="date-task">{date}</span>
+                </TaskDescription>
             </div>
             <div className="edit-mode">
                 <h1>edit</h1>
