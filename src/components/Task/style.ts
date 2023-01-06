@@ -3,10 +3,15 @@ import { TaskProps } from "../../types";
 
 interface TaskStyleProps extends TaskProps{
     editMode: boolean;
+    priority: string | undefined;
 }
 
 interface CheckTaskStyleProps {
     check: boolean | undefined;
+    icon: string;
+}
+
+interface TaskButton {
     icon: string;
 }
 
@@ -24,16 +29,16 @@ export const TaskContainer = styled.div<Pick<TaskStyleProps, 'editMode'>>`
     }
     
     .default-mode{
-        gap: 10px;
         display: ${({ editMode }) => editMode ? 'none' : 'flex'};
     }
 `
-
-
-export const TaskPriority = styled.div<Pick<TaskStyleProps, 'priority'>>`
-    height: 70px;
-    width: 10px;
-    background-color: ${({ priority, theme }) => {
+export const DefaultModeTask = styled.div<Pick<TaskStyleProps, 'priority'>>`
+    height: 100%;
+    border-radius: inherit;
+    border-left: 10px solid;
+    justify-content: space-between;
+    padding: 5px;
+    border-color: ${({ priority, theme }) => {
         switch(priority){
             case 'high': 
                 return theme.palette.colors.priorities.high.background;
@@ -46,8 +51,12 @@ export const TaskPriority = styled.div<Pick<TaskStyleProps, 'priority'>>`
             break;
         }
     }};
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+
+`
+export const TaskDetails = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 10px;
 `
 export const CheckTask = styled.div<CheckTaskStyleProps>`
     width: 20px;
@@ -63,7 +72,6 @@ export const CheckTask = styled.div<CheckTaskStyleProps>`
 export const TaskDescription = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
 
     .title-task{
         font-size: 1.8em;
@@ -75,3 +83,21 @@ export const TaskDescription = styled.div`
     }
 `
 
+export const TaskButtons = styled.div`
+    display: flex;
+    gap: 5px;
+`
+
+export const DeleteTaskButton = styled.div<TaskButton>`
+    height: 20px;
+    width: 20px;
+    background-image: url(${({ icon }) => icon});
+    cursor: pointer;
+`
+
+export const EditTaskButton = styled.div<TaskButton>`
+    height: 20px;
+    width: 20px;
+    background-image: url(${({ icon }) => icon});
+    cursor: pointer;
+`
