@@ -14,20 +14,13 @@ import { tasksSlice } from "../../store/slices/tasksSlice";
 import 'animate.css'
 import { abbreviateDate } from "../../utils/abbreviateDate";
 
-interface ModalComponentProps {
-    title: string;
-    open: boolean;
-    taskAction: (action?: any) => any
-    modalAction: () => any;
-}
-
-export default function Modal({ title, modalAction, taskAction, open }: ModalComponentProps) {
+export default function Modal() {
     // Redux
     const dispatch = useDispatch();
-    // const { open } = modalSlice.actions;
-    // const { addTask } = tasksSlice.actions;
-    // const { openModal } = useAppSelector(store => store.modal);
-    
+    const { openModalCreateTask } = modalSlice.actions;
+    const { open } = useAppSelector(store => store.modal.modalCreateTask);
+    const { addTask } = tasksSlice.actions
+
     // Task values
     const [priority, setPriority] = useState<string>();
     const [errorTitle, setErrorTitle] = useState<boolean>(false);
@@ -83,14 +76,14 @@ export default function Modal({ title, modalAction, taskAction, open }: ModalCom
 
     // Close Modal Function
     const handleClose = () => {
-        dispatch(modalAction()) ;
+        dispatch(openModalCreateTask()) ;
         resetInputs()
     }
 
     // Create Task Function
     const createTask = () => {
         if(titleRef.current?.value){
-            dispatch(taskAction({
+            dispatch(addTask({
                 title: titleRef.current.value,
                 date: dateRef.current?.value,
                 priority: priority
@@ -107,7 +100,7 @@ export default function Modal({ title, modalAction, taskAction, open }: ModalCom
         <ModalBackdrop state={open}>
             <ModalContainer>
                 <ModalHead>
-                    <span>{title}</span>
+                    <span>Create Task</span>
                     <CloseButton icon={[close, closeHover]} onClick={handleClose}/>
                 </ModalHead>
                 <ModalBody>

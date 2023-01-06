@@ -30,6 +30,7 @@ export const tasksSlice = createSlice({
         },
         deleteTask: (state, action) => {
             state.tasks = state.tasks.filter(task => task.id != action.payload);
-        }
+        },
+        // editTask: (state, action) => 
     }
 })

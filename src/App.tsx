@@ -24,19 +24,7 @@ function App() {
       <ThemeProvider theme={dark}>
         <GlobalStyle />
         <NewTaskButton />
-        <Modal 
-         title="Create Task"
-         open={modalCreateTask.open}
-         modalAction={openModalCreateTask}
-         taskAction={addTask}
-        />
-
-        <Modal 
-         title="Edit Task"
-         open={modalEditTask.open}
-         modalAction={openModalEditTask}
-         taskAction={addTask}
-        />
+        <Modal />
         <List>
           {tasks.map(task => {
             if(!task.completed){
