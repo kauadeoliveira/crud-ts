@@ -19,7 +19,7 @@ function App() {
       <ThemeProvider theme={dark}>
         <GlobalStyle />
         <NewTaskButton />
-        <Modal />
+        <Modal title="Create Task"/>
         <List>
           {tasks.map(task => {
             if(!task.completed){

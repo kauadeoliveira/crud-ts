@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { store } from "../../store";
 import { modalSlice } from "../../store/slices/modalSlice";
-import { CloseButton, ModalBackdrop, ModalContent, ModalHeader, ModalPriorityTask, ModalWrapper } from "./style";
+import { CloseButton, ModalBackdrop, ModalBody, ModalHead, ModalPriorityTask, ModalContainer } from "./style";
 import { RootState, TaskProps } from "../../types";
 import React, { createRef, useEffect, useRef, useState } from "react";
 import { useAppSelector } from "../../hooks/useAppSelector";
@@ -14,14 +14,16 @@ import { tasksSlice } from "../../store/slices/tasksSlice";
 import 'animate.css'
 import { abbreviateDate } from "../../utils/abbreviateDate";
 
+interface ModalComponentProps {
+    title: string;
+}
 
-
-export default function Modal() {
+export default function Modal({ title }: ModalComponentProps) {
     // Redux
     const dispatch = useDispatch();
-    const { open } = modalSlice.actions;
-    const { addTask } = tasksSlice.actions;
-    const { openModal } = useAppSelector(store => store.modal);
+    // const { open } = modalSlice.actions;
+    // const { addTask } = tasksSlice.actions;
+    // const { openModal } = useAppSelector(store => store.modal);
     
     // Task values
     const [priority, setPriority] = useState<string>();
@@ -78,18 +80,18 @@ export default function Modal() {
 
     // Close Modal Function
     const handleClose = () => {
-        dispatch(open()) ;
+        // dispatch(open()) ;
         resetInputs()
     }
 
     // Create Task Function
     const createTask = () => {
         if(titleRef.current?.value){
-            dispatch(addTask({
-                title: titleRef.current.value,
-                date: dateRef.current?.value,
-                priority: priority
-            }))
+            // dispatch(addTask({
+            //     title: titleRef.current.value,
+            //     date: dateRef.current?.value,
+            //     priority: priority
+            // }))
             setErrorTitle(false)
             handleClose()
         }
@@ -97,18 +99,15 @@ export default function Modal() {
             setErrorTitle(true)
         }
     }
-    
-
-    store.subscribe(() => console.log(store.getState()))
 
     return(
-        <ModalBackdrop state={openModal}>
-            <ModalWrapper>
-                <ModalHeader>
-                    <span>New Task</span>
+        <ModalBackdrop state={}>
+            <ModalContainer>
+                <ModalHead>
+                    <span>{title}</span>
                     <CloseButton icon={[close, closeHover]} onClick={handleClose}/>
-                </ModalHeader>
-                <ModalContent>
+                </ModalHead>
+                <ModalBody>
                     <Input
                      type="text"
                      width="80%"
@@ -150,9 +149,9 @@ export default function Modal() {
                         />
                         <label htmlFor="low" className="low">Low Priority</label>
                     </ModalPriorityTask>
-                </ModalContent>
-                <Button width="70%" onClick={createTask}>Create Task</Button>
-            </ModalWrapper>
+                <Button width="80%" onClick={createTask}>Done</Button>
+                </ModalBody>
+            </ModalContainer>
         </ModalBackdrop>
     )
 }

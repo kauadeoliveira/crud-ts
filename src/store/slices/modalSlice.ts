@@ -1,19 +1,31 @@
 import { createSlice } from '@reduxjs/toolkit'
-
-type InitialState = {
-    openModal: boolean;
+import Modal from '../../components/Modal';
+interface Modal {
+    open: boolean;
+}
+interface InitialState {
+    modalEditTask: Modal;
+    modalCreateTask: Modal;
 }
 
 const initialState: InitialState = {
-    openModal: false
+    modalCreateTask: {
+        open: false
+    },
+    modalEditTask: {
+        open: false
+    }
 } 
 
 export const modalSlice = createSlice({
     name: 'modal',
     initialState,
     reducers: {
-        open: (state) => {
-            state.openModal = !state.openModal
+        openModalEditTask: (state) => {
+            state.modalEditTask.open = !state.modalCreateTask.open
+        },
+        openModalCreateTask: (state) => {
+            state.modalCreateTask.open = !state.modalCreateTask.open
         }
     }
 })

@@ -19,20 +19,21 @@ export const ModalBackdrop = styled.div<ModalStyleProps>`
     height: 100%;
     background-color: rgba(0,0,0,0.48);
 `
-export const ModalWrapper = styled.div`
-    width: 500px;
+export const ModalContainer = styled.div`
+    width: 400px;
     display: flex;
-    gap: 15px;
-    padding: 15px;
     justify-content: center;
     flex-wrap: wrap;
     background-color: ${({ theme }) => theme.palette.colors.background.main};
     border-radius: ${({ theme }) => theme.dimensions.modal.borderRadius};
 `
-export const ModalHeader = styled.div`
+export const ModalHead = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid ${({ theme }) => theme.palette.colors.background.light};
+    padding: 15px;
+
     
     color: white;
     font-size: 1.3em;
@@ -52,12 +53,13 @@ export const CloseButton = styled.div<CloseButtonProps>`
     }
 `
 
-export const ModalContent = styled.div`
+export const ModalBody = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    padding: 15px;
 `
 
 export const ModalPriorityTask = styled.div`
