@@ -95,7 +95,6 @@ export default function Modal() {
             setErrorTitle(true)
         }
     }
-    store.subscribe(() => console.log(store.getState()))
     return(
         <ModalBackdrop state={open}>
             <ModalContainer>

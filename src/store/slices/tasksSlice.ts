@@ -21,16 +21,27 @@ export const tasksSlice = createSlice({
                 const lastId = state.tasks[state.tasks.length -1].id
                 state.tasks.push({...action.payload, id: lastId + 1, completed: false});
             }
+
+            state.tasks = state.tasks.sort((a, b) => a.id - b.id)
         },
         completeTask: (state, action) => {
             const taskSelected = state.tasks.filter(task => task.id === action.payload.id);
             state.tasks = state.tasks.filter(task => task.id != action.payload.id)
 
             state.tasks.push({...taskSelected[0], completed: !action.payload.completed})
+            
+            state.tasks = state.tasks.sort((a, b) => a.id - b.id)
         },
         deleteTask: (state, action) => {
             state.tasks = state.tasks.filter(task => task.id != action.payload);
+
+            state.tasks = state.tasks.sort((a, b) => a.id - b.id)
         },
-        // editTask: (state, action) => 
+        editTask: (state, action) => {
+            state.tasks = state.tasks.filter(task => task.id != action.payload.id);
+            state.tasks.push({...action.payload})
+
+            state.tasks = state.tasks.sort((a, b) => a.id - b.id)
+        }
     }
 })

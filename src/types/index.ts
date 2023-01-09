@@ -6,9 +6,9 @@ export type RootState = ReturnType<typeof store.getState>
 // Task
 export interface TaskProps {
     id: number;
-    title: string | undefined;
-    date: string | undefined;
-    priority: string | undefined
+    title: string;
+    date: string;
+    priority: string | undefined;
     completed?: boolean;
 }
 

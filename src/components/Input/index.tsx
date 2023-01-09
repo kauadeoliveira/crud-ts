@@ -7,6 +7,7 @@ interface InputProps {
     type: string;
     maxLength?: number;
     width?: string;
+    height?: string;
     placeholder?: string;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     errorTitle?: boolean
@@ -14,10 +15,10 @@ interface InputProps {
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>((
-    { type, maxLength, width, placeholder, onChange, errorTitle, value }, ref
+    { type, maxLength, width,height ,placeholder, onChange, errorTitle, value }, ref
     ) => {
     return(
-        <InputWrapper errorTitle={errorTitle} width={width}>
+        <InputWrapper errorTitle={errorTitle} width={width} height={height}>
             <MyInput
              type={type}
              maxLength={maxLength}

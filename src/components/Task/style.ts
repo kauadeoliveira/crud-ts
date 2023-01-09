@@ -49,7 +49,7 @@ export const DefaultModeTask = styled.div<Pick<TaskStyleProps, 'priority' | 'ani
         }
     }};
     animation: ${({ animation }) => animation};
-    animation-duration: 1s;
+    animation-duration: 1.5s;
     height: 100%;
     border-radius: inherit;
     justify-content: space-between;
@@ -98,7 +98,7 @@ export const TaskButtons = styled.div`
     gap: 5px;
 `
 
-export const TaskButton = styled.div<TaskButton>`
+export const TaskIconButton = styled.div<TaskButton>`
     height: 20px;
     width: 20px;
     cursor: pointer;
@@ -111,4 +111,33 @@ export const TaskButton = styled.div<TaskButton>`
     &:hover {
         background-image: url(${({ icons }) => icons[1]});
     }
+`
+
+export const TaskButton = styled.div`
+    background-color: ${({ theme }) => theme.palette.colors.primary.main};
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover{
+        background-color: ${({ theme }) => theme.palette.colors.primary.light};
+    }
+`
+
+export const EditModeTask = styled.div`
+    width: 100%;
+    height: 70px;
+    border-radius: inherit;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+`
+
+export const EditModeInputs = styled.div`
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 5px 0;
+    gap: 5px;
+    width: 60%;
 `

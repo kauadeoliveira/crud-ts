@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { createRef, useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { store } from "../../store";
 import { tasksSlice } from "../../store/slices/tasksSlice";
@@ -10,16 +10,18 @@ import { formatDate } from "../../utils/formatDate";
 import trashIcon from "../../assets/images/trash.png"
 import { modalSlice } from "../../store/slices/modalSlice";
 import Input from "../Input";
-import { CheckTask, DefaultModeTask, TaskButton, TaskButtons, TaskContainer, TaskDescription, TaskDetails } from "./style";
+import { CheckTask, DefaultModeTask, EditModeInputs, EditModeTask, TaskButton, TaskButtons, TaskContainer, TaskDescription, TaskDetails, TaskIconButton } from "./style";
 import editIcon from "../../assets/images/edit.png"
 import editHover from "../../assets/images/edit-hover.png"
 import trashHover from "../../assets/images/trash-hover.png"
 import doneHover from "../../assets/images/done-hover.png"
+import Button from "../Button";
 
 
 export default function Task({ title, date, id, priority, completed }: TaskProps) {
     const { completeTask } = tasksSlice.actions
     const { deleteTask } = tasksSlice.actions
+    const { editTask } = tasksSlice.actions
     const dispatch = useDispatch()
 
     const [check, setCheck] = useState<boolean | undefined>(completed);
@@ -36,9 +38,25 @@ export default function Task({ title, date, id, priority, completed }: TaskProps
         setTimeout(() => dispatch(deleteTask(id)), 1000)
     }
 
-    const handleClick = () => setEditMode(!editMode)
+    const switchEditMode = () => setEditMode(!editMode)
 
 
+    // Edit Mode
+    const [newTitleValue, setNewTitleValue] = useState<string>(title);
+    const [newDateValue, setNewDateValue] = useState<string>(date);
+
+    const newTitleRef = createRef<HTMLInputElement>();
+    const newDateRef = createRef<HTMLInputElement>();
+
+    const handleEditTask = () => {
+        if(newTitleRef.current?.value){
+            dispatch(editTask({title: newTitleRef.current.value, date: newDateRef.current?.value, id, priority, completed}))
+        }
+  
+        switchEditMode()
+    }
+
+    store.subscribe(() => console.log(store.getState()))
     return(
         <TaskContainer editMode={editMode}>
             <DefaultModeTask className="default-mode" priority={priority} animation={animation}>
@@ -46,17 +64,23 @@ export default function Task({ title, date, id, priority, completed }: TaskProps
                     <CheckTask check={check} onClick={handleComplete} icons={[doneIcon, doneHover]}/>
                     <TaskDescription>
                         <span className="title-task">{title}</span>
-                        <span className="date-task">{date}</span>
+                        <span className="date-task">{formatDate(date)}</span>
                     </TaskDescription>
                 </TaskDetails>
                 <TaskButtons>
-                    <TaskButton icons={[editIcon, editHover]} onClick={handleClick}/>
-                    <TaskButton icons={[trashIcon, trashHover]} onClick={handleDelete}/>
+                    <TaskIconButton icons={[editIcon, editHover]} onClick={switchEditMode}/>
+                    <TaskIconButton icons={[trashIcon, trashHover]} onClick={handleDelete}/>
                 </TaskButtons>
             </DefaultModeTask>
-            <div className="edit-mode">
-                <h1>edit</h1>
-            </div>
+            <EditModeTask className="edit-mode">
+                <EditModeInputs>
+                    <Input type="text" height="30px" value={title} ref={newTitleRef}/>
+                    <Input type="date" height="30px" value={date} ref={newDateRef}/>
+                </EditModeInputs>
+                <Button onClick={handleEditTask} width="50px">
+                    Done
+                </Button>
+            </EditModeTask>
         </TaskContainer>
     )
 }
