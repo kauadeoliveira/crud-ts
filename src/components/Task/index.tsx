@@ -10,8 +10,10 @@ import { formatDate } from "../../utils/formatDate";
 import trashIcon from "../../assets/images/trash.png"
 import { modalSlice } from "../../store/slices/modalSlice";
 import Input from "../Input";
-import { CheckTask, DefaultModeTask, DeleteTaskButton, TaskButton, TaskButtons, TaskContainer, TaskDescription, TaskDetails } from "./style";
+import { CheckTask, DefaultModeTask, TaskButton, TaskButtons, TaskContainer, TaskDescription, TaskDetails } from "./style";
 import editIcon from "../../assets/images/edit.png"
+import editHover from "../../assets/images/edit-hover.png"
+import trashHover from "../../assets/images/trash-hover.png"
 
 
 export default function Task({ title, date, id, priority, completed }: TaskProps) {
@@ -38,7 +40,7 @@ export default function Task({ title, date, id, priority, completed }: TaskProps
 
     return(
         <TaskContainer editMode={editMode}>
-            <DefaultModeTask className="default-mode" priority={priority}>
+            <DefaultModeTask className="default-mode" priority={priority} animation={animation}>
                 <TaskDetails>
                     <CheckTask check={check} onClick={handleComplete} icon={doneIcon}/>
                     <TaskDescription>
@@ -47,8 +49,8 @@ export default function Task({ title, date, id, priority, completed }: TaskProps
                     </TaskDescription>
                 </TaskDetails>
                 <TaskButtons>
-                    <TaskButton icon={editIcon} onClick={handleClick}/>
-                    <TaskButton icon={trashIcon} onClick={handleDelete}/>
+                    <TaskButton icons={[editIcon, editHover]} onClick={handleClick}/>
+                    <TaskButton icons={[trashIcon, trashHover]} onClick={handleDelete}/>
                 </TaskButtons>
             </DefaultModeTask>
             <div className="edit-mode">

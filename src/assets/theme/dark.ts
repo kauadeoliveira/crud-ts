@@ -32,6 +32,12 @@ export default {
             primary: '#657575',
             disabled: '#A0AAB4'
         },
+        icons: {
+            primary: {
+                main: '#dedede',
+                hover: '#fff'
+            }
+        }
     },
     dimensions: {
         button: {

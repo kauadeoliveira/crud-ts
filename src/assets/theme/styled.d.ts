@@ -36,6 +36,12 @@ declare module 'styled-components' {
                 primary: string;
                 disabled: string;
             },
+            icons: {
+                primary: {
+                    main: string,
+                    hover: string
+                }
+            }
         },
         dimensions: {
             button: {

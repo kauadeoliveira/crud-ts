@@ -4,6 +4,7 @@ import { TaskProps } from "../../types";
 interface TaskStyleProps extends TaskProps{
     editMode: boolean;
     priority: string | undefined;
+    animation: string
 }
 
 interface CheckTaskStyleProps {
@@ -12,7 +13,7 @@ interface CheckTaskStyleProps {
 }
 
 interface TaskButton {
-    icon: string;
+    icons: string[];
 }
 
 export const TaskContainer = styled.div<Pick<TaskStyleProps, 'editMode'>>`
@@ -32,7 +33,7 @@ export const TaskContainer = styled.div<Pick<TaskStyleProps, 'editMode'>>`
         display: ${({ editMode }) => editMode ? 'none' : 'flex'};
     }
 `
-export const DefaultModeTask = styled.div<Pick<TaskStyleProps, 'priority'>>`
+export const DefaultModeTask = styled.div<Pick<TaskStyleProps, 'priority' | 'animation'>>`
     border-left: 10px solid;
     border-color: ${({ priority, theme }) => {
         switch(priority){
@@ -47,7 +48,8 @@ export const DefaultModeTask = styled.div<Pick<TaskStyleProps, 'priority'>>`
             break;
         }
     }};
-
+    animation: ${({ animation }) => animation};
+    animation-duration: 1s;
     height: 100%;
     border-radius: inherit;
     justify-content: space-between;
@@ -94,8 +96,13 @@ export const TaskButton = styled.div<TaskButton>`
     height: 20px;
     width: 20px;
     cursor: pointer;
-    background-image: url(${({ icon }) => icon});
+    background-image: url(${({ icons }) => icons[0]});
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 100%;
+    transition: all .2s;
+
+    &:hover {
+        background-image: url(${({ icons }) => icons[1]});
+    }
 `
