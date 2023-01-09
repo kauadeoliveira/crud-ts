@@ -2,17 +2,16 @@ import styled from "styled-components";
 
 interface MyInputProps {
     icon: string[];
+    height?: string;
 }
 
 interface InputWrapper {
     width?: string;
-    height?: string;
     errorTitle?: boolean
 }
 
 export const InputWrapper = styled.div<InputWrapper>`
     width: ${({ width }) => width ? width : '100%'};
-    height: ${({ height }) => height ? height : '40px'};
     display: flex;
     flex-direction: column;
     gap: 3px;
@@ -28,7 +27,7 @@ export const MyInput = styled.input<MyInputProps>`
     width: 100%;
     border-radius: 5px;
     padding: 3px 5px;
-    height: 100%;
+    height: ${({ height }) => height ? height : '40px'};
     background-color: ${({ theme }) => theme.palette.colors.background.dark};
     color: #fff;
     border: 1px solid transparent;

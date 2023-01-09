@@ -18,7 +18,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((
     { type, maxLength, width,height ,placeholder, onChange, errorTitle, value }, ref
     ) => {
     return(
-        <InputWrapper errorTitle={errorTitle} width={width} height={height}>
+        <InputWrapper errorTitle={errorTitle} width={width}>
             <MyInput
              type={type}
              maxLength={maxLength}
@@ -27,6 +27,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((
              onChange={onChange}
              ref={ref}
              defaultValue={value}
+             height={height}
             />
             <span className="error-message">Title is required.</span>
         </InputWrapper>

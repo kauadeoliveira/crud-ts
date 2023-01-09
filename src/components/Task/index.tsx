@@ -56,7 +56,6 @@ export default function Task({ title, date, id, priority, completed }: TaskProps
         switchEditMode()
     }
 
-    store.subscribe(() => console.log(store.getState()))
     return(
         <TaskContainer editMode={editMode}>
             <DefaultModeTask className="default-mode" priority={priority} animation={animation}>
@@ -74,8 +73,8 @@ export default function Task({ title, date, id, priority, completed }: TaskProps
             </DefaultModeTask>
             <EditModeTask className="edit-mode">
                 <EditModeInputs>
-                    <Input type="text" height="30px" value={title} ref={newTitleRef}/>
-                    <Input type="date" height="30px" value={date} ref={newDateRef}/>
+                    <Input type="text" height="25px" value={title} ref={newTitleRef}/>
+                    <Input type="date" height="25px" value={date} ref={newDateRef}/>
                 </EditModeInputs>
                 <Button onClick={handleEditTask} width="50px">
                     Done
