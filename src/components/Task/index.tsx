@@ -14,6 +14,7 @@ import { CheckTask, DefaultModeTask, TaskButton, TaskButtons, TaskContainer, Tas
 import editIcon from "../../assets/images/edit.png"
 import editHover from "../../assets/images/edit-hover.png"
 import trashHover from "../../assets/images/trash-hover.png"
+import doneHover from "../../assets/images/done-hover.png"
 
 
 export default function Task({ title, date, id, priority, completed }: TaskProps) {
@@ -42,7 +43,7 @@ export default function Task({ title, date, id, priority, completed }: TaskProps
         <TaskContainer editMode={editMode}>
             <DefaultModeTask className="default-mode" priority={priority} animation={animation}>
                 <TaskDetails>
-                    <CheckTask check={check} onClick={handleComplete} icon={doneIcon}/>
+                    <CheckTask check={check} onClick={handleComplete} icons={[doneIcon, doneHover]}/>
                     <TaskDescription>
                         <span className="title-task">{title}</span>
                         <span className="date-task">{date}</span>

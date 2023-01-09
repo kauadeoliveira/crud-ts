@@ -9,7 +9,7 @@ interface TaskStyleProps extends TaskProps{
 
 interface CheckTaskStyleProps {
     check: boolean | undefined;
-    icon: string;
+    icons: string[];
 }
 
 interface TaskButton {
@@ -67,10 +67,16 @@ export const CheckTask = styled.div<CheckTaskStyleProps>`
     height: 20px;
     border-radius: 5px;
     background-color: ${({ check, theme }) => check ? theme.palette.colors.primary.main : '#fff'};
-    background-image: url(${({ icon }) => icon});
+    background-image: url(${({ icons }) => icons[0]});
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    cursor: pointer;
+    transition: all .2s;
+
+    &:hover{
+        background-image: url(${({ check, icons }) => !check ? icons[1] : icons[0]})
+    }
 `
 
 export const TaskDescription = styled.div`
