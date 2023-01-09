@@ -20,6 +20,7 @@ export const InputWrapper = styled.div<InputWrapper>`
         color: ${({ theme }) => theme.palette.colors.priorities.high.background};
         margin-left: 3px;
     }
+    height: 25px;
 `
 
 export const MyInput = styled.input<MyInputProps>`

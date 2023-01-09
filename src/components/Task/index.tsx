@@ -1,4 +1,4 @@
-import { createRef, useEffect, useRef, useState } from "react";
+import React, { createRef, useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { store } from "../../store";
 import { tasksSlice } from "../../store/slices/tasksSlice";
@@ -10,7 +10,7 @@ import { formatDate } from "../../utils/formatDate";
 import trashIcon from "../../assets/images/trash.png"
 import { modalSlice } from "../../store/slices/modalSlice";
 import Input from "../Input";
-import { CheckTask, DefaultModeTask, EditModeInputs, EditModeTask, TaskButton, TaskButtons, TaskContainer, TaskDescription, TaskDetails, TaskIconButton } from "./style";
+import { CheckTask, DefaultModeTask, EditModeInputs, EditModeTask, SelectPriority, TaskButton, TaskButtons, TaskContainer, TaskDescription, TaskDetails, TaskIconButton } from "./style";
 import editIcon from "../../assets/images/edit.png"
 import editHover from "../../assets/images/edit-hover.png"
 import trashHover from "../../assets/images/trash-hover.png"
@@ -47,13 +47,20 @@ export default function Task({ title, date, id, priority, completed }: TaskProps
 
     const newTitleRef = createRef<HTMLInputElement>();
     const newDateRef = createRef<HTMLInputElement>();
+    const newPriority = createRef<HTMLSelectElement>();
 
     const handleEditTask = () => {
         if(newTitleRef.current?.value){
-            dispatch(editTask({title: newTitleRef.current.value, date: newDateRef.current?.value, id, priority, completed}))
+            dispatch(editTask({title: newTitleRef.current.value, date: newDateRef.current?.value, priority: newPriority.current?.value, id, completed}))
         }
   
         switchEditMode()
+    }
+
+    const handlePriority = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        if(newPriority.current?.value){
+            console.log(newPriority.current.value)
+        }
     }
 
     return(
@@ -73,12 +80,17 @@ export default function Task({ title, date, id, priority, completed }: TaskProps
             </DefaultModeTask>
             <EditModeTask className="edit-mode">
                 <EditModeInputs>
-                    <Input type="text" height="25px" value={title} ref={newTitleRef}/>
-                    <Input type="date" height="25px" value={date} ref={newDateRef}/>
+                    <Input type="text" height="25px" width="50%" value={title} ref={newTitleRef}/>
+                    <Input type="date" height="25px" width="50%" value={date} ref={newDateRef}/>
+                    <SelectPriority defaultValue={priority} onChange={handlePriority} ref={newPriority}>
+                        <option value="high">High</option>
+                        <option value="middle">Middle</option>
+                        <option value="low">Low</option>
+                    </SelectPriority>
+                    <Button onClick={handleEditTask} width="50px">
+                        Done
+                    </Button>
                 </EditModeInputs>
-                <Button onClick={handleEditTask} width="50px">
-                    Done
-                </Button>
             </EditModeTask>
         </TaskContainer>
     )

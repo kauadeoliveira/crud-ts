@@ -126,18 +126,32 @@ export const TaskButton = styled.div`
 
 export const EditModeTask = styled.div`
     width: 100%;
-    height: 70px;
     border-radius: inherit;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    padding: 0 10px;
+    padding: 10px;
+
 `
 
 export const EditModeInputs = styled.div`
     display: flex;
-    flex-direction: column;
-    height: 100%;
-    padding: 5px 0;
+    flex-wrap: wrap;
+    width: 100%;
     gap: 5px;
-    width: 60%;
+`
+
+export const SelectPriority = styled.select`
+    background-color: ${({ theme }) => theme.palette.colors.background.dark};
+    color: #fff;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    width: 20%;
+    height: 25px;
+    outline: none;
+
+    &.select-selected{
+        background-color: red;
+    }
 `
