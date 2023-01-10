@@ -15,29 +15,29 @@ export default {
             },
             priorities: {
                 high: {
-                    dark:'#8F0000',
-                    main: '#ff1507',
+                    dark:'#800000',
+                    main: '#ff200c',
                     light:'#ff795b',
                 },
                 middle: {
-                    dark:'#003f00',
-                    main: '#2aa31f',
-                    light:'#78c96f',
+                    dark:'#006100',
+                    main: '#309124',
+                    light:'#a4d89e',
                 },
                 low: {
-                    dark: '#a87e00',
-                    main: '#ffb300',
-                    light: '#ffd54f',
+                    dark: '#ffa710',
+                    main: '#ffd920',
+                    light: '#fff597',
                 }
             }
         },
         text: {
             primary: '#657575',
-            disabled: '#dedede'
+            disabled: '#c2c2c2'
         },
         icons: {
             primary: {
-                main: '#dedede',
+                main: '#c2c2c2',
                 hover: '#fff'
             }
         }

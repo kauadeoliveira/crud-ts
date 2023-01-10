@@ -16,7 +16,7 @@ export const InputWrapper = styled.div<InputWrapper>`
     gap: 3px;
     .error-message{
         display: ${({ error }) => error ? 'inline-block' : 'none'};
-        color: ${({ theme }) => theme.palette.colors.priorities.high.dark};
+        color: ${({ theme }) => theme.palette.colors.priorities.high.main};
         margin-left: 3px;
     }
 
@@ -72,6 +72,8 @@ export const MyInput = styled.input<MyInputProps>`
         background-image: url(${({ icon }) => icon[0]});
         width: 15px;
         height: 15px;
+        background-repeat: no-repeat;
+        background-position: center;
     }
 
     &:focus{

@@ -4,17 +4,17 @@ import { store } from "../../store";
 import { tasksSlice } from "../../store/slices/tasksSlice";
 import { TaskProps } from "../../types";
 import 'animate.css'
-import doneIcon from "../../assets/images/done.png"
 import { abbreviateDate } from "../../utils/abbreviateDate";
 import { formatDate } from "../../utils/formatDate";
-import trashIcon from "../../assets/images/trash.png"
 import { modalSlice } from "../../store/slices/modalSlice";
 import Input from "../Input";
 import { CheckTask, DefaultModeTask, EditModeButtons, EditModeInputs, EditModeTask, SelectPriority, TaskButton, TaskButtons, TaskContainer, TaskDescription, TaskDetails, TaskIconButton } from "./style";
-import editIcon from "../../assets/images/edit.png"
-import editHover from "../../assets/images/edit-hover.png"
-import trashHover from "../../assets/images/trash-hover.png"
+import editIcon from "../../assets/images/edit.svg"
+import editHover from "../../assets/images/edit-hover.svg"
+import trashHover from "../../assets/images/trash-hover.svg"
 import doneHover from "../../assets/images/done-hover.png"
+import doneIcon from "../../assets/images/done.png"
+import trashIcon from "../../assets/images/trash.svg"
 import Button from "../Button";
 
 

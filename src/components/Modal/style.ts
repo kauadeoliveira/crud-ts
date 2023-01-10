@@ -41,10 +41,11 @@ export const ModalHead = styled.div`
 `
 
 export const CloseButton = styled.div<CloseButtonProps>`
-    width: 15px;
-    height: 15px;
-    background-image: url(${({ icon }) => icon[0]});
+    width: 10px;
+    height: 10px;
     background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(${({ icon }) => icon[0]});
     cursor: pointer;
     transition: all .3s;
 

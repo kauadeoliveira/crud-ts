@@ -6,13 +6,13 @@ import { CloseButton, ModalBackdrop, ModalBody, ModalHead, ModalPriorityTask, Mo
 import { ActionParameter, RootState, TaskProps } from "../../types";
 import React, { createRef, useEffect, useRef, useState } from "react";
 import { useAppSelector } from "../../hooks/useAppSelector";
-import close from "../../assets/images/close.png"
-import closeHover from "../../assets/images/close-hover.png"
+import closeHover from "../../assets/images/close-hover.svg"
 import Input from "../Input";
 import Button from "../Button";
 import { tasksSlice } from "../../store/slices/tasksSlice";
 import 'animate.css'
 import { abbreviateDate } from "../../utils/abbreviateDate";
+import close from "../../assets/images/close.svg"
 
 export default function Modal() {
     // Redux

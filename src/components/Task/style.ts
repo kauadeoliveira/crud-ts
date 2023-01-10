@@ -38,13 +38,13 @@ export const DefaultModeTask = styled.div<Pick<TaskStyleProps, 'priority' | 'ani
     border-color: ${({ priority, theme }) => {
         switch(priority){
             case 'high': 
-                return theme.palette.colors.priorities.high.main;
+                return theme.palette.colors.priorities.high.light;
             break;
             case 'middle':
-                return theme.palette.colors.priorities.middle.main;
+                return theme.palette.colors.priorities.middle.light;
             break;
             default:
-                return theme.palette.colors.priorities.low.main;
+                return theme.palette.colors.priorities.low.light;
             break;
         }
     }};
@@ -105,7 +105,6 @@ export const TaskIconButton = styled.div<TaskButton>`
     background-image: url(${({ icons }) => icons[0]});
     background-repeat: no-repeat;
     background-position: center;
-    border-radius: 100%;
     transition: all .2s;
 
     &:hover {
