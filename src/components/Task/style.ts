@@ -129,6 +129,10 @@ export const EditModeTask = styled.div`
     display: flex;
     justify-content: space-between;
     padding: 10px;
+
+    div:nth-child(2){
+        align-self: flex-end;
+    }
 `
 
 export const EditModeInputs = styled.div`
@@ -147,4 +151,10 @@ export const SelectPriority = styled.select`
     width: 25%;
     height: 25px;
     outline: none;
+`
+
+export const EditModeButtons = styled.div`
+    background-color: red;
+    display: flex;
+    align-items: flex-end;
 `

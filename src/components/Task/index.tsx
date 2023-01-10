@@ -10,7 +10,7 @@ import { formatDate } from "../../utils/formatDate";
 import trashIcon from "../../assets/images/trash.png"
 import { modalSlice } from "../../store/slices/modalSlice";
 import Input from "../Input";
-import { CheckTask, DefaultModeTask, EditModeInputs, EditModeTask, SelectPriority, TaskButton, TaskButtons, TaskContainer, TaskDescription, TaskDetails, TaskIconButton } from "./style";
+import { CheckTask, DefaultModeTask, EditModeButtons, EditModeInputs, EditModeTask, SelectPriority, TaskButton, TaskButtons, TaskContainer, TaskDescription, TaskDetails, TaskIconButton } from "./style";
 import editIcon from "../../assets/images/edit.png"
 import editHover from "../../assets/images/edit-hover.png"
 import trashHover from "../../assets/images/trash-hover.png"
@@ -42,26 +42,19 @@ export default function Task({ title, date, id, priority, completed }: TaskProps
 
 
     // Edit Mode
-    const [newTitleValue, setNewTitleValue] = useState<string>(title);
-    const [newDateValue, setNewDateValue] = useState<string>(date);
-
     const newTitleRef = createRef<HTMLInputElement>();
     const newDateRef = createRef<HTMLInputElement>();
     const newPriority = createRef<HTMLSelectElement>();
 
+    const [disabledButton, setDisabledButton] = useState<boolean>(false);
     const handleEditTask = () => {
         if(newTitleRef.current?.value){
             dispatch(editTask({title: newTitleRef.current.value, date: newDateRef.current?.value, priority: newPriority.current?.value, id, completed}))
+            switchEditMode()
         }
-  
-        switchEditMode()
     }
 
-    const handlePriority = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        if(newPriority.current?.value){
-            console.log(newPriority.current.value)
-        }
-    }
+    const handleDisabledButton = () => newTitleRef.current?.value ? setDisabledButton(false) : setDisabledButton(true)
 
     return(
         <TaskContainer editMode={editMode}>
@@ -80,17 +73,17 @@ export default function Task({ title, date, id, priority, completed }: TaskProps
             </DefaultModeTask>
             <EditModeTask className="edit-mode">
                 <EditModeInputs>
-                    <Input type="text" height="25px" width="60%" value={title} ref={newTitleRef}/>
-                    <Input type="date" height="25px" width="60%" value={date} ref={newDateRef}/>
-                    <SelectPriority defaultValue={priority} onChange={handlePriority} ref={newPriority}>
+                    <Input type="text" height="25px" width="60%" value={title} ref={newTitleRef} onChange={handleDisabledButton}/>
+                    <SelectPriority defaultValue={priority} ref={newPriority}>
                         <option value="high">High</option>
                         <option value="middle">Middle</option>
                         <option value="low">Low</option>
                     </SelectPriority>
+                    <Input type="date" height="25px" width="60%" value={date} ref={newDateRef}/>
                 </EditModeInputs>
-                <Button onClick={handleEditTask} size="small">
-                    Done
-                </Button>
+                    <Button onClick={handleEditTask} size="small" disabled={disabledButton}>
+                        Done
+                    </Button>
             </EditModeTask>
         </TaskContainer>
     )

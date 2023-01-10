@@ -41,7 +41,7 @@ export default {
     },
     dimensions: {
         button: {
-            borderRadius: '10px',
+            borderRadius: '5px',
         },
         modal: {
             borderRadius: '8px'

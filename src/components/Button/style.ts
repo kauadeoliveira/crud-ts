@@ -1,20 +1,26 @@
 import styled from "styled-components";
 
 interface MyButton {
-    background?: string;
-    backgroundHover?: string;
-    textColor?: string;
     size: 'small' | 'medium' | 'large';
+    disabled?: boolean;
 }
 
 export const MyButton = styled.div<MyButton>`
-    background-color: ${({ background, theme }) => background ? background : theme.palette.colors.primary.main};
-    color: ${({ textColor }) => textColor};
     border-radius: ${({ theme }) => theme.dimensions.button.borderRadius};
     display: flex;
     justify-content: center;
     align-items: center;
+    font-weight: bold;
+    transition: all 0.3s 0s ease;
+    
+    /* Button State */
+    cursor: ${({disabled}) => disabled ? 'not-allowed' : 'pointer'};
+    background-color: ${({ theme, disabled }) => disabled ? theme.palette.colors.background.light : theme.palette.colors.primary.main};
+    color: ${({ theme }) => theme.palette.text.disabled};
 
+
+
+    /* Size */
     width: ${({ size }) => {
         switch(size){
             case 'large': 
@@ -31,10 +37,10 @@ export const MyButton = styled.div<MyButton>`
     height: ${({ size }) => {
         switch(size){
             case 'large':
-                return '40px'
+                return '40px';
             break;
             case 'medium':
-                return '30px'
+                return '30px';
             break;
             case 'small':
                 return '20px';
@@ -54,12 +60,9 @@ export const MyButton = styled.div<MyButton>`
             break;
         }
     }};
-    cursor: pointer;
-    font-weight: bold;
-    transition: all 0.3s 0s ease;
 
 
     &:hover{
-        background-color: ${({ backgroundHover, theme }) => backgroundHover ? backgroundHover : theme.palette.colors.primary.light};
+        background-color: ${({ theme, disabled }) => disabled ? 'none' : theme.palette.colors.primary.light};
     }
 `
