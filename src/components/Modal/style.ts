@@ -76,9 +76,11 @@ export const ModalPriorityTask = styled.div`
     }
 
     label{
-        width: 80px;
-        padding: 8px;
-        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 20px;
         cursor: pointer;
         border-radius: 5px;
         transition: all .3s;

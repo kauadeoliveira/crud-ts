@@ -104,17 +104,20 @@ export default function Modal() {
                 </ModalHead>
                 <ModalBody>
                     <Input
-                     type="text"
-                     width="80%"
-                     placeholder="Title" 
-                     ref={titleRef}
-                     errorTitle={errorTitle}
+                        type="text"
+                        placeholder="Title"
+                        ref={titleRef}
+                        labelText="Task title"
+                        error={{
+                            errorStatus: errorTitle,
+                            errorMsg: 'Title is required.'
+                        }}
                     />
                     <Input
-                     type="date"
-                     width="80%"
-                     ref={dateRef}
-                     value={abbreviateDate(new Date(Date.now()).toString())}
+                        type="date"
+                        ref={dateRef}
+                        labelText="Task date"
+                        value={abbreviateDate(new Date(Date.now()).toString())}
                     />
                     <ModalPriorityTask>
                         <input 
@@ -124,7 +127,7 @@ export default function Modal() {
                          onChange={handlePriority}
                          ref={highRef}
                         />
-                        <label htmlFor="high" className="high">High Priority</label>
+                        <label htmlFor="high" className="high">High</label>
  
                         <input 
                          type="radio" 
@@ -133,7 +136,7 @@ export default function Modal() {
                          onChange={handlePriority} 
                          ref={middleRef}
                         />
-                        <label htmlFor="middle" className="middle">Middle Priority</label>
+                        <label htmlFor="middle" className="middle">Middle</label>
                          
                         <input 
                          type="radio" 
@@ -142,7 +145,7 @@ export default function Modal() {
                          onChange={handlePriority} 
                          ref={lowRef}
                         />
-                        <label htmlFor="low" className="low">Low Priority</label>
+                        <label htmlFor="low" className="low">Low</label>
                     </ModalPriorityTask>
                 <Button size="large" onClick={createTask}>Done</Button>
                 </ModalBody>

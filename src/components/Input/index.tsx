@@ -6,19 +6,23 @@ import React from "react";
 interface InputProps {
     type: string;
     maxLength?: number;
-    width?: string;
-    height?: string;
     placeholder?: string;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    errorTitle?: boolean
-    value? : string
+    error?: {
+        errorStatus: boolean,
+        errorMsg: string;
+    };
+    value?: string;
+    size?: 'small' | 'medium' | 'large'; 
+    labelText?: string;
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>((
-    { type, maxLength, width,height ,placeholder, onChange, errorTitle, value }, ref
+    { type, maxLength, placeholder, onChange, error, value, size="medium", labelText }, ref
     ) => {
     return(
-        <InputWrapper errorTitle={errorTitle} width={width}>
+        <InputWrapper error={error?.errorStatus}>
+            <span className="label-text">{labelText}</span>
             <MyInput
              type={type}
              maxLength={maxLength}
@@ -27,9 +31,9 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((
              onChange={onChange}
              ref={ref}
              defaultValue={value}
-             height={height}
+             inputSize={size}
             />
-            <span className="error-message">Title is required.</span>
+            <span className="error-message">{error?.errorMsg}</span>
         </InputWrapper>
     )
 })

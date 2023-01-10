@@ -30,7 +30,7 @@ export default {
         },
         text: {
             primary: '#657575',
-            disabled: '#A0AAB4'
+            disabled: '#dedede'
         },
         icons: {
             primary: {

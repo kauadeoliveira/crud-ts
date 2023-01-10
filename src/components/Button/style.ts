@@ -16,7 +16,7 @@ export const MyButton = styled.div<MyButton>`
     /* Button State */
     cursor: ${({disabled}) => disabled ? 'not-allowed' : 'pointer'};
     background-color: ${({ theme, disabled }) => disabled ? theme.palette.colors.background.light : theme.palette.colors.primary.main};
-    color: ${({ theme }) => theme.palette.text.disabled};
+    color: ${({ theme, disabled }) => disabled ? theme.palette.text.disabled : '#fff'};
 
 
 
@@ -37,10 +37,10 @@ export const MyButton = styled.div<MyButton>`
     height: ${({ size }) => {
         switch(size){
             case 'large':
-                return '40px';
+                return '30px';
             break;
             case 'medium':
-                return '30px';
+                return '25px';
             break;
             case 'small':
                 return '20px';
@@ -50,10 +50,10 @@ export const MyButton = styled.div<MyButton>`
     font-size: ${({ size }) => {
         switch(size){
             case 'large':
-                return '2.2em';
+                return '1.6em';
             break;
             case 'medium':
-                return '1.7em';
+                return '1.4em';
             break;
             case 'small':
                 return '1.2em';
