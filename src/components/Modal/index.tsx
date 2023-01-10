@@ -144,7 +144,7 @@ export default function Modal() {
                         />
                         <label htmlFor="low" className="low">Low Priority</label>
                     </ModalPriorityTask>
-                <Button width="80%" onClick={createTask}>Done</Button>
+                <Button size="large" onClick={createTask}>Done</Button>
                 </ModalBody>
             </ModalContainer>
         </ModalBackdrop>

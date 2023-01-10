@@ -80,17 +80,17 @@ export default function Task({ title, date, id, priority, completed }: TaskProps
             </DefaultModeTask>
             <EditModeTask className="edit-mode">
                 <EditModeInputs>
-                    <Input type="text" height="25px" width="50%" value={title} ref={newTitleRef}/>
-                    <Input type="date" height="25px" width="50%" value={date} ref={newDateRef}/>
+                    <Input type="text" height="25px" width="60%" value={title} ref={newTitleRef}/>
+                    <Input type="date" height="25px" width="60%" value={date} ref={newDateRef}/>
                     <SelectPriority defaultValue={priority} onChange={handlePriority} ref={newPriority}>
                         <option value="high">High</option>
                         <option value="middle">Middle</option>
                         <option value="low">Low</option>
                     </SelectPriority>
-                    <Button onClick={handleEditTask} width="50px">
-                        Done
-                    </Button>
                 </EditModeInputs>
+                <Button onClick={handleEditTask} size="small">
+                    Done
+                </Button>
             </EditModeTask>
         </TaskContainer>
     )

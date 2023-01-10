@@ -125,13 +125,10 @@ export const TaskButton = styled.div`
 `
 
 export const EditModeTask = styled.div`
-    width: 100%;
     border-radius: inherit;
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     padding: 10px;
-
 `
 
 export const EditModeInputs = styled.div`
@@ -147,11 +144,7 @@ export const SelectPriority = styled.select`
     border: none;
     padding: 5px;
     border-radius: 5px;
-    width: 20%;
+    width: 25%;
     height: 25px;
     outline: none;
-
-    &.select-selected{
-        background-color: red;
-    }
 `
