@@ -15,16 +15,19 @@ export default {
             },
             priorities: {
                 high: {
-                    background: '#d32f2f',
-                    hover: '#e57373'
+                    dark:'#8F0000',
+                    main: '#ff1507',
+                    light:'#ff795b',
                 },
                 middle: {
-                    background: '#388e3c',
-                    hover: '#81c784'
+                    dark:'#003f00',
+                    main: '#2aa31f',
+                    light:'#78c96f',
                 },
                 low: {
-                    background: '#f57c00',
-                    hover: '#ffb74d'
+                    dark: '#a87e00',
+                    main: '#ffb300',
+                    light: '#ffd54f',
                 }
             }
         },

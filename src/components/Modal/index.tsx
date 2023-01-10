@@ -120,32 +120,34 @@ export default function Modal() {
                         value={abbreviateDate(new Date(Date.now()).toString())}
                     />
                     <ModalPriorityTask>
-                        <input 
-                         type="radio"
-                         name="priority"
-                         id="high"
-                         onChange={handlePriority}
-                         ref={highRef}
-                        />
-                        <label htmlFor="high" className="high">High</label>
- 
-                        <input 
-                         type="radio" 
-                         name="priority" 
-                         id="middle" 
-                         onChange={handlePriority} 
-                         ref={middleRef}
-                        />
-                        <label htmlFor="middle" className="middle">Middle</label>
-                         
-                        <input 
-                         type="radio" 
-                         name="priority" 
-                         id="low" 
-                         onChange={handlePriority} 
-                         ref={lowRef}
-                        />
-                        <label htmlFor="low" className="low">Low</label>
+                        <span>Priority</span>
+                        <div className="priorities">
+                            <input
+                             type="radio"
+                             name="priority"
+                             id="high"
+                             onChange={handlePriority}
+                             ref={highRef}
+                            />
+                            <label htmlFor="high" className="high">High</label>
+                            <input
+                             type="radio"
+                             name="priority"
+                             id="middle"
+                             onChange={handlePriority}
+                             ref={middleRef}
+                            />
+                            <label htmlFor="middle" className="middle">Middle</label>
+                            
+                            <input
+                             type="radio"
+                             name="priority"
+                             id="low"
+                             onChange={handlePriority}
+                             ref={lowRef}
+                            />
+                            <label htmlFor="low" className="low">Low</label>
+                        </div>
                     </ModalPriorityTask>
                 <Button size="large" onClick={createTask}>Done</Button>
                 </ModalBody>

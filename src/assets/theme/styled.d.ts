@@ -19,16 +19,19 @@ declare module 'styled-components' {
                 },
                 priorities: {
                     high: {
-                        background: string;
-                        hover: string;
+                        dark:string;
+                        main: string;
+                        light:string;
                     },
                     middle: {
-                        background: string;
-                        hover:string;
+                        dark:string;
+                        main: string;
+                        light:string;
                     },
                     low: {
-                        background: string;
-                        hover: string;
+                        dark:string;
+                        main: string;
+                        light:string
                     }
                 }
             },

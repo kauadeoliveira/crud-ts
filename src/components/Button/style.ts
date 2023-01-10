@@ -16,7 +16,8 @@ export const MyButton = styled.div<MyButton>`
     /* Button State */
     cursor: ${({disabled}) => disabled ? 'not-allowed' : 'pointer'};
     background-color: ${({ theme, disabled }) => disabled ? theme.palette.colors.background.light : theme.palette.colors.primary.main};
-    color: ${({ theme, disabled }) => disabled ? theme.palette.text.disabled : '#fff'};
+    /* color: ${({ theme, disabled }) => disabled ? theme.palette.text.disabled : '#fff'}; */
+    color: ${({ theme }) => theme.palette.colors.background.dark};
 
 
 

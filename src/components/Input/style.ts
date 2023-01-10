@@ -7,6 +7,7 @@ interface MyInputProps {
 
 interface InputWrapper {
     error?: boolean;
+    label?: boolean;
 }
 
 export const InputWrapper = styled.div<InputWrapper>`
@@ -15,7 +16,7 @@ export const InputWrapper = styled.div<InputWrapper>`
     gap: 3px;
     .error-message{
         display: ${({ error }) => error ? 'inline-block' : 'none'};
-        color: ${({ theme }) => theme.palette.colors.priorities.high.background};
+        color: ${({ theme }) => theme.palette.colors.priorities.high.dark};
         margin-left: 3px;
     }
 
@@ -24,6 +25,7 @@ export const InputWrapper = styled.div<InputWrapper>`
         font-size: 1.3em;
         color: ${({ theme }) => theme.palette.text.disabled};
         margin-left: 5px;
+        display: ${({ label }) => label ? 'inline-block' : 'none'};
     }
 `
 
@@ -59,7 +61,7 @@ export const MyInput = styled.input<MyInputProps>`
                 return '40px';
             break;
             case 'small':
-                return '20px';
+                return '30px';
             break;
         }
     }};

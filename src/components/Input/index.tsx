@@ -21,7 +21,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((
     { type, maxLength, placeholder, onChange, error, value, size="medium", labelText }, ref
     ) => {
     return(
-        <InputWrapper error={error?.errorStatus}>
+        <InputWrapper error={error?.errorStatus} label={labelText ? true : false}>
             <span className="label-text">{labelText}</span>
             <MyInput
              type={type}

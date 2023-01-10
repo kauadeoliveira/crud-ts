@@ -35,8 +35,8 @@ export const ModalHead = styled.div`
     padding: 15px;
 
     
-    color: white;
-    font-size: 1.3em;
+    color: #fff;
+    font-size: 1.5em;
     font-weight: bold;
 `
 
@@ -63,14 +63,7 @@ export const ModalBody = styled.div`
 `
 
 export const ModalPriorityTask = styled.div`
-    .priority-title{
-        font-size: 1.6em;
-    }
-
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    
+    width: 300px;
     input{
         display: none;
     }
@@ -86,40 +79,54 @@ export const ModalPriorityTask = styled.div`
         transition: all .3s;
     }
 
-    .high{
-        background-color: ${({ theme }) => theme.palette.colors.priorities.high.background};
+    span{
+        font-size: 1.3em;
+        color: ${({ theme }) => theme.palette.text.disabled};
+        font-weight: bold;
+        margin-left: 5px;
+    }
 
+    .priorities{
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        color: black;
+    }
+
+    .high{
+        background-color: ${({ theme }) => theme.palette.colors.priorities.high.light};
+        color: ${({ theme }) => theme.palette.colors.priorities.high.dark};
         &:hover{
-            background-color: ${({ theme }) => theme.palette.colors.priorities.high.hover};
+            background-color: ${({ theme }) => theme.palette.colors.priorities.high.main};
         }
     }
     .middle{
-        background-color: ${({ theme }) => theme.palette.colors.priorities.middle.background};
-
+        background-color: ${({ theme }) => theme.palette.colors.priorities.middle.light};
+        color: ${({ theme }) => theme.palette.colors.priorities.middle.dark};
         &:hover{
-            background-color: ${({ theme }) => theme.palette.colors.priorities.middle.hover};
+            background-color: ${({ theme }) => theme.palette.colors.priorities.middle.main};
         }
     }
     .low{
-        background-color: ${({ theme }) => theme.palette.colors.priorities.low.background};
-
+        background-color: ${({ theme }) => theme.palette.colors.priorities.low.light};
+        color: ${({ theme }) => theme.palette.colors.priorities.low.dark};
         &:hover{
-            background-color: ${({ theme }) => theme.palette.colors.priorities.low.hover};
+            background-color: ${({ theme }) => theme.palette.colors.priorities.low.main};
         }
     }
 
 
     /* Checked Priority */
     #high:checked ~ .high{
-        background-color: ${({ theme }) => theme.palette.colors.priorities.high.hover};
+        background-color: ${({ theme }) => theme.palette.colors.priorities.high.main};
     }
 
     #middle:checked ~ .middle{
-        background-color: ${({ theme }) => theme.palette.colors.priorities.middle.hover};
+        background-color: ${({ theme }) => theme.palette.colors.priorities.middle.main};
     }
 
     #low:checked ~ .low{
-        background-color: ${({ theme }) => theme.palette.colors.priorities.low.hover};
+        background-color: ${({ theme }) => theme.palette.colors.priorities.low.main};
     }
 
 `

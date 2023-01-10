@@ -18,7 +18,7 @@ interface TaskButton {
 
 export const TaskContainer = styled.div<Pick<TaskStyleProps, 'editMode'>>`
     background-color: ${({ theme }) => theme.palette.colors.background.main};
-    height: 70px;
+    height: 80px;
     width: 100%;
     border-radius: 10px;
 
@@ -38,13 +38,13 @@ export const DefaultModeTask = styled.div<Pick<TaskStyleProps, 'priority' | 'ani
     border-color: ${({ priority, theme }) => {
         switch(priority){
             case 'high': 
-                return theme.palette.colors.priorities.high.background;
+                return theme.palette.colors.priorities.high.main;
             break;
             case 'middle':
-                return theme.palette.colors.priorities.middle.background;
+                return theme.palette.colors.priorities.middle.main;
             break;
             default:
-                return theme.palette.colors.priorities.low.background;
+                return theme.palette.colors.priorities.low.main;
             break;
         }
     }};
@@ -128,7 +128,8 @@ export const EditModeTask = styled.div`
     border-radius: inherit;
     display: flex;
     justify-content: space-between;
-    padding: 10px;
+    padding: 5px;
+
 
     div:nth-child(2){
         align-self: flex-end;
@@ -149,7 +150,7 @@ export const SelectPriority = styled.select`
     padding: 5px;
     border-radius: 5px;
     width: 25%;
-    height: 25px;
+    height: 30px;
     outline: none;
 `
 
