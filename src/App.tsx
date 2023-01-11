@@ -15,6 +15,8 @@ import { tasksSlice } from "./store/slices/tasksSlice"
 import Header from "./components/Header"
 function App() {
   const { tasks } = useAppSelector(store => store.tasks)
+  const { filtredTasks } = useAppSelector(store => store.tasks)
+
   return(
     <div>
       <ThemeProvider theme={dark}>
@@ -23,8 +25,8 @@ function App() {
         <NewTaskButton />
         <Modal />
         <List>
-          {tasks.map(task => {
-            if(!task.completed){
+          {filtredTasks.length > 0 ? (
+            filtredTasks.map(task => {
               return(
                 <Task
                 date={task.date}
@@ -35,8 +37,37 @@ function App() {
                 key={task.id}
               />
               )
+            })
+          ) : (
+            tasks.map(task => {
+              if(!task.completed){
+                return (
+                  <Task 
+                  date={task.date}
+                  id={task.id}
+                  priority={task.priority}
+                  title={task.title}
+                  completed={task.completed}
+                  key={task.id}
+                />
+                )
+              }
+            })
+          )}
+          {/* {tasks.map(task => {
+            if(task.completed){
+              return (
+                <Task 
+                date={task.date}
+                id={task.id}
+                priority={task.priority}
+                title={task.title}
+                completed={task.completed}
+                key={task.id}
+              />
+              )
             }
-          })}
+          })} */}
         </List>
         <Accordion title="Complete">
           {tasks.map(task => {

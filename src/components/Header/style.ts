@@ -9,10 +9,9 @@ export const HeaderContainer = styled.div`
     height: 70px;
     display: flex;
     align-items: center;
-    padding: 8px;
-    /* background-color: ${({ theme }) => theme.palette.background.dark}; */
+    padding: 8px 15px;
     background-color: #000;
-    font-size: 1em;
+    font-size: .8em;
     justify-content: space-between;
 `
 
@@ -31,8 +30,8 @@ export const HeaderNav = styled.nav`
 
 export const HeaderIconButton = styled.a<Pick<HeaderStyleProps, 'icon'>>`
     display: block;
-    height: 30px;
-    width: 30px;
+    height: 25px;
+    width: 25px;
     background-image: url(${({ icon }) => icon[0]});
     background-repeat: no-repeat;
     background-position: center;

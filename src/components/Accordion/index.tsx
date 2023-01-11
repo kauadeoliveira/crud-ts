@@ -3,6 +3,7 @@ import { AccordionBody, AccordionButton, AccordionHead, AccordionWrapper } from 
 import up from "../../assets/images/up.png"
 import expandIcon from "../../assets/images/arrow.png"
 import { TaskProps } from "../../types";
+import { useAppSelector } from "../../hooks/useAppSelector";
 
 interface AccordionProps {
     children?: any
@@ -10,11 +11,11 @@ interface AccordionProps {
 }
 export default function Accordion({ children, title }: AccordionProps) {
     const [expandAccordion, setExpandAccordion] = useState<boolean>(false);
-
     const handleExpand = () => setExpandAccordion(!expandAccordion);
+    const { filtredTasks } = useAppSelector(store => store.tasks)
 
     const [amountCompleteTasks, setAmountCompleteTasks] = useState<string>('0')
-    const [amountTasks, setAmountTasks] = useState<number>(0) 
+    const [visibility, setVisibility] = useState<boolean>(false) 
 
     const handleChangeChildrenAmount = () => {
         const amountValue = (children.filter((childrenElement: any) => childrenElement != undefined)).length 
@@ -23,11 +24,15 @@ export default function Accordion({ children, title }: AccordionProps) {
 
     useEffect(() => {
         handleChangeChildrenAmount()
-        setAmountTasks(children.length)
+        if(filtredTasks.length > 0){
+            setVisibility(false)
+        }else if(children.length > 0){
+            setVisibility(true)
+        }
     }, [children])
 
     return(
-        <AccordionWrapper amountTasks={amountTasks}>
+        <AccordionWrapper visibility={visibility}>
             <AccordionHead expand={expandAccordion} onClick={handleExpand}>
                 <AccordionButton expand={expandAccordion}> 
                     <img src={expandIcon}/>

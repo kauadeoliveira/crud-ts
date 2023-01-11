@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 interface AccordionStyleProps {
     expand: boolean;
-    amountTasks: number
+    visibility: boolean;
 }
-export const AccordionWrapper = styled.div<Pick<AccordionStyleProps, 'amountTasks'>>`
-    display: ${({ amountTasks }) => amountTasks > 0 ? 'block' : 'none'};
+export const AccordionWrapper = styled.div<Pick<AccordionStyleProps, 'visibility'>>`
+    display: ${({ visibility }) => visibility ? 'block' : 'none'};
 `
 export const AccordionHead = styled.div<Pick<AccordionStyleProps, 'expand'>>`
     border-bottom: ${({ expand }) => expand ? 'none' : '0.5px solid #fff'};

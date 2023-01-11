@@ -3,10 +3,12 @@ import { TaskProps } from "../../types";
 
 interface Tasks {
     tasks: TaskProps[];
+    filtredTasks: TaskProps[];
 }
 
 const initialState: Tasks = {
     tasks: [],
+    filtredTasks: []
 }
 
 export const tasksSlice = createSlice({
@@ -42,6 +44,9 @@ export const tasksSlice = createSlice({
             state.tasks.push({...action.payload})
 
             state.tasks = state.tasks.sort((a, b) => a.id - b.id)
+        },
+        search: (state, action) => {
+            state.filtredTasks = state.tasks.filter(task => action.payload != '' && task.title.includes(action.payload))
         }
     }
 })

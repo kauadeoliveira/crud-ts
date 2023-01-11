@@ -10,7 +10,7 @@ export default function Header() {
     return(
         <HeaderContainer>
             <Logo>
-                <h1>TO DO LIST</h1>
+                <h1>TO DO</h1>
             </Logo>
             <SearchBar />
             <HeaderNav>

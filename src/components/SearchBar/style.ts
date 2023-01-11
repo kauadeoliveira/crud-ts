@@ -6,8 +6,8 @@ interface SearchStyleProps {
 }
 
 export const SearchContainer = styled.div<Pick<SearchStyleProps, 'focus'>>`
-    width: 300px;
-    height: 30px;
+    width: 250px;
+    height: 35px;
     background-color: ${({ theme }) => theme.palette.background.dark};
     border-radius: ${({ theme }) => theme.dimensions.input.borderRadius};
     border: ${({ theme }) => theme.dimensions.input.border};
@@ -19,7 +19,7 @@ export const SearchContainer = styled.div<Pick<SearchStyleProps, 'focus'>>`
 `
 
 export const SearchIcon = styled.div<Pick<SearchStyleProps, 'icon' | 'focus'>>`
-    height: 30px;
+    height: 100%;
     width: 20px;
     background-image: url(${({ focus, icon }) => focus ? icon[1] : icon[0]});
     background-repeat: no-repeat;
