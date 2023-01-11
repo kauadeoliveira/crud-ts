@@ -36,6 +36,7 @@ export const MyInput = styled.input<MyInputProps>`
     background-color: ${({ theme }) => theme.palette.background.dark};
     color: #fff;
     border: ${({ theme }) => theme.dimensions.input.border};
+    border-color: transparent;
 
     /* Size */
     width: ${({ inputSize }) => {
