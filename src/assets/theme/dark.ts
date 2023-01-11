@@ -32,15 +32,9 @@ export default {
             }
         },
         text: {
-            primary: '#657575',
+            primary: '#fff',
             disabled: '#c2c2c2'
         },
-        icons: {
-            primary: {
-                main: '#c2c2c2',
-                hover: '#fff'
-            }
-        }
     },
     dimensions: {
         button: {

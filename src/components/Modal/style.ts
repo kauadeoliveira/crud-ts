@@ -25,7 +25,7 @@ export const ModalContainer = styled.div`
     justify-content: center;
     flex-wrap: wrap;
     background-color: ${({ theme }) => theme.palette.colors.background.main};
-    border-radius: ${({ theme }) => theme.dimensions.modal.borderRadius};
+    border-radius: 8px;
 `
 export const ModalHead = styled.div`
     width: 100%;

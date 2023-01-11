@@ -12,17 +12,14 @@ import Accordion from "./components/Accordion"
 import List from "./components/List"
 import { modalSlice } from "./store/slices/modalSlice"
 import { tasksSlice } from "./store/slices/tasksSlice"
+import Header from "./components/Header"
 function App() {
   const { tasks } = useAppSelector(store => store.tasks)
-  const { modalCreateTask } = useAppSelector(store => store.modal)
-  const { modalEditTask } = useAppSelector(store => store.modal)
-  const { openModalCreateTask } = modalSlice.actions
-  const { openModalEditTask } = modalSlice.actions
-  const { addTask } = tasksSlice.actions
   return(
     <div>
       <ThemeProvider theme={dark}>
         <GlobalStyle />
+        <Header />
         <NewTaskButton />
         <Modal />
         <List>

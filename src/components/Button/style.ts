@@ -6,7 +6,7 @@ interface MyButton {
 }
 
 export const MyButton = styled.div<MyButton>`
-    border-radius: ${({ theme }) => theme.dimensions.button.borderRadius};
+    border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
