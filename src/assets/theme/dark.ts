@@ -42,6 +42,11 @@ export default {
         },
         modal: {
             borderRadius: '8px'
+        },
+        input: {
+            padding: '3px 5px',
+            borderRadius: '5px',
+            border: '1px solid transparent',
         }
     }
 }

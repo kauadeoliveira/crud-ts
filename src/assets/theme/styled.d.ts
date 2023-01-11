@@ -46,6 +46,11 @@ declare module 'styled-components' {
             },
             modal: {
                 borderRadius: string;
+            },
+            input: {
+                padding: string;
+                borderRadius: string;
+                border: string;
             }
         }
     }

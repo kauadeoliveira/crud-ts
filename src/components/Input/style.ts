@@ -31,11 +31,11 @@ export const InputWrapper = styled.div<InputWrapper>`
 
 export const MyInput = styled.input<MyInputProps>`
     outline: none;
-    border-radius: 5px;
-    padding: 3px 5px;
+    border-radius: ${({ theme }) => theme.dimensions.input.borderRadius};
+    padding: ${({ theme }) => theme.dimensions.input.padding};
     background-color: ${({ theme }) => theme.palette.colors.background.dark};
     color: #fff;
-    border: 1px solid transparent;
+    border: ${({ theme }) => theme.dimensions.input.border};
 
     /* Size */
     width: ${({ inputSize }) => {
