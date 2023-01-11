@@ -6,33 +6,31 @@ declare module 'styled-components' {
         title: string;
 
         palette: {
-            colors: {
-                primary: {
-                    light: string;
+            primary: {
+                light: string;
+                main: string;
+                dark: string;
+            },
+            background: {
+                dark: string;
+                main: string;
+                light: string;
+            },
+            priorities: {
+                high: {
+                    dark:string;
                     main: string;
-                    dark: string;
+                    light:string;
                 },
-                background: {
-                    dark: string;
+                middle: {
+                    dark:string;
                     main: string;
-                    light: string;
+                    light:string;
                 },
-                priorities: {
-                    high: {
-                        dark:string;
-                        main: string;
-                        light:string;
-                    },
-                    middle: {
-                        dark:string;
-                        main: string;
-                        light:string;
-                    },
-                    low: {
-                        dark:string;
-                        main: string;
-                        light:string
-                    }
+                low: {
+                    dark:string;
+                    main: string;
+                    light:string
                 }
             },
             text: {

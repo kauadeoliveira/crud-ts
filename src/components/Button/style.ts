@@ -15,9 +15,8 @@ export const MyButton = styled.div<MyButton>`
     
     /* Button State */
     cursor: ${({disabled}) => disabled ? 'not-allowed' : 'pointer'};
-    background-color: ${({ theme, disabled }) => disabled ? theme.palette.colors.background.light : theme.palette.colors.primary.main};
+    background-color: ${({ theme, disabled }) => disabled ? theme.palette.background.light : theme.palette.primary.main};
     color: ${({ theme, disabled }) => disabled ? theme.palette.text.disabled : '#fff'};
-    /* color: ${({ theme }) => theme.palette.colors.background.dark}; */
 
 
 
@@ -64,6 +63,6 @@ export const MyButton = styled.div<MyButton>`
 
 
     &:hover{
-        background-color: ${({ theme, disabled }) => disabled ? 'none' : theme.palette.colors.primary.light};
+        background-color: ${({ theme, disabled }) => disabled ? 'none' : theme.palette.primary.light};
     }
 `

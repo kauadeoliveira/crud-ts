@@ -16,7 +16,7 @@ export const InputWrapper = styled.div<InputWrapper>`
     gap: 3px;
     .error-message{
         display: ${({ error }) => error ? 'inline-block' : 'none'};
-        color: ${({ theme }) => theme.palette.colors.priorities.high.main};
+        color: ${({ theme }) => theme.palette.priorities.high.main};
         margin-left: 3px;
     }
 
@@ -33,7 +33,7 @@ export const MyInput = styled.input<MyInputProps>`
     outline: none;
     border-radius: ${({ theme }) => theme.dimensions.input.borderRadius};
     padding: ${({ theme }) => theme.dimensions.input.padding};
-    background-color: ${({ theme }) => theme.palette.colors.background.dark};
+    background-color: ${({ theme }) => theme.palette.background.dark};
     color: #fff;
     border: ${({ theme }) => theme.dimensions.input.border};
 
@@ -77,7 +77,7 @@ export const MyInput = styled.input<MyInputProps>`
     }
 
     &:focus{
-        border-color: ${({ theme }) => theme.palette.colors.primary.main};
+        border-color: ${({ theme }) => theme.palette.primary.main};
 
         &[type="date"]::-webkit-calendar-picker-indicator{
             background-image: url(${({ icon }) => icon[1]});

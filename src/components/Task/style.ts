@@ -66,7 +66,7 @@ export const CheckTask = styled.div<CheckTaskStyleProps>`
     width: 20px;
     height: 20px;
     border-radius: 5px;
-    background-color: ${({ check, theme }) => check ? theme.palette.colors.primary.main : '#fff'};
+    background-color: ${({ check, theme }) => check ? theme.palette.primary.main : '#fff'};
     background-image: url(${({ icons }) => icons[0]});
     background-repeat: no-repeat;
     background-position: center;
@@ -113,13 +113,13 @@ export const TaskIconButton = styled.div<TaskButton>`
 `
 
 export const TaskButton = styled.div`
-    background-color: ${({ theme }) => theme.palette.colors.primary.main};
+    background-color: ${({ theme }) => theme.palette.primary.main};
     padding: 5px;
     border-radius: 5px;
     cursor: pointer;
 
     &:hover{
-        background-color: ${({ theme }) => theme.palette.colors.primary.light};
+        background-color: ${({ theme }) => theme.palette.primary.light};
     }
 `
 
@@ -143,7 +143,7 @@ export const EditModeInputs = styled.div`
 `
 
 export const SelectPriority = styled.select`
-    background-color: ${({ theme }) => theme.palette.colors.background.dark};
+    background-color: ${({ theme }) => theme.palette.background.dark};
     color: #fff;
     border: none;
     padding: 5px;

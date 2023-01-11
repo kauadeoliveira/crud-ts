@@ -5,7 +5,7 @@ interface FloatingButtonStyleProps {
     icon?: string
 }
 export const FloatingButton = styled.div<FloatingButtonStyleProps>`
-    background-color: ${({ theme }) => theme.palette.colors.primary.main};
+    background-color: ${({ theme }) => theme.palette.primary.main};
     background-image: url(${({ icon }) => icon});
     background-repeat: no-repeat;
     background-position: center;
@@ -22,6 +22,6 @@ export const FloatingButton = styled.div<FloatingButtonStyleProps>`
     transition: all 0.3s 0s ease;
 
     &:hover{
-        background-color: ${({ theme }) => theme.palette.colors.primary.light};
+        background-color: ${({ theme }) => theme.palette.primary.light};
     }
 `

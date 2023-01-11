@@ -1,13 +1,14 @@
 import Input from "../Input";
-import { HeaderContainer, Logo, SearchBar } from "./style";
+import SearchBar from "../SearchBar";
+import { HeaderContainer, Logo } from "./style";
 
 export default function Header() {
     return(
         <HeaderContainer> 
-            <Logo>TO DO LIST</Logo>
-            <SearchBar>
-                <Input type="text"/>
-            </SearchBar>
+            <Logo>
+                <h1>TO DO LIST</h1>
+            </Logo>
+            <SearchBar />
         </HeaderContainer>
     )
 }
