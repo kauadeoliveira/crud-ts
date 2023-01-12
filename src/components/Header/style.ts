@@ -4,7 +4,7 @@ interface HeaderStyleProps {
     icon: string[];
 }
 
-export const HeaderContainer = styled.div`
+export const HeaderContainer = styled.header`
     width: 100%;
     height: 70px;
     display: flex;
