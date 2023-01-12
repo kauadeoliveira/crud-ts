@@ -19,9 +19,13 @@ export default function SearchBar() {
     const { focused } = useAppSelector(store => store.searchBar);
     const { onFocus } = searchBarSlice.actions;
     const { onBlur } = searchBarSlice.actions;
+    const { onChange } = searchBarSlice.actions
 
     const handleSearchFocus = () => focused ? dispatch(onBlur()) : dispatch(onFocus())
-    const handleSearchTasks = () => dispatch(search(searchInputRef.current?.value))
+    const handleSearchTasks = () => {
+        dispatch(search(searchInputRef.current?.value))
+        dispatch(onChange(searchInputRef.current?.value))
+    }
 
     // Sempre que o array de task for atualizado será chamado a action "search" que também atualizará o array de "filtredTasks"
     useEffect(() => {
@@ -30,7 +34,7 @@ export default function SearchBar() {
 
     return(
         <SearchContainer focus={focused}>
-            <SearchIcon icon={[searchIcon, searchFocus]} focus={focused}/>
+            <SearchIcon icon={[searchIcon, searchFocus]} focus={focused} />
             <SearchInput
              type="search"
              icon={[close, closeHover]}

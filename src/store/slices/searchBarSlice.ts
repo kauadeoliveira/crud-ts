@@ -2,10 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 interface SearchBar {
     focused: boolean;
+    inputValue: string;
 }
 
 const initialState: SearchBar = {
-    focused: false
+    focused: false,
+    inputValue: '',
 } 
 
 export const searchBarSlice = createSlice({
@@ -17,6 +19,9 @@ export const searchBarSlice = createSlice({
         },
         onBlur: (state) => {
             state.focused = false;
+        },
+        onChange: (state, action) => {
+            state.inputValue = action.payload
         }
     }
 }) 
