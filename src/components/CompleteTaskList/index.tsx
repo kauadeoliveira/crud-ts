@@ -4,32 +4,30 @@ import up from "../../assets/images/up.png"
 import expandIcon from "../../assets/images/arrow.png"
 import { TaskProps } from "../../types";
 import { useAppSelector } from "../../hooks/useAppSelector";
+import Task from "../Task";
+import { store } from "../../store";
 
 interface AccordionProps {
-    children?: any
     title: string
 }
-export default function Accordion({ children, title }: AccordionProps) {
+export default function CompleteTaskList({ title }: AccordionProps) {
     const [expandAccordion, setExpandAccordion] = useState<boolean>(false);
     const handleExpand = () => setExpandAccordion(!expandAccordion);
     const { filtredTasks } = useAppSelector(store => store.tasks)
-
+    const { inputValue } = useAppSelector(store => store.searchBar)
     const [amountCompleteTasks, setAmountCompleteTasks] = useState<string>('0')
     const [visibility, setVisibility] = useState<boolean>(false) 
-
-    const handleChangeChildrenAmount = () => {
-        const amountValue = (children.filter((childrenElement: any) => childrenElement != undefined)).length 
-        setAmountCompleteTasks(amountValue.toString())
-    }
+    const { tasks } = useAppSelector(store => store.tasks)
+    const completeTasks = tasks.filter(task => task.completed)
+    const { focused } = useAppSelector(store => store.searchBar)
 
     useEffect(() => {
-        handleChangeChildrenAmount()
-        if(filtredTasks.length > 0){
+        if(inputValue !== '' && focused || tasks.length === 0){
             setVisibility(false)
-        }else if(children.length > 0){
+        }else if(tasks.length > 0){
             setVisibility(true)
         }
-    }, [children])
+    }, [completeTasks, tasks])
 
     return(
         <AccordionWrapper visibility={visibility}>
@@ -37,10 +35,23 @@ export default function Accordion({ children, title }: AccordionProps) {
                 <AccordionButton expand={expandAccordion}> 
                     <img src={expandIcon}/>
                 </AccordionButton>
-                <span>{title} ({amountCompleteTasks})</span>
+                <span>{title} ({completeTasks.length.toString()})</span>
             </AccordionHead>
             <AccordionBody expand={expandAccordion}>
-                {children}
+                {tasks.map(task => {
+                    if(task.completed){
+                        return (
+                            <Task 
+                             date={task.date}
+                             id={task.id}
+                             priority={task.priority}
+                             title={task.title}
+                             completed={task.completed}
+                             key={task.id}
+                            />
+                        )
+                    }
+                })}
             </AccordionBody>
         </AccordionWrapper>
     )

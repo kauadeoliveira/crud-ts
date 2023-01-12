@@ -5,7 +5,7 @@ import { store } from "../../store";
 import Task from "../Task";
 
 
-export default function TaskList() {
+export default function IncompleteTaskList() {
     const { tasks } = useAppSelector(store => store.tasks)
     const { filtredTasks } = useAppSelector(store => store.tasks)
     const { focused } = useAppSelector(store => store.searchBar)
@@ -39,16 +39,18 @@ export default function TaskList() {
         return(
             <ListContainer>
                 {tasks.map(task => {
-                    return(
-                        <Task 
-                         key={task.id}
-                         id={task.id}
-                         title={task.title}
-                         date={task.date}
-                         priority={task.priority}
-                         completed={task.completed}
-                        />
-                    )
+                    if(!task.completed){
+                        return(
+                            <Task 
+                             key={task.id}
+                             id={task.id}
+                             title={task.title}
+                             date={task.date}
+                             priority={task.priority}
+                             completed={task.completed}
+                            />
+                        )
+                    }
                 })}
             </ListContainer>
         )
