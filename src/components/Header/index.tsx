@@ -1,6 +1,11 @@
-import Input from "../Input";
+import { 
+    HeaderContainer,
+    HeaderIconButton,
+    HeaderNav,
+    Logo
+} from "./style";
+
 import SearchBar from "../SearchBar";
-import { HeaderContainer, HeaderIconButton, HeaderNav, Logo } from "./style";
 import github from "../../assets/images/github.svg"
 import linkedin from "../../assets/images/linkedin.svg"
 import githubHover from "../../assets/images/github-hover.svg"
@@ -10,7 +15,8 @@ export default function Header() {
     return(
         <HeaderContainer>
             <Logo>
-                <h1>TO DO</h1>
+                <span>TO</span>
+                <span>DO</span>
             </Logo>
             <SearchBar />
             <HeaderNav>

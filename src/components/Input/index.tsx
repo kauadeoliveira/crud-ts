@@ -1,4 +1,5 @@
 import { InputWrapper, MyInput } from "./style";
+
 import calendarFocus from "../../assets/images/calendar-focus.png"
 import calendar from "../../assets/images/calendar.png"
 import React from "react";
@@ -6,14 +7,14 @@ import React from "react";
 interface InputProps {
     type: string;
     placeholder?: string;
+    value?: string;
+    size?: 'small' | 'medium' | 'large'; 
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    labelText?: string;
     error?: {
         errorStatus: boolean,
         errorMsg: string;
     };
-    value?: string;
-    size?: 'small' | 'medium' | 'large'; 
-    labelText?: string;
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>((

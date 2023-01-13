@@ -24,4 +24,8 @@ export const FloatingButton = styled.div<FloatingButtonStyleProps>`
     &:hover{
         background-color: ${({ theme }) => theme.palette.primary.light};
     }
+    
+    @media (min-width: 1280px){
+        display: none;
+    }
 `

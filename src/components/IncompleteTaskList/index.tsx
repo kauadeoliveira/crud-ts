@@ -1,16 +1,14 @@
 import { ListContainer } from "./style";
-import { tasksSlice } from "../../store/slices/tasksSlice";
 import { useAppSelector } from "../../hooks/useAppSelector";
-import { store } from "../../store";
+
 import Task from "../Task";
 import NotFoundScreen from "../NoResultFound";
 
 
 export default function IncompleteTaskList() {
-    const { tasks } = useAppSelector(store => store.tasks)
-    const { filtredTasks } = useAppSelector(store => store.tasks)
-    const { focused } = useAppSelector(store => store.searchBar)
-    const { inputValue } = useAppSelector(store => store.searchBar)
+    const { tasks } = useAppSelector(store => store.tasks);
+    const { filtredTasks } = useAppSelector(store => store.tasks);
+    const { inputValue } = useAppSelector(store => store.searchBar);
 
 
     if(filtredTasks.length > 0){

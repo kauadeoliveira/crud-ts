@@ -6,7 +6,7 @@ interface SearchStyleProps {
 }
 
 export const SearchContainer = styled.div<Pick<SearchStyleProps, 'focus'>>`
-    width: 250px;
+    width: 85%;
     height: 35px;
     background-color: ${({ theme }) => theme.palette.background.dark};
     border-radius: ${({ theme }) => theme.dimensions.input.borderRadius};
@@ -16,6 +16,9 @@ export const SearchContainer = styled.div<Pick<SearchStyleProps, 'focus'>>`
     padding: 0 5px;
     gap: 5px;
 
+    @media (min-width: 1024px){
+        height: 40px;
+    }
 `
 
 export const SearchIcon = styled.div<Pick<SearchStyleProps, 'icon' | 'focus'>>`
@@ -48,5 +51,4 @@ export const SearchInput = styled.input<Pick<SearchStyleProps, 'icon'>>`
     &::-webkit-search-cancel-button:hover{
         background-image: url(${({ icon }) => icon[1]});
     }
-
 `

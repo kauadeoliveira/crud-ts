@@ -1,4 +1,4 @@
-import { SearchContainer, SearchIcon, SearchInput } from "./style";
+import {SearchContainer, SearchIcon, SearchInput } from "./style";
 import searchIcon from "../../assets/images/search.svg"
 import searchFocus from "../../assets/images/search-focus.svg"
 import close from "../../assets/images/close.svg"

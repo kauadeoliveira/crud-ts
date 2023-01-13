@@ -9,16 +9,31 @@ export const HeaderContainer = styled.header`
     height: 70px;
     display: flex;
     align-items: center;
-    padding: 8px 15px;
+    justify-content: space-between;
+    padding: 8px 2rem;
     background-color: #000;
     font-size: .8em;
-    justify-content: space-between;
+    gap: 10px;
+    border-bottom: 1px solid rgb(50, 50, 50);
+
+    @media (min-width: 1280px){
+        display: none;
+    }
 `
+
 
 export const Logo = styled.div`
     color: ${({ theme }) => theme.palette.primary.main};
     font-weight: bold;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 1024px){
+        font-size: 20px;
+    }
 `
+
 
 export const HeaderNav = styled.nav`
     ul{
@@ -27,6 +42,7 @@ export const HeaderNav = styled.nav`
         gap: 3px;
     }
 `
+
 
 export const HeaderIconButton = styled.a<Pick<HeaderStyleProps, 'icon'>>`
     display: block;
