@@ -20,21 +20,6 @@ export const HeaderContainer = styled.header`
         display: none;
     }
 `
-
-
-export const Logo = styled.div`
-    color: ${({ theme }) => theme.palette.primary.main};
-    font-weight: bold;
-    font-size: 15px;
-    display: flex;
-    flex-direction: column;
-
-    @media (min-width: 1024px){
-        font-size: 20px;
-    }
-`
-
-
 export const HeaderNav = styled.nav`
     ul{
         display: flex;
