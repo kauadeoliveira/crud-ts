@@ -3,6 +3,7 @@ import { tasksSlice } from "../../store/slices/tasksSlice";
 import { useAppSelector } from "../../hooks/useAppSelector";
 import { store } from "../../store";
 import Task from "../Task";
+import NotFoundScreen from "../NoResultFound";
 
 
 export default function IncompleteTaskList() {
@@ -12,7 +13,7 @@ export default function IncompleteTaskList() {
     const { inputValue } = useAppSelector(store => store.searchBar)
 
 
-    if(focused && filtredTasks.length > 0){
+    if(filtredTasks.length > 0){
         return(
             <ListContainer>
                 {filtredTasks.map(task => {
@@ -30,9 +31,9 @@ export default function IncompleteTaskList() {
             </ListContainer>
         )
     }
-    else if(focused && filtredTasks.length <= 0 && inputValue !== ''){
+    else if(filtredTasks.length <= 0 && inputValue !== ''){
         return(
-            <h1>NOT FOUND</h1>
+            <NotFoundScreen />
         )
     }
     else{
