@@ -14,6 +14,7 @@ import { tasksSlice } from "./store/slices/tasksSlice"
 import Header from "./components/Header"
 import IncompleteTaskList from "./components/IncompleteTaskList"
 import CompleteTaskList from "./components/CompleteTaskList"
+import NavBar from "./components/NavBar"
 function App() {
   const { tasks } = useAppSelector(store => store.tasks)
   const { filtredTasks } = useAppSelector(store => store.tasks)
@@ -23,6 +24,7 @@ function App() {
       <ThemeProvider theme={dark}>
         <GlobalStyle />
         <Header />
+        <NavBar />
         <NewTaskButton />
         <Modal />
         <IncompleteTaskList />
