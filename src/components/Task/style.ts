@@ -12,7 +12,7 @@ interface CheckTaskStyleProps {
     icons: string[];
 }
 
-interface TaskButton {
+interface TaskButtonStyleProps {
     icons: string[];
 }
 
@@ -108,7 +108,7 @@ export const TaskButton = styled.div`
 `
 
 
-export const TaskIconButton = styled.div<TaskButton>`
+export const TaskIconButton = styled.div<TaskButtonStyleProps>`
     height: 20px;
     width: 20px;
     cursor: pointer;

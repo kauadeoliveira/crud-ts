@@ -1,25 +1,31 @@
 import { useEffect, useState } from "react";
-import { AccordionBody, AccordionButton, AccordionHead, AccordionWrapper } from "./style";
-import up from "../../assets/images/up.png"
-import expandIcon from "../../assets/images/arrow.png"
-import { TaskProps } from "../../types";
 import { useAppSelector } from "../../hooks/useAppSelector";
+
+import { 
+    AccordionBody,
+    AccordionButton,
+    AccordionHead,
+    AccordionWrapper
+} from "./style";
+
+import expandIcon from "../../assets/images/arrow.png"
 import Task from "../Task";
-import { store } from "../../store";
+
 
 interface AccordionProps {
-    title: string
+    title: string;
 }
 export default function CompleteTaskList({ title }: AccordionProps) {
     const [expandAccordion, setExpandAccordion] = useState<boolean>(false);
+    const [visibility, setVisibility] = useState<boolean>(false); 
+    
+    const { filtredTasks } = useAppSelector(store => store.tasks);
+    const { inputValue } = useAppSelector(store => store.searchBar);
+    const { tasks } = useAppSelector(store => store.tasks);
+
+    const completeTasks = tasks.filter(task => task.completed);
     const handleExpand = () => setExpandAccordion(!expandAccordion);
-    const { filtredTasks } = useAppSelector(store => store.tasks)
-    const { inputValue } = useAppSelector(store => store.searchBar)
-    const [amountCompleteTasks, setAmountCompleteTasks] = useState<string>('0')
-    const [visibility, setVisibility] = useState<boolean>(false) 
-    const { tasks } = useAppSelector(store => store.tasks)
-    const completeTasks = tasks.filter(task => task.completed)
-    const { focused } = useAppSelector(store => store.searchBar)
+
 
     useEffect(() => {
         if(tasks.length === 0 || inputValue != ``){

@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-interface MyButton {
+interface ButtonStyleProps {
     size: 'small' | 'medium' | 'large';
     disabled?: boolean;
 }
 
-export const MyButton = styled.div<MyButton>`
+export const MyButton = styled.div<ButtonStyleProps>`
     border-radius: 5px;
     display: flex;
     justify-content: center;
@@ -34,6 +34,7 @@ export const MyButton = styled.div<MyButton>`
             break;
         }
     }};
+
     height: ${({ size }) => {
         switch(size){
             case 'large':
@@ -47,6 +48,7 @@ export const MyButton = styled.div<MyButton>`
             break;
         }
     }};
+    
     font-size: ${({ size }) => {
         switch(size){
             case 'large':
