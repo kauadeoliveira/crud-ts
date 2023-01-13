@@ -1,27 +1,31 @@
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import { store } from "../../store";
-import { modalSlice } from "../../store/slices/modalSlice";
-import { CloseButton, ModalBackdrop, ModalBody, ModalHead, ModalPriorityTask, ModalContainer } from "./style";
-import { ActionParameter, RootState, TaskProps } from "../../types";
-import React, { createRef, useEffect, useRef, useState } from "react";
 import { useAppSelector } from "../../hooks/useAppSelector";
-import closeHover from "../../assets/images/close-hover.svg"
+import { useDispatch } from "react-redux";
+import { modalSlice } from "../../store/slices/modalSlice";
+import React, { createRef, useRef, useState, } from "react";
+import { tasksSlice } from "../../store/slices/tasksSlice";
+import { abbreviateDate } from "../../utils/abbreviateDate";
+
+import { 
+    CloseButton,
+    ModalBackdrop,
+    ModalBody,
+    ModalHead,
+    ModalPriorityTask,
+    ModalContainer
+} from "./style";
+
+import closeHover from "../../assets/images/close-hover.svg";
 import Input from "../Input";
 import Button from "../Button";
-import { tasksSlice } from "../../store/slices/tasksSlice";
-import 'animate.css'
-import { abbreviateDate } from "../../utils/abbreviateDate";
-import close from "../../assets/images/close.svg"
+import 'animate.css';
+import close from "../../assets/images/close.svg";
 
 export default function Modal() {
-    // Redux
     const dispatch = useDispatch();
     const { openModalCreateTask } = modalSlice.actions;
     const { open } = useAppSelector(store => store.modal.modalCreateTask);
-    const { addTask } = tasksSlice.actions
+    const { addTask } = tasksSlice.actions;
 
-    // Task values
     const [priority, setPriority] = useState<string>();
     const [errorTitle, setErrorTitle] = useState<boolean>(false);
     
@@ -71,53 +75,56 @@ export default function Modal() {
             lowRefCurrent.checked = false;
         }
 
-        setErrorTitle(false)
+        setErrorTitle(false);
     }
 
-    // Close Modal Function
-    const handleClose = () => {
-        dispatch(openModalCreateTask()) ;
-        resetInputs()
+    const closeModal = () => {
+        dispatch(openModalCreateTask());
+        resetInputs();
     }
 
-    // Create Task Function
     const createTask = () => {
         if(titleRef.current?.value){
-            dispatch(addTask({
-                title: titleRef.current.value,
-                date: dateRef.current?.value,
-                priority: priority
-            }))
-            setErrorTitle(false)
-            handleClose()
+            dispatch(
+                addTask(
+                    {
+                        title: titleRef.current.value,
+                        date: dateRef.current?.value,
+                        priority: priority,
+                    }
+                )
+            )
+            setErrorTitle(false);
+            closeModal();
         }
         else{
-            setErrorTitle(true)
+            setErrorTitle(true);
         }
     }
+
     return(
         <ModalBackdrop state={open}>
             <ModalContainer>
                 <ModalHead>
                     <span>Create Task</span>
-                    <CloseButton icon={[close, closeHover]} onClick={handleClose}/>
+                    <CloseButton icon={[close, closeHover]} onClick={closeModal}/>
                 </ModalHead>
                 <ModalBody>
                     <Input
-                        type="text"
-                        placeholder="Title"
-                        ref={titleRef}
-                        labelText="Task title"
-                        error={{
-                            errorStatus: errorTitle,
-                            errorMsg: 'Title is required.'
-                        }}
+                     type="text"
+                     placeholder="Title"
+                     ref={titleRef}
+                     labelText="Task title"
+                     error={{
+                        errorStatus: errorTitle,
+                        errorMsg: 'Title is required.'
+                     }}
                     />
                     <Input
-                        type="date"
-                        ref={dateRef}
-                        labelText="Task date"
-                        value={abbreviateDate(new Date(Date.now()).toString())}
+                     type="date"
+                     ref={dateRef}
+                     labelText="Task date"
+                     value={abbreviateDate(new Date(Date.now()).toString())}
                     />
                     <ModalPriorityTask>
                         <span>Priority</span>
@@ -130,6 +137,7 @@ export default function Modal() {
                              ref={highRef}
                             />
                             <label htmlFor="high" className="high">High</label>
+
                             <input
                              type="radio"
                              name="priority"
@@ -149,7 +157,7 @@ export default function Modal() {
                             <label htmlFor="low" className="low">Low</label>
                         </div>
                     </ModalPriorityTask>
-                <Button size="large" onClick={createTask}>Done</Button>
+                    <Button size="large" onClick={createTask}>Done</Button>
                 </ModalBody>
             </ModalContainer>
         </ModalBackdrop>

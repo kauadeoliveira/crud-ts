@@ -4,7 +4,7 @@ interface ModalStyleProps {
     state: boolean;
 }
 
-interface CloseButtonProps {
+interface CloseButtonStyleProps {
     icon: string[];
 }
 
@@ -25,34 +25,18 @@ export const ModalContainer = styled.div`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    background-color: ${({ theme }) => theme.palette.background.main};
     border-radius: 8px;
+    background-color: ${({ theme }) => theme.palette.background.main};
 `
 export const ModalHead = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid ${({ theme }) => theme.palette.background.light};
     padding: 15px;
-
-    
+    border-bottom: 1px solid ${({ theme }) => theme.palette.background.light};
     color: #fff;
     font-size: 1.5em;
     font-weight: bold;
-`
-
-export const CloseButton = styled.div<CloseButtonProps>`
-    width: 10px;
-    height: 10px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-image: url(${({ icon }) => icon[0]});
-    cursor: pointer;
-    transition: all .3s;
-
-    &:hover{
-        background-image: url(${({ icon }) => icon[1]});
-    }
 `
 
 export const ModalBody = styled.div`
@@ -66,6 +50,7 @@ export const ModalBody = styled.div`
 
 export const ModalPriorityTask = styled.div`
     width: 300px;
+
     input{
         display: none;
     }
@@ -117,7 +102,6 @@ export const ModalPriorityTask = styled.div`
         }
     }
 
-
     /* Checked Priority */
     #high:checked ~ .high{
         background-color: ${({ theme }) => theme.palette.priorities.high.main};
@@ -130,5 +114,18 @@ export const ModalPriorityTask = styled.div`
     #low:checked ~ .low{
         background-color: ${({ theme }) => theme.palette.priorities.low.main};
     }
+`
 
+export const CloseButton = styled.div<CloseButtonStyleProps>`
+    width: 10px;
+    height: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(${({ icon }) => icon[0]});
+    cursor: pointer;
+    transition: all .3s;
+
+    &:hover{
+        background-image: url(${({ icon }) => icon[1]});
+    }
 `

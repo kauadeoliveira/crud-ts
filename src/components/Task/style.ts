@@ -54,13 +54,15 @@ export const DefaultModeTask = styled.div<Pick<TaskStyleProps, 'priority' | 'ani
     height: 100%;
     border-radius: inherit;
     justify-content: space-between;
-    padding: 5px;
 `
 
 export const TaskDetails = styled.div`
     display: flex;
     align-items: center;
     gap: 10px;
+    width: 100%;
+    height: 100%;
+    margin-left: 5px;
 `
 
 export const CheckTask = styled.div<CheckTaskStyleProps>`
@@ -83,6 +85,9 @@ export const CheckTask = styled.div<CheckTaskStyleProps>`
 export const TaskDescription = styled.div`
     display: flex;
     flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
 
     .title-task{
         font-size: 1.8em;
