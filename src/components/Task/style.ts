@@ -16,6 +16,7 @@ interface TaskButton {
     icons: string[];
 }
 
+
 export const TaskContainer = styled.div<Pick<TaskStyleProps, 'editMode'>>`
     background-color: ${({ theme }) => theme.palette.background.main};
     height: 80px;
@@ -25,17 +26,26 @@ export const TaskContainer = styled.div<Pick<TaskStyleProps, 'editMode'>>`
     .edit-mode, .default-mode{
         align-items: center;
     }
+
     .edit-mode{
         display: ${({ editMode }) => editMode ? 'flex' : 'none'};
     }
-    
+
     .default-mode{
         display: ${({ editMode }) => editMode ? 'none' : 'flex'};
     }
 `
+
+
 export const DefaultModeTask = styled.div<Pick<TaskStyleProps, 'priority' | 'animation'>>`
     cursor: pointer;
+    animation: ${({ animation }) => animation};
+    animation-duration: 1.5s;
+    height: 100%;
+    justify-content: space-between;
+
     border-left: 10px solid;
+    border-radius: inherit;
     border-color: ${({ priority, theme }) => {
         switch(priority){
             case 'high': 
@@ -49,12 +59,8 @@ export const DefaultModeTask = styled.div<Pick<TaskStyleProps, 'priority' | 'ani
             break;
         }
     }};
-    animation: ${({ animation }) => animation};
-    animation-duration: 1.5s;
-    height: 100%;
-    border-radius: inherit;
-    justify-content: space-between;
 `
+
 
 export const TaskDetails = styled.div`
     display: flex;
@@ -65,22 +71,6 @@ export const TaskDetails = styled.div`
     margin-left: 5px;
 `
 
-export const CheckTask = styled.div<CheckTaskStyleProps>`
-    width: 20px;
-    height: 20px;
-    border-radius: 5px;
-    background-color: ${({ check, theme }) => check ? theme.palette.primary.main : '#fff'};
-    background-image: url(${({ icons }) => icons[0]});
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    cursor: pointer;
-    transition: all .2s;
-
-    &:hover{
-        background-image: url(${({ check, icons }) => !check ? icons[1] : icons[0]})
-    }
-`
 
 export const TaskDescription = styled.div`
     display: flex;
@@ -99,10 +89,24 @@ export const TaskDescription = styled.div`
     }
 `
 
+
 export const TaskButtons = styled.div`
     display: flex;
     gap: 5px;
 `
+
+
+export const TaskButton = styled.div`
+    background-color: ${({ theme }) => theme.palette.primary.main};
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover{
+        background-color: ${({ theme }) => theme.palette.primary.light};
+    }
+`
+
 
 export const TaskIconButton = styled.div<TaskButton>`
     height: 20px;
@@ -118,16 +122,24 @@ export const TaskIconButton = styled.div<TaskButton>`
     }
 `
 
-export const TaskButton = styled.div`
-    background-color: ${({ theme }) => theme.palette.primary.main};
-    padding: 5px;
-    border-radius: 5px;
+
+export const CheckTask = styled.div<CheckTaskStyleProps>`
+    width: 20px;
+    height: 20px;
     cursor: pointer;
+    transition: all .2s;
+    border-radius: 5px;
+    background-color: ${({ check, theme }) => check ? theme.palette.primary.main : '#fff'};
+    background-image: url(${({ icons }) => icons[0]});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 
     &:hover{
-        background-color: ${({ theme }) => theme.palette.primary.light};
+        background-image: url(${({ check, icons }) => !check ? icons[1] : icons[0]})
     }
 `
+
 
 export const EditModeTask = styled.div`
     border-radius: inherit;
@@ -141,12 +153,21 @@ export const EditModeTask = styled.div`
     }
 `
 
+
 export const EditModeInputs = styled.div`
     display: flex;
     flex-wrap: wrap;
     width: 100%;
     gap: 5px;
 `
+
+
+export const EditModeButtons = styled.div`
+    background-color: red;
+    display: flex;
+    align-items: flex-end;
+`
+
 
 export const SelectPriority = styled.select`
     background-color: ${({ theme }) => theme.palette.background.dark};
@@ -159,8 +180,3 @@ export const SelectPriority = styled.select`
     outline: none;
 `
 
-export const EditModeButtons = styled.div`
-    background-color: red;
-    display: flex;
-    align-items: flex-end;
-`

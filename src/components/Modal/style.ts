@@ -20,6 +20,8 @@ export const ModalBackdrop = styled.div<ModalStyleProps>`
     background-color: rgba(0,0,0,0.48);
     z-index: 1000;
 `
+
+
 export const ModalContainer = styled.div`
     width: 400px;
     display: flex;
@@ -28,6 +30,8 @@ export const ModalContainer = styled.div`
     border-radius: 8px;
     background-color: ${({ theme }) => theme.palette.background.main};
 `
+
+
 export const ModalHead = styled.div`
     width: 100%;
     display: flex;
@@ -39,6 +43,7 @@ export const ModalHead = styled.div`
     font-weight: bold;
 `
 
+
 export const ModalBody = styled.div`
     width: 100%;
     display: flex;
@@ -47,6 +52,7 @@ export const ModalBody = styled.div`
     gap: 10px;
     padding: 15px;
 `
+
 
 export const ModalPriorityTask = styled.div`
     width: 300px;
@@ -115,6 +121,7 @@ export const ModalPriorityTask = styled.div`
         background-color: ${({ theme }) => theme.palette.priorities.low.main};
     }
 `
+
 
 export const CloseButton = styled.div<CloseButtonStyleProps>`
     width: 10px;
