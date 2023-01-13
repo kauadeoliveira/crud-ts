@@ -2,13 +2,17 @@ import styled from "styled-components";
 
 export const NoResultFoundContainer = styled.div`
     width: 100%;
-    height: 87.5vh;
-    background-color: red;
     display: flex;
-    justify-content: center;
     align-items: center;
+    flex-direction: column;
+    text-align: center;
     img{
         width: 300px;
-        height: 200px;
+    }
+    p{
+        width: 380px;
+        font-weight: bold;
+        font-size: 18px;
+        font-family: "Open Sans", sans-serif;
     }
 `

@@ -31,7 +31,7 @@ export default function IncompleteTaskList() {
             </ListContainer>
         )
     }
-    else if(filtredTasks.length <= 0 && inputValue !== ''){
+    else if(filtredTasks.length === 0 && inputValue !== ''){
         return(
             <NotFoundScreen />
         )

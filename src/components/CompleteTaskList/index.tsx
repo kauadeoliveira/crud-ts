@@ -22,12 +22,13 @@ export default function CompleteTaskList({ title }: AccordionProps) {
     const { focused } = useAppSelector(store => store.searchBar)
 
     useEffect(() => {
-        if(filtredTasks.length > 0 || tasks.length === 0){
+        console.log(inputValue === '')
+        if(tasks.length === 0 || inputValue != ``){
             setVisibility(false)
-        }else if(tasks.length > 0){
+        }else if(tasks.length > 0 && inputValue === ''){
             setVisibility(true)
         }
-    }, [completeTasks, tasks])
+    }, [inputValue, tasks.length, filtredTasks.length])
 
     return(
         <AccordionWrapper visibility={visibility}>
