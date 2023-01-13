@@ -22,7 +22,6 @@ export default function CompleteTaskList({ title }: AccordionProps) {
     const { focused } = useAppSelector(store => store.searchBar)
 
     useEffect(() => {
-        console.log(inputValue === '')
         if(tasks.length === 0 || inputValue != ``){
             setVisibility(false)
         }else if(tasks.length > 0 && inputValue === ''){

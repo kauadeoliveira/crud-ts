@@ -46,7 +46,7 @@ export const tasksSlice = createSlice({
             state.tasks = state.tasks.sort((a, b) => a.id - b.id)
         },
         search: (state, action) => {
-            state.filtredTasks = state.tasks.filter(task => action.payload != '' && task.title.includes(action.payload))
+            state.filtredTasks = state.tasks.filter(task => action.payload != '' && (task.title.toLowerCase()).includes(action.payload.toLowerCase()))
         }
     }
 })
