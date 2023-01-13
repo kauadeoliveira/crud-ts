@@ -5,7 +5,6 @@ import React from "react";
 
 interface InputProps {
     type: string;
-    maxLength?: number;
     placeholder?: string;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     error?: {
@@ -18,14 +17,14 @@ interface InputProps {
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>((
-    { type, maxLength, placeholder, onChange, error, value, size="medium", labelText }, ref
+    { type, placeholder, onChange, error, value, size="medium", labelText }, ref
     ) => {
     return(
         <InputWrapper error={error?.errorStatus} label={labelText ? true : false}>
             <span className="label-text">{labelText}</span>
             <MyInput
              type={type}
-             maxLength={maxLength}
+             maxLength={40}
              placeholder={placeholder}
              icon={[calendar, calendarFocus]}
              onChange={onChange}

@@ -34,6 +34,7 @@ export const TaskContainer = styled.div<Pick<TaskStyleProps, 'editMode'>>`
     }
 `
 export const DefaultModeTask = styled.div<Pick<TaskStyleProps, 'priority' | 'animation'>>`
+    cursor: pointer;
     border-left: 10px solid;
     border-color: ${({ priority, theme }) => {
         switch(priority){

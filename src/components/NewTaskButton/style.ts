@@ -11,14 +11,14 @@ export const FloatingButton = styled.div<FloatingButtonStyleProps>`
     background-position: center;
     height: 50px;
     width: 50px;
-    line-height: 50px;
     text-align: center;
     font-size: 4em;
     border-radius: 100%;
     position: fixed;
-    bottom: 50px;
-    right: 30px;
+    bottom: 15px;
+    right: 15px;
     cursor: pointer;
+    z-index: 500;
     transition: all 0.3s 0s ease;
 
     &:hover{

@@ -6,6 +6,7 @@ interface AccordionStyleProps {
 }
 export const AccordionWrapper = styled.div<Pick<AccordionStyleProps, 'visibility'>>`
     display: ${({ visibility }) => visibility ? 'block' : 'none'};
+    padding: 1rem;
 `
 export const AccordionHead = styled.div<Pick<AccordionStyleProps, 'expand'>>`
     border-bottom: ${({ expand }) => expand ? 'none' : '0.5px solid #fff'};

@@ -58,7 +58,7 @@ export default function Task({ title, date, id, priority, completed }: TaskProps
 
     return(
         <TaskContainer editMode={editMode}>
-            <DefaultModeTask className="default-mode" priority={priority} animation={animation}>
+            <DefaultModeTask className="default-mode" priority={priority} animation={animation} onClick={switchEditMode}>
                 <TaskDetails>
                     <CheckTask check={check} onClick={handleComplete} icons={[doneIcon, doneHover]}/>
                     <TaskDescription>
@@ -67,7 +67,6 @@ export default function Task({ title, date, id, priority, completed }: TaskProps
                     </TaskDescription>
                 </TaskDetails>
                 <TaskButtons>
-                    <TaskIconButton icons={[editIcon, editHover]} onClick={switchEditMode}/>
                     <TaskIconButton icons={[trashIcon, trashHover]} onClick={handleDelete}/>
                 </TaskButtons>
             </DefaultModeTask>

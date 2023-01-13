@@ -18,6 +18,7 @@ export const ModalBackdrop = styled.div<ModalStyleProps>`
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.48);
+    z-index: 1000;
 `
 export const ModalContainer = styled.div`
     width: 400px;
