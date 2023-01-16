@@ -15,22 +15,47 @@ export const NavBarContainer = styled.nav`
 export const NavbarHead = styled.div`
     height: 15vh;
     width: 100%;
-    border-bottom: 1px solid rgb(50, 50, 50);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 `
 
-export const NavbarBody = styled.ul`
+export const NavbarBody = styled.div`
+    display: flex;
+    flex-direction: column;
     height: 100%;
     width: 100%;
     padding: 5px;
+    gap: 20px;
 
-    ul{
-        width: 100%;
-        gap: 10px;
-        display: flex;
-        flex-direction: column;
+
+`
+export const NavBarMain = styled.ul`
+    width: 100%;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid rgb(50, 50, 50);
+    height: 15vh;
+`
+
+export const NavBarSocials = styled.ul`
+    width: 100%;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+`
+
+export const NavBarSocialItem = styled.a`
+    width: 100%;
+    font-size: 1.3em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    img{
+        height: 20px;
+        width: 20px;
     }
 `
