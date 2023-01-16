@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const NavBarContainer = styled.nav`
-    width: 15vw;
+    width: 100%;
     height: 100vh;
     background-color: ${({ theme }) => theme.palette.background.dark};
     display: flex;

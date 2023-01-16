@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useSelector } from "react-redux"
 import { ThemeProvider } from "styled-components"
-import { GlobalStyle } from "./assets/styles/global"
+import { GlobalStyle, Wrapper } from "./assets/styles/global"
 import dark from "./assets/theme/dark"
 import Modal from "./components/Modal"
 import NewTaskButton from "./components/FloatingAddTaskButton"
@@ -21,17 +21,23 @@ function App() {
   const { filtredTasks } = useAppSelector(store => store.tasks)
   const { focused } = useAppSelector(store => store.searchBar)
   return(
-    <div>
       <ThemeProvider theme={dark}>
         <GlobalStyle />
-        <Header />
-        <NavBar />
-        <FloatingAddTaskButton />
-        <Modal />
-        <IncompleteTaskList />
-        <CompleteTaskList title="Complete" />
+        <Wrapper>
+          <Header />
+          <NavBar />
+          <FloatingAddTaskButton />
+          <Modal />
+          <main>
+            <section>
+              <IncompleteTaskList />
+            </section>
+            <section>
+              <CompleteTaskList title="Complete" />
+            </section>
+          </main>
+        </Wrapper>
       </ThemeProvider>
-    </div>
   )
 }
 

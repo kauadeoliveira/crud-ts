@@ -18,13 +18,9 @@ export const SearchContainer = styled.div<Pick<SearchStyleProps, 'focus'>>`
 
     @media (min-width: 1024px){
         height: 40px;
-    }
-
-    @media (min-width: 1280px){
         width: 100%;
         background-color: #000;
     }
-    
 `
 
 export const SearchIcon = styled.div<Pick<SearchStyleProps, 'icon' | 'focus'>>`

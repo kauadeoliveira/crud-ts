@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
     *{
@@ -12,7 +12,22 @@ export const GlobalStyle = createGlobalStyle`
         font-family: sans-serif;
         background-color: #000;
         color: #fff;
-        overflow-y: hidden;
+        /* overflow-y: hidden; */
+        display: flex;
+    }
+`
+
+export const Wrapper = styled.div`
+    display: flex;
+    width: 100vw;
+    flex-wrap: wrap;
+
+    main, section{
+        width: 100%;
     }
 
+    @media (min-width: 1024px){
+        display: grid;
+        grid-template-columns: 15vw 85vw;
+    }
 `
