@@ -5,7 +5,7 @@ import { modalSlice } from "../../store/slices/modalSlice"
 import { FloatingButton } from "./style"
 import newTaskIcon from "../../assets/images/new-task.svg"
 
-export default function NewTaskButton() {
+export default function FloatingAddTaskButton() {
     const dispatch = useDispatch();
     const { openModalCreateTask } = modalSlice.actions;
 

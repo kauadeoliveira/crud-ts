@@ -4,7 +4,7 @@ import { ThemeProvider } from "styled-components"
 import { GlobalStyle } from "./assets/styles/global"
 import dark from "./assets/theme/dark"
 import Modal from "./components/Modal"
-import NewTaskButton from "./components/NewTaskButton"
+import NewTaskButton from "./components/FloatingAddTaskButton"
 import Task from "./components/Task"
 import { useAppSelector } from "./hooks/useAppSelector"
 import 'animate.css'
@@ -15,6 +15,7 @@ import Header from "./components/Header"
 import IncompleteTaskList from "./components/IncompleteTaskList"
 import CompleteTaskList from "./components/CompleteTaskList"
 import NavBar from "./components/NavBar"
+import FloatingAddTaskButton from "./components/FloatingAddTaskButton"
 function App() {
   const { tasks } = useAppSelector(store => store.tasks)
   const { filtredTasks } = useAppSelector(store => store.tasks)
@@ -25,7 +26,7 @@ function App() {
         <GlobalStyle />
         <Header />
         <NavBar />
-        <NewTaskButton />
+        <FloatingAddTaskButton />
         <Modal />
         <IncompleteTaskList />
         <CompleteTaskList title="Complete" />
