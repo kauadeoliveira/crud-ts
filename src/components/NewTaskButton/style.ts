@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 
-interface AddTaskBttnStyleProps{
+interface NewTaskBttnStyleProps{
     modalState: boolean
 }
 
-export const AddTaskBttn = styled.div<AddTaskBttnStyleProps>`
+export const NewTaskBttn = styled.div<NewTaskBttnStyleProps>`
     width: 100%;
     height: 40px;
     background-color: ${({ theme, modalState }) => modalState ? theme.palette.primary.main : 'transparent'};

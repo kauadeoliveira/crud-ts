@@ -38,7 +38,7 @@ export default function SearchBar() {
             <SearchInput
              type="search"
              icon={[close, closeHover]}
-             placeholder="search"
+             placeholder="Search"
              ref={searchInputRef}
              onFocus={handleSearchFocus}
              onBlur={handleSearchFocus}

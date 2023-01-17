@@ -25,7 +25,7 @@ export const FloatingButton = styled.div<FloatingButtonStyleProps>`
         background-color: ${({ theme }) => theme.palette.primary.light};
     }
     
-    @media (min-width: 1024px){
+    @media (min-width: 1280px){
         display: none;
     }
 `

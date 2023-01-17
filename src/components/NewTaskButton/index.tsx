@@ -1,17 +1,17 @@
 import { useEffect } from "react"
 import { useAppSelector } from "../../hooks/useAppSelector"
-import { AddTaskBttn } from "./style"
+import { NewTaskBttn } from "./style"
 
 interface AddTaskButtonProps{
     onClick?: () => void
 }
 
-export default function AddTaskButton({ onClick }: AddTaskButtonProps) {
+export default function NewTaskButton({ onClick }: AddTaskButtonProps) {
     const { open } = useAppSelector(store => store.modal.modalCreateTask)
 
     return(
-        <AddTaskBttn onClick={onClick} modalState={open}>
-            <span>Add Task</span>
-        </AddTaskBttn>
+        <NewTaskBttn onClick={onClick} modalState={open}>
+            <span>New Task</span>
+        </NewTaskBttn>
     )
 } 

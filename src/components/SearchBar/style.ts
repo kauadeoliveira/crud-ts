@@ -16,7 +16,7 @@ export const SearchContainer = styled.div<Pick<SearchStyleProps, 'focus'>>`
     padding: 0 5px;
     gap: 5px;
 
-    @media (min-width: 1024px){
+    @media (min-width: 1280px){
         height: 40px;
         width: 100%;
         background-color: #000;

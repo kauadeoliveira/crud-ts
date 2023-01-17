@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface HeaderStyleProps {
-    icon: string[];
+    icon: string[] | string;
 }
 
 export const HeaderContainer = styled.header`
@@ -10,13 +10,14 @@ export const HeaderContainer = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 8px 2rem;
+    padding: 8px 10px;
     background-color: #000;
     font-size: .8em;
     gap: 10px;
     border-bottom: 1px solid rgb(50, 50, 50);
 
-    @media (min-width: 1024px){
+
+    @media (min-width: 1280px){
         display: none;
     }
 `
@@ -29,18 +30,18 @@ export const HeaderNav = styled.nav`
 `
 
 
-export const HeaderIconButton = styled.a<Pick<HeaderStyleProps, 'icon'>>`
+export const HeaderIconButton = styled.div<Pick<HeaderStyleProps, 'icon'>>`
     display: block;
     height: 25px;
     width: 25px;
-    background-image: url(${({ icon }) => icon[0]});
+    background-image: url(${({ icon }) => typeof icon != 'string' ? icon[0] : icon});
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     cursor: pointer;
-    transition: all .3s;
+    transition: background-image all .3s;
 
     &:hover{
-        background-image: url(${({ icon }) => icon[1]});
+        background-image: url(${({ icon }) => typeof icon != 'string' ? icon[1] : icon});
     }
 `

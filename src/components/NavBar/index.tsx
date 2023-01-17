@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "../../hooks/useAppSelector";
 import { modalSlice } from "../../store/slices/modalSlice";
-import AddTaskButton from "../AddTaskButton";
+import AddTaskButton from "../NewTaskButton";
 import Logo from "../Logo";
 import SearchBar from "../SearchBar";
 import { NavbarBody, NavBarContainer, NavbarHead, NavBarMain, NavBarSocialItem, NavBarSocials } from "./style";
@@ -47,3 +47,5 @@ export default function NavBar() {
         </NavBarContainer>
     )
 }
+
+// PENSANDO EM REMOVER AS REDES SOCIAIS E DEIXAR SÓ UM SWITCH THEME BUTTON

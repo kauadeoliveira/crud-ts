@@ -10,6 +10,7 @@ import linkedin from "../../assets/images/linkedin.svg"
 import githubHover from "../../assets/images/github-hover.svg"
 import linkedinHover from "../../assets/images/linkedin-hover.svg"
 import Logo from "../Logo";
+import moon from "../../assets/images/moon.png"
 
 export default function Header() {
     return(
@@ -19,13 +20,13 @@ export default function Header() {
             <HeaderNav>
                 <ul>
                     <li>
-                        <HeaderIconButton icon={[github, githubHover]} href="#"/>
-                    </li>
-                    <li>
-                        <HeaderIconButton icon={[linkedin, linkedinHover]} href="#"/>
+                        <HeaderIconButton icon={moon} />
                     </li>
                 </ul>
             </HeaderNav>
         </HeaderContainer>
     )
 }
+
+
+// PENSANDO EM REMOVER AS REDES SOCIAIS E DEIXAR SÓ O THEME BUTTON

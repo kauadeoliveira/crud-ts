@@ -7,7 +7,7 @@ export const NavBarContainer = styled.nav`
     display: flex;
     flex-direction: column;
 
-    @media (max-width: 1024px){
+    @media (max-width: 1280px){
         display: none;
     }
 `
