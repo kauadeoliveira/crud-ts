@@ -8,6 +8,7 @@ import IncompleteTaskList from "./components/IncompleteTaskList"
 import CompleteTaskList from "./components/CompleteTaskList"
 import NavBar from "./components/NavBar"
 import FloatingNewTaskButton from "./components/FloatingNewTaskButton"
+import ThemeSwitchButton from "./components/ThemeSwitchButton"
 
 
 function App() {

@@ -9,6 +9,7 @@ import github from "../../assets/images/github.svg"
 import linkedin from "../../assets/images/linkedin.svg"
 import githubHover from "../../assets/images/github-hover.svg"
 import linkedinHover from "../../assets/images/linkedin-hover.svg"
+import ThemeSwitchButton from "../ThemeSwitchButton";
 
 export default function NavBar() {
     const dispatch = useDispatch()
@@ -27,6 +28,9 @@ export default function NavBar() {
                     </li>
                     <li>
                         <AddTaskButton onClick={handleOpenModal}/>
+                    </li>
+                    <li>
+                      <ThemeSwitchButton />
                     </li>
                 </NavBarMain>
                 <NavBarSocials>
