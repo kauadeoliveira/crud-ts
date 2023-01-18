@@ -5,8 +5,7 @@ export default {
         primary: {
             light: '#a883ff',
             main: '#8257e6',
-            dark: '#6837e0',
-            hover: '#8257e647',
+            dark: '#6837e0'
         },
         background: {
             dark: '#121214',

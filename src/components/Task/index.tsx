@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { tasksSlice } from "../../store/slices/tasksSlice";
 import { TaskProps } from "../../types";
 import { formatDate } from "../../utils/formatDate";
+import { HiTrash, HiCheck } from "react-icons/hi"
 
 import { 
     CheckTask,
@@ -10,7 +11,6 @@ import {
     EditModeInputs,
     EditModeTask,
     SelectPriority,
-    TaskButtons,
     TaskContainer,
     TaskDescription,
     TaskDetails,
@@ -20,8 +20,6 @@ import {
 import 'animate.css'
 import Input from "../Input";
 import trashHover from "../../assets/images/trash-hover.svg"
-import doneHover from "../../assets/images/done-hover.png"
-import doneIcon from "../../assets/images/done.png"
 import trashIcon from "../../assets/images/trash.svg"
 import Button from "../Button";
 
@@ -76,15 +74,17 @@ export default function Task({ title, date, id, priority, completed }: TaskProps
         <TaskContainer editMode={editMode}>
             <DefaultModeTask className="default-mode" priority={priority} animation={animation}>
                 <TaskDetails>
-                    <CheckTask check={check} onClick={handleCompleteTask} icons={[doneIcon, doneHover]}/>
+                    <CheckTask check={check} onClick={handleCompleteTask}>
+                        <HiCheck />
+                    </CheckTask>
                     <TaskDescription onClick={switchEditMode}>
                         <span className="title-task">{title}</span>
                         <span className="date-task">{formatDate(date)}</span>
                     </TaskDescription>
+                    <TaskIconButton icons={[trashIcon, trashHover]} onClick={handleDeleteTask}>
+                        <HiTrash />
+                    </TaskIconButton>
                 </TaskDetails>
-                <TaskButtons>
-                    <TaskIconButton icons={[trashIcon, trashHover]} onClick={handleDeleteTask}/>
-                </TaskButtons>
             </DefaultModeTask>
             
             <EditModeTask className="edit-mode">

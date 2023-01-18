@@ -1,10 +1,8 @@
-import { ToggleButtonContainer } from "./style";
-import { HiMoon, HiSun } from "react-icons/hi";
-import { useAppSelector } from "../../hooks/useAppSelector";
-import { useDispatch } from "react-redux";
-import { themeSlice } from "../../store/slices/themeSlice";
+import { ToggeButtonContainer } from "./style";
+import moon from "../../assets/images/moon.svg"
 
 export default function ThemeSwitchButton() {
+<<<<<<< HEAD
     const { mode } = useAppSelector(store => store.theme);
     const { switchMode } = themeSlice.actions
     const dispatch = useDispatch();
@@ -26,5 +24,13 @@ export default function ThemeSwitchButton() {
             </div>
         </ToggleButtonContainer>
         </>
+=======
+    return(
+        <ToggeButtonContainer>
+            <input type="checkbox" id="darkmode-toggle" />
+            <label htmlFor="darkmode-toggle">
+            </label>
+        </ToggeButtonContainer>
+>>>>>>> parent of 90a21fa (feat: implement themeSwitchButton)
     )
 }

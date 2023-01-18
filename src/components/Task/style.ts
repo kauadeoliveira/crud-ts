@@ -9,7 +9,6 @@ interface TaskStyleProps extends TaskProps{
 
 interface CheckTaskStyleProps {
     check: boolean | undefined;
-    icons: string[];
 }
 
 interface TaskButtonStyleProps {
@@ -36,11 +35,7 @@ export const TaskContainer = styled.div<Pick<TaskStyleProps, 'editMode'>>`
         display: ${({ editMode }) => editMode ? 'none' : 'flex'};
     }
 
-    &:hover{
-        background-color: ${({ theme }) => theme.palette.background.light};
-    }
 `
-
 
 export const DefaultModeTask = styled.div<Pick<TaskStyleProps, 'priority' | 'animation'>>`
     cursor: pointer;
@@ -66,7 +61,6 @@ export const DefaultModeTask = styled.div<Pick<TaskStyleProps, 'priority' | 'ani
     }};
 `
 
-
 export const TaskDetails = styled.div`
     display: flex;
     align-items: center;
@@ -74,6 +68,28 @@ export const TaskDetails = styled.div`
     width: 100%;
     height: 100%;
     margin-left: 5px;
+    padding: 0 5px;
+`
+
+export const CheckTask = styled.div<CheckTaskStyleProps>`
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: ${({ check, theme }) => check ? theme.palette.primary.main : '#fff'};
+
+    svg{
+        width: 20px;
+        height: 20px;
+        visibility: ${({ check }) => check ? 'visible' : 'hidden'};
+        fill: ${({ check, theme }) => check ? '#fff' : theme.palette.primary.main};
+    }
+
+    &:hover{
+        svg{
+            visibility: visible;
+        }
+    }
 `
 
 
@@ -94,57 +110,22 @@ export const TaskDescription = styled.div`
     }
 `
 
-
-export const TaskButtons = styled.div`
-    display: flex;
-    gap: 5px;
-`
-
-
-export const TaskButton = styled.div`
-    background-color: ${({ theme }) => theme.palette.primary.main};
-    padding: 5px;
-    border-radius: 5px;
-    cursor: pointer;
-
-    &:hover{
-        background-color: ${({ theme }) => theme.palette.primary.light};
-    }
-`
-
-
 export const TaskIconButton = styled.div<TaskButtonStyleProps>`
-    height: 20px;
-    width: 20px;
     cursor: pointer;
-    background-image: url(${({ icons }) => icons[0]});
-    background-repeat: no-repeat;
-    background-position: center;
     transition: all .2s;
+
+    svg{
+        width: 20px;
+        height: 20px;
+        fill: #ff200c;
+    }
 
     &:hover {
-        background-image: url(${({ icons }) => icons[1]});
+        svg{
+            fill: #ff795b;
+        }
     }
 `
-
-
-export const CheckTask = styled.div<CheckTaskStyleProps>`
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    transition: all .2s;
-    border-radius: 5px;
-    background-color: ${({ check, theme }) => check ? theme.palette.primary.main : '#fff'};
-    background-image: url(${({ icons }) => icons[0]});
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-
-    &:hover{
-        background-image: url(${({ check, icons }) => !check ? icons[1] : icons[0]})
-    }
-`
-
 
 export const EditModeTask = styled.div`
     border-radius: inherit;
@@ -152,12 +133,10 @@ export const EditModeTask = styled.div`
     justify-content: space-between;
     padding: 5px;
 
-
     div:nth-child(2){
         align-self: flex-end;
     }
 `
-
 
 export const EditModeInputs = styled.div`
     display: flex;
@@ -165,14 +144,6 @@ export const EditModeInputs = styled.div`
     width: 100%;
     gap: 5px;
 `
-
-
-export const EditModeButtons = styled.div`
-    background-color: red;
-    display: flex;
-    align-items: flex-end;
-`
-
 
 export const SelectPriority = styled.select`
     background-color: ${({ theme }) => theme.palette.background.dark};
