@@ -10,15 +10,14 @@ export const NavBarContainer = styled.nav`
     @media (max-width: 1024px){
         display: none;
     }
+    padding: 10px 5px;
 `
 
 export const NavbarHead = styled.div`
-    height: 15vh;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 10px;
 `
 
 export const NavbarBody = styled.div`
@@ -36,8 +35,8 @@ export const NavBarMain = styled.ul`
     gap: 10px;
     display: flex;
     flex-direction: column;
-    /* border-bottom: 1px solid rgb(50, 50, 50); */
-    height: 15vh;
+    border-bottom: 1px solid rgb(50, 50, 50);
+    padding: 20px 0;
 `
 
 export const NavBarSocials = styled.ul`

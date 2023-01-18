@@ -1,30 +1,31 @@
 import styled from "styled-components";
 
-
-interface FloatingButtonStyleProps {
-    icon?: string
-}
-export const FloatingButton = styled.div<FloatingButtonStyleProps>`
-    background-color: ${({ theme }) => theme.palette.primary.main};
-    background-image: url(${({ icon }) => icon});
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 50px;
-    width: 50px;
-    text-align: center;
-    font-size: 4em;
-    border-radius: 100%;
+export const FloatingButton = styled.div`
+    display: flex;
+    justify-content: center;
     position: fixed;
     bottom: 15px;
     right: 15px;
+    align-items: center;
+    background-color: ${({ theme }) => theme.palette.primary.main};
+    border-radius: 100%;
     cursor: pointer;
     z-index: 500;
     transition: all 0.3s 0s ease;
 
+    svg{
+        height: 50px;
+        width: 50px;
+    }
+
     &:hover{
         background-color: ${({ theme }) => theme.palette.primary.light};
     }
-    
+
+    &:active{
+        transform: scale(0.9);
+    }
+
     @media (min-width: 1024px){
         display: none;
     }

@@ -85,10 +85,3 @@ export const MyInput = styled.input<MyInputProps>`
         }
     }
 `
-
-export const MyInputIcon = styled.input<MyInputProps> `
-    background-image: url(${({ icon }) => icon[0]});
-    background-repeat: no-repeat;
-    width: 15px;
-    height: 15px;
-`

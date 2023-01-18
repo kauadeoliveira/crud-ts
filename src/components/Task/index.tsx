@@ -81,7 +81,7 @@ export default function Task({ title, date, id, priority, completed }: TaskProps
                         <span className="title-task">{title}</span>
                         <span className="date-task">{formatDate(date)}</span>
                     </TaskDescription>
-                    <TaskIconButton icons={[trashIcon, trashHover]} onClick={handleDeleteTask}>
+                    <TaskIconButton onClick={handleDeleteTask}>
                         <HiTrash />
                     </TaskIconButton>
                 </TaskDetails>

@@ -24,14 +24,19 @@ export const AccordionHead = styled.div<Pick<AccordionStyleProps, 'expand'>>`
 
 
 export const AccordionButton = styled.div<Pick<AccordionStyleProps, 'expand'>>`
-    height: 20px;
-    width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    img{
+    svg{
+        height: 20px;
+        width: 20px;
+    }
+
+    svg{
         transition: all .2s;
         transform: rotate(${({ expand }) => expand ? '90deg' : '0'});
     }
-
 `
 
 

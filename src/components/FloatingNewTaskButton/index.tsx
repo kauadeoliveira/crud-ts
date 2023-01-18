@@ -1,9 +1,8 @@
 import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux"
-import { useEffect } from "react"
 import { modalSlice } from "../../store/slices/modalSlice"
 import { FloatingButton } from "./style"
-import newTaskIcon from "../../assets/images/new-task.svg"
+import { HiPlus } from "react-icons/hi"
 
 export default function FloatingNewTaskButton() {
     const dispatch = useDispatch();
@@ -12,6 +11,8 @@ export default function FloatingNewTaskButton() {
     const handleClick = () => dispatch(openModalCreateTask());
 
     return(
-        <FloatingButton onClick={handleClick} icon={newTaskIcon}/>
+        <FloatingButton onClick={handleClick}>
+            <HiPlus />
+        </FloatingButton>
     )
 }

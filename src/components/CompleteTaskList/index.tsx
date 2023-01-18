@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAppSelector } from "../../hooks/useAppSelector";
-
+import { HiChevronRight } from "react-icons/hi";
 import { 
     AccordionBody,
     AccordionButton,
@@ -8,7 +8,6 @@ import {
     AccordionWrapper
 } from "./style";
 
-import expandIcon from "../../assets/images/arrow.png"
 import Task from "../Task";
 
 
@@ -39,7 +38,7 @@ export default function CompleteTaskList({ title }: AccordionProps) {
         <AccordionWrapper visibility={visibility}>
             <AccordionHead expand={expandAccordion} onClick={handleExpand}>
                 <AccordionButton expand={expandAccordion}> 
-                    <img src={expandIcon}/>
+                    <HiChevronRight />
                 </AccordionButton>
                 <span>{title} ({completeTasks.length.toString()})</span>
             </AccordionHead>

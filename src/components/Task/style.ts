@@ -11,9 +11,6 @@ interface CheckTaskStyleProps {
     check: boolean | undefined;
 }
 
-interface TaskButtonStyleProps {
-    icons: string[];
-}
 
 
 export const TaskContainer = styled.div<Pick<TaskStyleProps, 'editMode'>>`
@@ -110,7 +107,7 @@ export const TaskDescription = styled.div`
     }
 `
 
-export const TaskIconButton = styled.div<TaskButtonStyleProps>`
+export const TaskIconButton = styled.div`
     cursor: pointer;
     transition: all .2s;
 
