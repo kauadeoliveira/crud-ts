@@ -21,7 +21,6 @@ export const InputWrapper = styled.div<InputWrapper>`
     }
 
     .label-text{
-        font-weight: bold;
         font-size: 1.3em;
         color: ${({ theme }) => theme.palette.text.disabled};
         margin-left: 5px;

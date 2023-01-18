@@ -75,7 +75,6 @@ export const ModalPriorityTask = styled.div`
     span{
         font-size: 1.3em;
         color: ${({ theme }) => theme.palette.text.disabled};
-        font-weight: bold;
         margin-left: 5px;
     }
 
