@@ -33,20 +33,7 @@ export default function NavBar() {
                         <AddTaskButton onClick={handleOpenModal}/>
                     </li>
                 </NavBarMain>
-                <NavBarSocials>
-                    <li>
-                        <NavBarSocialItem>
-                            <img src={github} alt="" className="social-icon"/>
-                            <span className="social-name">GitHub</span>
-                        </NavBarSocialItem>
-                    </li>
-                    <li>
-                        <NavBarSocialItem>
-                            <img src={linkedin} alt="" className="social-icon"/>
-                            <span className="social-name">LinkedIn</span>
-                        </NavBarSocialItem>
-                    </li>
-                </NavBarSocials>
+
             </NavbarBody>
         </NavBarContainer>
     )

@@ -12,19 +12,23 @@ export const NewTaskBttn = styled.div<NewTaskBttnStyleProps>`
     border-radius: ${({ theme }) => theme.dimensions.button.borderRadius};
     border: 1px solid ${({ theme }) => theme.palette.primary.main};
     display: flex;
+    gap: 5px;
     justify-content: center;
     align-items: center;
     box-shadow: inset 0 0 0 0 ${({ theme }) => theme.palette.primary.main};
     cursor: pointer;
-    transition: .3s ease-in-out;
+    transition: .3s ease;
 
+    svg{
+        width: 18px;
+        height: 18px;
+        fill: ${({ theme, modalState }) => modalState ? '#fff' : theme.palette.primary.main};
+    }
 
     span{
         font-weight: bold;
         font-size: 15px;
         color: ${({ theme, modalState }) => modalState? theme.palette.text.primary : theme.palette.primary.main};
-        transition: color .3s ease-in-out;
-
     }
 
     &:hover{
@@ -32,6 +36,10 @@ export const NewTaskBttn = styled.div<NewTaskBttnStyleProps>`
 
         span{
             color: #fff
+        }
+
+        svg{
+            fill: #fff;
         }
     }
 

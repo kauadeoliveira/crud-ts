@@ -4,10 +4,6 @@ interface ModalStyleProps {
     state: boolean;
 }
 
-interface CloseButtonStyleProps {
-    icon: string[];
-}
-
 export const ModalBackdrop = styled.div<ModalStyleProps>`
     display: ${({ state }) => state ? 'flex' : 'none'};
     justify-content: center;
@@ -123,16 +119,19 @@ export const ModalPriorityTask = styled.div`
 `
 
 
-export const CloseButton = styled.div<CloseButtonStyleProps>`
-    width: 10px;
-    height: 10px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-image: url(${({ icon }) => icon[0]});
+export const CloseButton = styled.div`
     cursor: pointer;
     transition: all .3s;
 
+    svg{
+        width: 15px;
+        height: 15px;
+        fill: ${({ theme }) => theme.palette.text.disabled};
+    }
+
     &:hover{
-        background-image: url(${({ icon }) => icon[1]});
+        svg{
+            fill: #fff;
+        }
     }
 `

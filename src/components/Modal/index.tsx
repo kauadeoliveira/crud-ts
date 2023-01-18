@@ -4,6 +4,7 @@ import { modalSlice } from "../../store/slices/modalSlice";
 import React, { createRef, useRef, useState, } from "react";
 import { tasksSlice } from "../../store/slices/tasksSlice";
 import { abbreviateDate } from "../../utils/abbreviateDate";
+import { HiX } from "react-icons/hi"
 
 import { 
     CloseButton,
@@ -107,7 +108,9 @@ export default function Modal() {
             <ModalContainer>
                 <ModalHead>
                     <span>Create Task</span>
-                    <CloseButton icon={[close, closeHover]} onClick={closeModal}/>
+                    <CloseButton onClick={closeModal}>
+                        <HiX />
+                    </CloseButton>
                 </ModalHead>
                 <ModalBody>
                     <Input
