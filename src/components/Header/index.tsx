@@ -11,6 +11,7 @@ import githubHover from "../../assets/images/github-hover.svg"
 import linkedinHover from "../../assets/images/linkedin-hover.svg"
 import Logo from "../Logo";
 import moon from "../../assets/images/moon.png"
+import ThemeSwitchButton from "../ThemeSwitchButton";
 
 export default function Header() {
     return(
@@ -20,7 +21,7 @@ export default function Header() {
             <HeaderNav>
                 <ul>
                     <li>
-                        <HeaderIconButton icon={moon} />
+                        <ThemeSwitchButton />
                     </li>
                 </ul>
             </HeaderNav>

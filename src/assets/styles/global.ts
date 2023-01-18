@@ -12,7 +12,6 @@ export const GlobalStyle = createGlobalStyle`
         font-family: sans-serif;
         background-color: #000;
         color: #fff;
-        /* overflow-y: hidden; */
         display: flex;
     }
 `
@@ -26,7 +25,12 @@ export const Wrapper = styled.div`
         width: 100%;
     }
 
-    @media (min-width: 1280px){
+    @media (min-width: 1024px){
+        display: grid;
+        grid-template-columns: 20vw 80vw;
+    }
+
+    @media (min-width: 1180px){
         display: grid;
         grid-template-columns: 15vw 85vw;
     }

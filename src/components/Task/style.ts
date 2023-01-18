@@ -22,6 +22,7 @@ export const TaskContainer = styled.div<Pick<TaskStyleProps, 'editMode'>>`
     height: 80px;
     width: 100%;
     border-radius: 10px;
+    transition: .3s ease;
 
     .edit-mode, .default-mode{
         align-items: center;
@@ -33,6 +34,10 @@ export const TaskContainer = styled.div<Pick<TaskStyleProps, 'editMode'>>`
 
     .default-mode{
         display: ${({ editMode }) => editMode ? 'none' : 'flex'};
+    }
+
+    &:hover{
+        background-color: ${({ theme }) => theme.palette.background.light};
     }
 `
 

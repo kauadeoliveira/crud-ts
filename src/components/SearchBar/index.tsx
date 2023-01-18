@@ -1,6 +1,4 @@
 import {SearchContainer, SearchIcon, SearchInput } from "./style";
-import searchIcon from "../../assets/images/search.svg"
-import searchFocus from "../../assets/images/search-focus.svg"
 import close from "../../assets/images/close.svg"
 import closeHover from "../../assets/images/close-hover.svg"
 import React, { useEffect, useState } from "react";
@@ -9,6 +7,8 @@ import { useDispatch } from "react-redux";
 import { store } from "../../store";
 import { useAppSelector } from "../../hooks/useAppSelector";
 import { searchBarSlice } from "../../store/slices/searchBarSlice";
+
+import { HiSearch } from "react-icons/hi"
 
 export default function SearchBar() {
     const searchInputRef = React.createRef<HTMLInputElement>();
@@ -34,7 +34,9 @@ export default function SearchBar() {
 
     return(
         <SearchContainer focus={focused}>
-            <SearchIcon icon={[searchIcon, searchFocus]} focus={focused} />
+            <SearchIcon focus={focused}>
+                <HiSearch />
+            </SearchIcon>
             <SearchInput
              type="search"
              icon={[close, closeHover]}

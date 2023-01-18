@@ -11,7 +11,7 @@ export const MyButton = styled.div<ButtonStyleProps>`
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    transition: all 0.3s 0s ease;
+    transition: all 0.3s 0s ease-in-out;
     
     /* Button State */
     cursor: ${({disabled}) => disabled ? 'not-allowed' : 'pointer'};
@@ -38,13 +38,13 @@ export const MyButton = styled.div<ButtonStyleProps>`
     height: ${({ size }) => {
         switch(size){
             case 'large':
-                return '30px';
+                return '35px';
             break;
             case 'medium':
-                return '25px';
+                return '30px';
             break;
             case 'small':
-                return '20px';
+                return '25px';
             break;
         }
     }};
@@ -66,5 +66,8 @@ export const MyButton = styled.div<ButtonStyleProps>`
 
     &:hover{
         background-color: ${({ theme, disabled }) => disabled ? 'none' : theme.palette.primary.light};
+    }
+    &:active{
+        transform: scale(0.9);
     }
 `

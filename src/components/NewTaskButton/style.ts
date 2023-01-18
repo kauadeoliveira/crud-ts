@@ -16,6 +16,8 @@ export const NewTaskBttn = styled.div<NewTaskBttnStyleProps>`
     align-items: center;
     box-shadow: inset 0 0 0 0 ${({ theme }) => theme.palette.primary.main};
     cursor: pointer;
+    transition: .3s ease-in-out;
+
 
     span{
         font-weight: bold;
@@ -25,14 +27,15 @@ export const NewTaskBttn = styled.div<NewTaskBttnStyleProps>`
 
     }
 
-    transition: box-shadow .3s ease-in-out;
-
-
     &:hover{
         box-shadow: inset 250px 0 0 0 ${({ theme }) => theme.palette.primary.main};
 
         span{
             color: #fff
         }
+    }
+
+    &:active{
+        transform: scale(0.8);
     }
 `

@@ -8,11 +8,11 @@ export const MyLogo = styled.div`
     flex-direction: column;
     cursor: default;
 
-    @media (min-width: 1024px){
+    /* @media (min-width: 1024px){
         font-size: 20px;
-    }
+    } */
 
-    @media (min-width: 1280px){
+    @media (min-width: 1024px){
         flex-direction: row;
         gap: 5px;
         font-size: 30px;

@@ -27,10 +27,10 @@ export default function NavBar() {
                         <SearchBar />
                     </li>
                     <li>
-                        <AddTaskButton onClick={handleOpenModal}/>
+                      <ThemeSwitchButton />
                     </li>
                     <li>
-                      <ThemeSwitchButton />
+                        <AddTaskButton onClick={handleOpenModal}/>
                     </li>
                 </NavBarMain>
                 {/* <NavBarSocials>

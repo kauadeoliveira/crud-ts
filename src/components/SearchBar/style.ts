@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 interface SearchStyleProps {
-    icon: string | string[];
     focus: boolean;
+    icon: string | string[];
 }
 
 export const SearchContainer = styled.div<Pick<SearchStyleProps, 'focus'>>`
@@ -16,19 +16,23 @@ export const SearchContainer = styled.div<Pick<SearchStyleProps, 'focus'>>`
     padding: 0 5px;
     gap: 5px;
 
-    @media (min-width: 1280px){
+    @media (min-width: 1024px){
         height: 40px;
         width: 100%;
         background-color: #000;
     }
 `
 
-export const SearchIcon = styled.div<Pick<SearchStyleProps, 'icon' | 'focus'>>`
-    height: 100%;
-    width: 20px;
-    background-image: url(${({ focus, icon }) => focus ? icon[1] : icon[0]});
-    background-repeat: no-repeat;
-    background-position: center;
+export const SearchIcon = styled.div<Pick<SearchStyleProps, 'focus'>>`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg{
+        width: 20px;
+        height: 20px;
+        fill: ${({ theme, focus }) => focus ? theme.palette.primary.main : theme.palette.text.disabled}
+    }
 `
 
 export const SearchInput = styled.input<Pick<SearchStyleProps, 'icon'>>`
@@ -51,6 +55,5 @@ export const SearchInput = styled.input<Pick<SearchStyleProps, 'icon'>>`
     }
 
     &::-webkit-search-cancel-button:hover{
-        background-image: url(${({ icon }) => icon[1]});
     }
 `

@@ -9,49 +9,22 @@ export default function ThemeSwitchButton() {
     const { switchMode } = themeSlice.actions
     const dispatch = useDispatch();
 
-    const switchToLightMode = () => dispatch(switchMode('light'));
-    const switchToDarkMode = () => dispatch(switchMode('dark'))
+    const handleSwitchMode = () => dispatch(switchMode(mode === 'light' ? 'dark' : 'light'))
     return(
+        <>
         <ToggleButtonContainer mode={mode}>
-            <div className="light" onClick={switchToLightMode}>
+            <div className="light" onClick={handleSwitchMode}>
                 <HiSun />
                 <span>Light</span>
             </div>
-            <div className="dark" onClick={switchToDarkMode}>
+            <div className="dark" onClick={handleSwitchMode}>
                 <HiMoon />
                 <span>Dark</span>
             </div>
+            <div className="icon-button" onClick={handleSwitchMode}>
+                {mode === 'light' ? <HiSun /> : <HiMoon />}
+            </div>
         </ToggleButtonContainer>
+        </>
     )
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // <ToggeButtonContainer>
-    //     <input type="checkbox" id="darkmode-toggle" />
-    //     <label htmlFor="darkmode-toggle">
-    //         <HiSun className="sun"/>
-    //         <HiMoon className="moon"/>
-    //     </label>
-    // </ToggeButtonContainer>

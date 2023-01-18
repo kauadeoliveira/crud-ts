@@ -17,7 +17,7 @@ export const HeaderContainer = styled.header`
     border-bottom: 1px solid rgb(50, 50, 50);
 
 
-    @media (min-width: 1280px){
+    @media (min-width: 1024px){
         display: none;
     }
 `
