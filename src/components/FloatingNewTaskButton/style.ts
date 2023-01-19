@@ -16,6 +16,7 @@ export const FloatingButton = styled.div`
     svg{
         height: 50px;
         width: 50px;
+        fill: #fff;
     }
 
     &:hover{

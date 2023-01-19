@@ -16,6 +16,7 @@ export const ToggleButtonContainer = styled.div<ThemeSwitchButtonStyleProps>`
     svg{
         width: 20px;
         height: 20px;
+        fill: #fff;
     }
 
 

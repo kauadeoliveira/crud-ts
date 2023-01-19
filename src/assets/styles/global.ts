@@ -13,12 +13,12 @@ export const GlobalStyle = createGlobalStyle`
         background-color: ${({ theme }) => theme.palette.background.primary};
         color: ${({ theme }) => theme.palette.text.primary};
         display: flex;
+        overflow-x: hidden;x
     }
 `
 
 export const Wrapper = styled.div`
     display: flex;
-    width: 100vw;
     flex-wrap: wrap;
 
     main, section{

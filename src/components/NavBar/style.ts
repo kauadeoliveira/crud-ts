@@ -7,7 +7,7 @@ export const NavBarContainer = styled.nav`
     background-color: ${({ theme }) => theme.palette.background.secondary};
     display: flex;
     flex-direction: column;
-    box-shadow: -8px 1px 20px 0px #00000052;
+    box-shadow: -8px 1px 20px 0px rgba(0, 0, 0, 0.6);
 
     @media (max-width: 1024px){
         display: none;

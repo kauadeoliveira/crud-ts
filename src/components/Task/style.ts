@@ -16,9 +16,11 @@ interface CheckTaskStyleProps {
 export const TaskContainer = styled.div<Pick<TaskStyleProps, 'editMode'>>`
     background-color: ${({ theme }) => theme.palette.background.tertiary};
     height: 80px;
-    width: 100%;
+    width: 95%;
     border-radius: 10px;
     transition: .3s ease;
+    box-shadow: -1px 5px 7px 0px rgba(0, 0, 0, 0.2);
+
 
     .edit-mode, .default-mode{
         align-items: center;
@@ -144,8 +146,8 @@ export const EditModeInputs = styled.div`
 
 export const SelectPriority = styled.select`
     background-color: ${({ theme }) => theme.palette.background.primary};
-    color: #fff;
-    border: none;
+    color: ${({ theme }) => theme.palette.text.primary};
+    border: 1px solid ${({ theme }) => theme.palette.others.borderColor};
     padding: 5px;
     border-radius: 5px;
     width: 25%;
