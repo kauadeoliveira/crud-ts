@@ -37,6 +37,13 @@ declare module 'styled-components' {
                 primary: string;
                 disabled: string;
             },
+            others: {
+                borderColor: string;
+                closeButton: {
+                    main: string,
+                    hover: string
+                }
+            }
         },
         dimensions: {
             button: {

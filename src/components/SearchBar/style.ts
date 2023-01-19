@@ -11,7 +11,7 @@ export const SearchContainer = styled.div<Pick<SearchStyleProps, 'focus'>>`
     background-color: ${({ theme }) => theme.palette.background.primary};
     border-radius: ${({ theme }) => theme.dimensions.input.borderRadius};
     border: ${({ theme }) => theme.dimensions.input.border};
-    border-color: ${({ theme, focus }) => focus ? theme.palette.main.primary : theme.palette.text.disabled};
+    border-color: ${({ theme, focus }) => focus ? theme.palette.main.primary : theme.palette.others.borderColor};
     display: flex;
     padding: 0 5px;
     gap: 5px;

@@ -34,6 +34,13 @@ export default {
             primary: '#fff',
             disabled: '#c2c2c2'
         },
+        others: {
+            borderColor: 'transparent',
+            closeButton: {
+                main: '#c2c2c2',
+                hover: '#8257e6'
+            }
+        }
     },
     dimensions: {
         button: {

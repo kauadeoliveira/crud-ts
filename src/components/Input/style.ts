@@ -34,9 +34,9 @@ export const MyInput = styled.input<MyInputProps>`
     border-radius: ${({ theme }) => theme.dimensions.input.borderRadius};
     padding: ${({ theme }) => theme.dimensions.input.padding};
     background-color: ${({ theme }) => theme.palette.background.primary};
-    color: #fff;
+    color: ${({ theme }) => theme.palette.text.primary};
     border: ${({ theme }) => theme.dimensions.input.border};
-    border-color: transparent;
+    border-color: ${({ theme }) => theme.palette.others.borderColor};
 
     /* Size */
     width: ${({ inputSize }) => {

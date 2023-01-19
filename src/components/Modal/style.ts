@@ -24,7 +24,7 @@ export const ModalContainer = styled.div`
     justify-content: center;
     flex-wrap: wrap;
     border-radius: 8px;
-    background-color: ${({ theme }) => theme.palette.background.primary};
+    background-color: ${({ theme }) => theme.palette.background.secondary};
 `
 
 
@@ -34,7 +34,7 @@ export const ModalHead = styled.div`
     justify-content: space-between;
     padding: 15px;
     border-bottom: 1px solid ${({ theme }) => theme.palette.background.tertiary};
-    color: #fff;
+    color: ${({ theme }) => theme.palette.text.primary};
     font-size: 1.5em;
     font-weight: bold;
 `
@@ -126,12 +126,13 @@ export const CloseButton = styled.div`
     svg{
         width: 15px;
         height: 15px;
-        fill: ${({ theme }) => theme.palette.text.disabled};
+        fill: ${({ theme }) => theme.palette.others.closeButton.main};
     }
 
     &:hover{
         svg{
-            fill: #fff;
+            fill: ${({ theme }) => theme.palette.others.closeButton.hover};
+
         }
     }
 `
