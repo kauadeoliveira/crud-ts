@@ -14,7 +14,7 @@ interface CheckTaskStyleProps {
 
 
 export const TaskContainer = styled.div<Pick<TaskStyleProps, 'editMode'>>`
-    background-color: ${({ theme }) => theme.palette.background.main};
+    background-color: ${({ theme }) => theme.palette.background.tertiary};
     height: 80px;
     width: 100%;
     border-radius: 10px;
@@ -73,13 +73,13 @@ export const CheckTask = styled.div<CheckTaskStyleProps>`
     height: 20px;
     cursor: pointer;
     border-radius: 5px;
-    background-color: ${({ check, theme }) => check ? theme.palette.primary.main : '#fff'};
+    background-color: ${({ check, theme }) => check ? theme.palette.main.primary : '#fff'};
 
     svg{
         width: 20px;
         height: 20px;
         visibility: ${({ check }) => check ? 'visible' : 'hidden'};
-        fill: ${({ check, theme }) => check ? '#fff' : theme.palette.primary.main};
+        fill: ${({ check, theme }) => check ? '#fff' : theme.palette.main.primary};
     }
 
     &:hover{
@@ -143,7 +143,7 @@ export const EditModeInputs = styled.div`
 `
 
 export const SelectPriority = styled.select`
-    background-color: ${({ theme }) => theme.palette.background.dark};
+    background-color: ${({ theme }) => theme.palette.background.primary};
     color: #fff;
     border: none;
     padding: 5px;

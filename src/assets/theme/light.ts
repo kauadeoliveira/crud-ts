@@ -3,14 +3,14 @@ export default {
 
     palette: {
         main: {
-            primary: '#8257e6',
+            primary: '#0080ff',
             secondary: '#6837e0',
-            tertiary: 'rgb(130 87 230 / 28%)',
+            tertiary: '#0080ff',
         },
         background: {
-            primary: '#0B0B0D',
-            secondary: '#121214',
-            tertiary: '#202024',
+            primary: '#f6fafd',
+            secondary: '#fff',
+            tertiary: '#e7e7e7',
             // light: '#41414a'
         },
         priorities: {
@@ -31,7 +31,7 @@ export default {
             }
         },
         text: {
-            primary: '#fff',
+            primary: '#000',
             disabled: '#c2c2c2'
         },
     },

@@ -15,7 +15,7 @@ export const MyButton = styled.div<ButtonStyleProps>`
     
     /* Button State */
     cursor: ${({disabled}) => disabled ? 'not-allowed' : 'pointer'};
-    background-color: ${({ theme, disabled }) => disabled ? theme.palette.background.light : theme.palette.primary.main};
+    background-color: ${({ theme, disabled }) => disabled ? theme.palette.background.tertiary : theme.palette.main.primary};
     color: ${({ theme, disabled }) => disabled ? theme.palette.text.disabled : '#fff'};
 
 
@@ -65,7 +65,7 @@ export const MyButton = styled.div<ButtonStyleProps>`
 
 
     &:hover{
-        background-color: ${({ theme, disabled }) => disabled ? 'none' : theme.palette.primary.light};
+        background-color: ${({ theme, disabled }) => disabled ? 'none' : theme.palette.main.primary};
     }
     &:active{
         transform: scale(0.9);

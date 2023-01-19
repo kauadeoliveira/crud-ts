@@ -8,10 +8,10 @@ interface SearchStyleProps {
 export const SearchContainer = styled.div<Pick<SearchStyleProps, 'focus'>>`
     width: 85%;
     height: 35px;
-    background-color: ${({ theme }) => theme.palette.background.dark};
+    background-color: ${({ theme }) => theme.palette.background.primary};
     border-radius: ${({ theme }) => theme.dimensions.input.borderRadius};
     border: ${({ theme }) => theme.dimensions.input.border};
-    border-color: ${({ theme, focus }) => focus ? theme.palette.primary.main : 'transparent'};
+    border-color: ${({ theme, focus }) => focus ? theme.palette.main.primary : theme.palette.text.disabled};
     display: flex;
     padding: 0 5px;
     gap: 5px;
@@ -19,7 +19,8 @@ export const SearchContainer = styled.div<Pick<SearchStyleProps, 'focus'>>`
     @media (min-width: 1024px){
         height: 40px;
         width: 100%;
-        background-color: #000;
+        /* background-color: ${({ theme }) => theme.palette.background.primary}; */
+        background-color: #fff;
     }
 `
 
@@ -31,7 +32,8 @@ export const SearchIcon = styled.div<Pick<SearchStyleProps, 'focus'>>`
     svg{
         width: 20px;
         height: 20px;
-        fill: ${({ theme, focus }) => focus ? theme.palette.primary.main : theme.palette.text.disabled}
+        fill: ${({ theme, focus }) => focus ? theme.palette.main.primary : theme.palette.text.disabled}
+        /* fill: ${({ theme }) => theme.palette.main.primary}; */
     }
 `
 
@@ -39,7 +41,7 @@ export const SearchInput = styled.input<Pick<SearchStyleProps, 'icon'>>`
     width: 100%;
     outline: none;
     border: none;
-    color: ${({ theme }) => theme.palette.text.primary};
+    color: #000;
     background-color: transparent;
 
     &::-webkit-search-cancel-button{
@@ -52,8 +54,5 @@ export const SearchInput = styled.input<Pick<SearchStyleProps, 'icon'>>`
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
-    }
-
-    &::-webkit-search-cancel-button:hover{
     }
 `

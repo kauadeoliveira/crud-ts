@@ -6,16 +6,15 @@ declare module 'styled-components' {
         title: string;
 
         palette: {
-            primary: {
-                light: string;
-                main: string;
-                dark: string;
-                hover: string;
+            main: {
+                primary: string;
+                secondary: string;
+                tertiary: string;
             },
             background: {
-                dark: string;
-                main: string;
-                light: string;
+                primary: string;
+                secondary: string;
+                tertiary: string;
             },
             priorities: {
                 high: {

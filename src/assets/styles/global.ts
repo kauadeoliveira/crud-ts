@@ -10,8 +10,8 @@ export const GlobalStyle = createGlobalStyle`
     body{
         font-size: 10px;
         font-family: sans-serif;
-        background-color: #000;
-        color: #fff;
+        background-color: ${({ theme }) => theme.palette.background.primary};
+        color: ${({ theme }) => theme.palette.text.primary};
         display: flex;
     }
 `

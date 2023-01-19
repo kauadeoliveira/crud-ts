@@ -9,11 +9,14 @@ import CompleteTaskList from "./components/CompleteTaskList"
 import NavBar from "./components/NavBar"
 import FloatingNewTaskButton from "./components/FloatingNewTaskButton"
 import ThemeSwitchButton from "./components/ThemeSwitchButton"
+import light from "./assets/theme/light"
+import { useAppSelector } from "./hooks/useAppSelector"
 
 
 function App() {
+  const { mode } = useAppSelector(store => store.theme)
   return(
-      <ThemeProvider theme={dark}>
+      <ThemeProvider theme={mode === 'dark' ? dark : light}>
         <GlobalStyle />
         <Wrapper>
           <Header />

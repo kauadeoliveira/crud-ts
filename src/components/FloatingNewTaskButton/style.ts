@@ -7,7 +7,7 @@ export const FloatingButton = styled.div`
     bottom: 15px;
     right: 15px;
     align-items: center;
-    background-color: ${({ theme }) => theme.palette.primary.main};
+    background-color: ${({ theme }) => theme.palette.main.primary};
     border-radius: 100%;
     cursor: pointer;
     z-index: 500;
@@ -19,7 +19,7 @@ export const FloatingButton = styled.div`
     }
 
     &:hover{
-        background-color: ${({ theme }) => theme.palette.primary.light};
+        background-color: ${({ theme }) => theme.palette.main.primary};
     }
 
     &:active{

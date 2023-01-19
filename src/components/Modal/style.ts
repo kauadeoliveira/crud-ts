@@ -24,7 +24,7 @@ export const ModalContainer = styled.div`
     justify-content: center;
     flex-wrap: wrap;
     border-radius: 8px;
-    background-color: ${({ theme }) => theme.palette.background.main};
+    background-color: ${({ theme }) => theme.palette.background.primary};
 `
 
 
@@ -33,7 +33,7 @@ export const ModalHead = styled.div`
     display: flex;
     justify-content: space-between;
     padding: 15px;
-    border-bottom: 1px solid ${({ theme }) => theme.palette.background.light};
+    border-bottom: 1px solid ${({ theme }) => theme.palette.background.tertiary};
     color: #fff;
     font-size: 1.5em;
     font-weight: bold;

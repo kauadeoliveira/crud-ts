@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const MyLogo = styled.div`
-    color: ${({ theme }) => theme.palette.primary.main};
+    color: ${({ theme }) => theme.palette.main.primary};
     font-weight: bold;
     font-size: 15px;
     display: flex;

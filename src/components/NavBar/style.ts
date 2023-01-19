@@ -2,10 +2,12 @@ import styled from "styled-components";
 
 export const NavBarContainer = styled.nav`
     width: 100%;
-    height: 100vh;
-    background-color: ${({ theme }) => theme.palette.background.dark};
+    min-height: 100vh;
+    max-height: 100%;
+    background-color: ${({ theme }) => theme.palette.background.secondary};
     display: flex;
     flex-direction: column;
+    box-shadow: -8px 1px 20px 0px #00000052;
 
     @media (max-width: 1024px){
         display: none;

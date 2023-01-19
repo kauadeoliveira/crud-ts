@@ -33,7 +33,7 @@ export const MyInput = styled.input<MyInputProps>`
     outline: none;
     border-radius: ${({ theme }) => theme.dimensions.input.borderRadius};
     padding: ${({ theme }) => theme.dimensions.input.padding};
-    background-color: ${({ theme }) => theme.palette.background.dark};
+    background-color: ${({ theme }) => theme.palette.background.primary};
     color: #fff;
     border: ${({ theme }) => theme.dimensions.input.border};
     border-color: transparent;
@@ -78,7 +78,7 @@ export const MyInput = styled.input<MyInputProps>`
     }
 
     &:focus{
-        border-color: ${({ theme }) => theme.palette.primary.main};
+        border-color: ${({ theme }) => theme.palette.main.primary};
 
         &[type="date"]::-webkit-calendar-picker-indicator{
             background-image: url(${({ icon }) => icon[1]});

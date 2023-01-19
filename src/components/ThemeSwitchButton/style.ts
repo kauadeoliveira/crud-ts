@@ -24,29 +24,29 @@ export const ToggleButtonContainer = styled.div<ThemeSwitchButtonStyleProps>`
         width: 100%;
         height: 40px;
         border-radius: ${({ theme }) => theme.dimensions.button.borderRadius};
-        border: 1px solid ${({ theme }) => theme.palette.primary.main};
+        border: 1px solid ${({ theme }) => theme.palette.main.primary};
         font-size: 12px;
 
         .light{
             display: flex;
-            border-right: 1px solid ${({ theme }) => theme.palette.primary.main};
-            background-color: ${({ theme, mode }) => mode === 'light' ? theme.palette.primary.hover : 'transparent'};
+            border-right: 1px solid ${({ theme }) => theme.palette.main.primary};
+            background-color: ${({ theme, mode }) => mode === 'light' ? theme.palette.main.tertiary : 'transparent'};
             span{
-                color: ${({ theme, mode}) => mode === 'light' ? '#fff' : theme.palette.primary.main};
+                color: ${({ theme, mode}) => mode === 'light' ? '#fff' : theme.palette.main.primary};
             }
             svg{
-                fill: ${({ theme, mode }) => mode === 'light' ? '#fff' : theme.palette.primary.main}
+                fill: ${({ theme, mode }) => mode === 'light' ? '#fff' : theme.palette.main.primary}
             }
         }
     
         .dark{
             display: flex;
-            background-color: ${({ theme, mode}) => mode === 'dark' ? theme.palette.primary.hover : 'transparent'};
+            background-color: ${({ theme, mode}) => mode === 'dark' ? theme.palette.main.tertiary : 'transparent'};
             span{
-                color: ${({ theme, mode}) => mode === 'dark' ? '#fff' : theme.palette.primary.main};
+                color: ${({ theme, mode}) => mode === 'dark' ? '#fff' : theme.palette.main.primary};
             }
             svg{
-                fill: ${({ theme, mode }) => mode === 'dark' ? '#fff' : theme.palette.primary.main}
+                fill: ${({ theme, mode }) => mode === 'dark' ? '#fff' : theme.palette.main.primary}
             }
         }
     
