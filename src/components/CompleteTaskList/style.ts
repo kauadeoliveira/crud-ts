@@ -42,6 +42,7 @@ export const AccordionButton = styled.div<Pick<AccordionStyleProps, 'expand'>>`
 
 export const AccordionBody = styled.div<Pick<AccordionStyleProps, 'expand'>>`
     display: ${({ expand }) => expand ? 'flex' : 'none'};
+    align-items: center;
     flex-direction: column;
     gap: 15px;
 `

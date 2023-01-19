@@ -13,7 +13,7 @@ export const GlobalStyle = createGlobalStyle`
         background-color: ${({ theme }) => theme.palette.background.primary};
         color: ${({ theme }) => theme.palette.text.primary};
         display: flex;
-        overflow-x: hidden;x
+        overflow-x: hidden;
     }
 `
 

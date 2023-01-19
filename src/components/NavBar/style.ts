@@ -37,7 +37,7 @@ export const NavBarMain = styled.ul`
     gap: 10px;
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid rgb(50, 50, 50);
+    border-bottom: 1px solid ${({ theme }) => theme.palette.background.tertiary};
     padding: 20px 0;
 `
 

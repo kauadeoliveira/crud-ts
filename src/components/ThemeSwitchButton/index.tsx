@@ -10,15 +10,19 @@ export default function ThemeSwitchButton() {
     const { switchMode } = themeSlice.actions
     const dispatch = useDispatch();
 
+    const switchToDarkMode = () => dispatch(switchMode('dark'));
+    const switchToLightMode = () => dispatch(switchMode('light'))
+
+    // apenas mobile
     const handleSwitchMode = () => dispatch(switchMode(mode === 'light' ? 'dark' : 'light'))
     return(
         <>
         <ToggleButtonContainer mode={mode}>
-            <div className="light" onClick={handleSwitchMode}>
+            <div className="light" onClick={switchToLightMode}>
                 <HiSun />
                 <span>Light</span>
             </div>
-            <div className="dark" onClick={handleSwitchMode}>
+            <div className="dark" onClick={switchToDarkMode}>
                 <HiMoon />
                 <span>Dark</span>
             </div>
