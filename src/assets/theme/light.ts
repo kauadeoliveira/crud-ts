@@ -21,12 +21,12 @@ export default {
             middle: {
                 dark:'#006100',
                 main: '#309124',
-                light:'#a4d89e',
+                light:'#7fc976',
             },
             low: {
                 dark: '#ffa710',
                 main: '#ffd920',
-                light: '#fff597',
+                light: '#feeb49',
             }
         },
         text: {
