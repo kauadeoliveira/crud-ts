@@ -101,6 +101,8 @@ export default function Modal() {
         }
     }
 
+    const createTaskOnPressEnter = (e: React.KeyboardEvent<HTMLInputElement>) => e.key === 'Enter' ? createTask() : false
+
     return(
         <ModalBackdrop state={open}>
             <ModalContainer>
@@ -120,12 +122,14 @@ export default function Modal() {
                         errorStatus: errorTitle,
                         errorMsg: 'Title is required.'
                      }}
+                     onKeyDown={createTaskOnPressEnter}
                     />
                     <Input
                      type="date"
                      ref={dateRef}
                      labelText="Task date"
                      value={abbreviateDate(new Date(Date.now()).toString())}
+                     onKeyDown={createTaskOnPressEnter}
                     />
                     <ModalPriorityTask>
                         <span>Priority</span>

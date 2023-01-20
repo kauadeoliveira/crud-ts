@@ -10,6 +10,7 @@ interface InputProps {
     value?: string;
     size?: 'small' | 'medium' | 'large'; 
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
     labelText?: string;
     error?: {
         errorStatus: boolean,
@@ -18,7 +19,7 @@ interface InputProps {
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>((
-    { type, placeholder, onChange, error, value, size="medium", labelText }, ref
+    { type, placeholder, onChange, onKeyDown, error, value, size="medium", labelText }, ref
     ) => {
     return(
         <InputWrapper error={error?.errorStatus} label={labelText ? true : false}>
@@ -29,6 +30,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((
              placeholder={placeholder}
              icon={[calendar, calendarFocus]}
              onChange={onChange}
+             onKeyDown={onKeyDown}
              ref={ref}
              defaultValue={value}
              inputSize={size}
