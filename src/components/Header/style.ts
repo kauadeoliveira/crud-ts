@@ -15,6 +15,8 @@ export const HeaderContainer = styled.header`
     font-size: .8em;
     gap: 10px;
     box-shadow: 2px 3px 11px 0px rgba(0, 0, 0, 0.6);
+    position: sticky;
+    top: 0;
 
     @media (min-width: 1024px){
         display: none;
