@@ -5,12 +5,10 @@ interface AccordionStyleProps {
     visibility: boolean;
 }
 
-
-export const AccordionWrapper = styled.div<Pick<AccordionStyleProps, 'visibility'>>`
+export const AccordionContainer = styled.div<Pick<AccordionStyleProps, 'visibility'>>`
     display: ${({ visibility }) => visibility ? 'block' : 'none'};
     padding: 1rem;
 `
-
 
 export const AccordionHead = styled.div<Pick<AccordionStyleProps, 'expand'>>`
     border-bottom: ${({ expand }) => expand ? 'none' : '0.5px solid #fff'};
@@ -21,7 +19,6 @@ export const AccordionHead = styled.div<Pick<AccordionStyleProps, 'expand'>>`
     font-size: 1.5em;
     font-weight: bold;
 `
-
 
 export const AccordionButton = styled.div<Pick<AccordionStyleProps, 'expand'>>`
     display: flex;
@@ -38,7 +35,6 @@ export const AccordionButton = styled.div<Pick<AccordionStyleProps, 'expand'>>`
         transform: rotate(${({ expand }) => expand ? '90deg' : '0'});
     }
 `
-
 
 export const AccordionBody = styled.div<Pick<AccordionStyleProps, 'expand'>>`
     display: ${({ expand }) => expand ? 'flex' : 'none'};

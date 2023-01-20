@@ -15,11 +15,9 @@ import {
     ModalContainer
 } from "./style";
 
-import closeHover from "../../assets/images/close-hover.svg";
 import Input from "../Input";
 import Button from "../Button";
 import 'animate.css';
-import close from "../../assets/images/close.svg";
 
 export default function Modal() {
     const dispatch = useDispatch();

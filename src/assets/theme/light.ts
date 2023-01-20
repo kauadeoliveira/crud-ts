@@ -11,7 +11,6 @@ export default {
             primary: '#f6fafd',
             secondary: '#fff',
             tertiary: '#e7e7e7',
-            // light: '#41414a'
         },
         priorities: {
             high: {

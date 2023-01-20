@@ -18,8 +18,6 @@ export const MyButton = styled.div<ButtonStyleProps>`
     background-color: ${({ theme, disabled }) => disabled ? theme.palette.background.tertiary : theme.palette.main.primary};
     color: ${({ theme, disabled }) => disabled ? theme.palette.text.disabled : '#fff'};
 
-
-
     /* Size */
     width: ${({ size }) => {
         switch(size){

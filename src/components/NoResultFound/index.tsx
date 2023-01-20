@@ -5,7 +5,7 @@ import notFoundLightMode from "../../assets/images/detetive-lightmode.png"
 import { useAppSelector } from "../../hooks/useAppSelector"
 export default function NoResultFound() {
     const { inputValue } = useAppSelector(store => store.searchBar);
-    const { mode } = useAppSelector(store => store.theme)
+    const { mode } = useAppSelector(store => store.theme);
     return(
         <NoResultFoundContainer>
             <img src={mode === 'dark' ? notFoundDarkMode : notFoundLightMode} alt="" />

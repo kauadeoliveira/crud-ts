@@ -19,8 +19,6 @@ import {
 
 import 'animate.css'
 import Input from "../Input";
-import trashHover from "../../assets/images/trash-hover.svg"
-import trashIcon from "../../assets/images/trash.svg"
 import Button from "../Button";
 
 

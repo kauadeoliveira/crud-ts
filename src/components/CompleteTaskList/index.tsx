@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { useAppSelector } from "../../hooks/useAppSelector";
 import { HiChevronRight } from "react-icons/hi";
+
 import { 
     AccordionBody,
     AccordionButton,
     AccordionHead,
-    AccordionWrapper
+    AccordionContainer
 } from "./style";
 
 import Task from "../Task";
@@ -14,6 +15,7 @@ import Task from "../Task";
 interface AccordionProps {
     title: string;
 }
+
 export default function CompleteTaskList({ title }: AccordionProps) {
     const [expandAccordion, setExpandAccordion] = useState<boolean>(false);
     const [visibility, setVisibility] = useState<boolean>(false); 
@@ -35,7 +37,7 @@ export default function CompleteTaskList({ title }: AccordionProps) {
     }, [inputValue, tasks.length, filtredTasks.length])
 
     return(
-        <AccordionWrapper visibility={visibility}>
+        <AccordionContainer visibility={visibility}>
             <AccordionHead expand={expandAccordion} onClick={handleExpand}>
                 <AccordionButton expand={expandAccordion}> 
                     <HiChevronRight />
@@ -58,6 +60,6 @@ export default function CompleteTaskList({ title }: AccordionProps) {
                     }
                 })}
             </AccordionBody>
-        </AccordionWrapper>
+        </AccordionContainer>
     )
 }

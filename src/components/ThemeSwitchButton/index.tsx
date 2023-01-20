@@ -1,5 +1,4 @@
 import { ToggleButtonContainer } from "./style";
-import moon from "../../assets/images/moon.svg"
 import { useAppSelector } from "../../hooks/useAppSelector";
 import { themeSlice } from "../../store/slices/themeSlice";
 import { useDispatch } from "react-redux";

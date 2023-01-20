@@ -9,9 +9,11 @@ export const NoResultFoundContainer = styled.div`
     width: 100%;
     min-height: 80vh;
     max-height: 100%;
+
     img{
         width: 300px;
     }
+    
     p{
         width: 380px;
         font-weight: bold;

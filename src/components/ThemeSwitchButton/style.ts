@@ -70,4 +70,3 @@ export const ToggleButtonContainer = styled.div<ThemeSwitchButtonStyleProps>`
         }
     }
 `
-// cria uma div container com label e input dentro, facilita a estilização 

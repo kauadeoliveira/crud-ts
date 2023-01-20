@@ -1,5 +1,4 @@
 import { InputWrapper, MyInput } from "./style";
-import { AiOutlineCalendar } from "react-icons/ai"
 
 import calendarFocus from "../../assets/images/calendar-focus.png"
 import calendar from "../../assets/images/calendar.png"

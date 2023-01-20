@@ -1,8 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 import Modal from '../../components/Modal';
+
 interface Modal {
     open: boolean;
 }
+
 interface InitialState {
     modalCreateTask: Modal;
 }
