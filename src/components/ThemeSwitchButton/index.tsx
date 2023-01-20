@@ -27,7 +27,7 @@ export default function ThemeSwitchButton() {
                 <span>Dark</span>
             </div>
             <div className="icon-button" onClick={handleSwitchMode}>
-                {mode === 'light' ? <HiSun /> : <HiMoon />}
+                {mode === 'light' ? <HiMoon /> : <HiSun />}
             </div>
         </ToggleButtonContainer>
         </>

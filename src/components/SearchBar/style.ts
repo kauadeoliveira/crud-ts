@@ -8,7 +8,7 @@ interface SearchStyleProps {
 export const SearchContainer = styled.div<Pick<SearchStyleProps, 'focus'>>`
     width: 85%;
     height: 35px;
-    background-color: ${({ theme }) => theme.palette.background.primary};
+    background-color: #fff;
     border-radius: ${({ theme }) => theme.dimensions.input.borderRadius};
     border: ${({ theme }) => theme.dimensions.input.border};
     border-color: ${({ theme, focus }) => focus ? theme.palette.main.primary : theme.palette.others.borderColor};
@@ -19,7 +19,6 @@ export const SearchContainer = styled.div<Pick<SearchStyleProps, 'focus'>>`
     @media (min-width: 1024px){
         height: 40px;
         width: 100%;
-        /* background-color: ${({ theme }) => theme.palette.background.primary}; */
         background-color: #fff;
     }
 `
@@ -33,7 +32,6 @@ export const SearchIcon = styled.div<Pick<SearchStyleProps, 'focus'>>`
         width: 20px;
         height: 20px;
         fill: ${({ theme, focus }) => focus ? theme.palette.main.primary : theme.palette.text.disabled}
-        /* fill: ${({ theme }) => theme.palette.main.primary}; */
     }
 `
 

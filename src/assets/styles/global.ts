@@ -20,6 +20,8 @@ export const GlobalStyle = createGlobalStyle`
 export const Wrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
+    width: 100vw;
+    max-width: 100%;
 
     main, section{
         width: 100%;
@@ -27,11 +29,11 @@ export const Wrapper = styled.div`
 
     @media (min-width: 1024px){
         display: grid;
-        grid-template-columns: 20vw 80vw;
+        grid-template-columns: 1fr 4fr;
     }
 
     @media (min-width: 1180px){
         display: grid;
-        grid-template-columns: 15vw 85vw;
+        grid-template-columns: 1fr 5fr;
     }
 `

@@ -14,7 +14,13 @@ export const NewTaskBttn = styled.div<NewTaskBttnStyleProps>`
     gap: 5px;
     justify-content: center;
     align-items: center;
-    box-shadow: ${({ theme, modalState }) => modalState ? 'inset 250px 0 0 0 #8257e6' : 'inset 0 0 0 0 #8257e6'};
+    box-shadow: ${({ theme, modalState }) => {
+        if(modalState){
+            return `inset 250px 0 0 0 ${theme.palette.main.primary}`;
+        }else{
+            return `inset 0 0 0 0 ${theme.palette.main.primary}`
+        }
+    }};
     cursor: pointer;
     transition: .3s ease;
 

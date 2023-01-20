@@ -10,7 +10,7 @@ export const HeaderContainer = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 8px 10px;
+    padding: 8px 20px;
     background-color: #000;
     font-size: .8em;
     gap: 10px;

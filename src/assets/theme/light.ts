@@ -4,8 +4,8 @@ export default {
     palette: {
         main: {
             primary: '#0080ff',
-            secondary: '#6837e0',
-            tertiary: '#0080ff',
+            secondary: '#008eff',
+            tertiary: '#279fff',
         },
         background: {
             primary: '#f6fafd',
@@ -32,7 +32,7 @@ export default {
         },
         text: {
             primary: '#000',
-            disabled: '#c2c2c2'
+            disabled: '#ACA9A9'
         },
         others: {
             borderColor: '#c2c2c2',
