@@ -10,11 +10,15 @@ import CompleteTaskList from "./components/CompleteTaskList"
 import NavBar from "./components/NavBar"
 import FloatingNewTaskButton from "./components/FloatingNewTaskButton"
 import light from "./assets/theme/light"
+import { useEffect } from "react"
+import { useDispatch } from "react-redux"
+import { tasksSlice } from "./store/slices/tasksSlice"
+import { store } from "./store"
 
 
 function App() {
-  const { mode } = useAppSelector(store => store.theme)
-  
+  const { mode } = useAppSelector(store => store.theme);
+
   return(
       <ThemeProvider theme={mode === 'dark' ? dark : light}>
         <GlobalStyle />

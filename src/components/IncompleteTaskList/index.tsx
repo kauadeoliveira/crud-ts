@@ -5,11 +5,11 @@ import Task from "../Task";
 import NotFoundScreen from "../NoResultFound";
 
 
+
 export default function IncompleteTaskList() {
     const { tasks } = useAppSelector(store => store.tasks);
     const { filtredTasks } = useAppSelector(store => store.tasks);
     const { inputValue } = useAppSelector(store => store.searchBar);
-
 
     if(filtredTasks.length > 0){
         return(

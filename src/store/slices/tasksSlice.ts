@@ -36,8 +36,9 @@ export const tasksSlice = createSlice({
         },
         deleteTask: (state, action) => {
             state.tasks = state.tasks.filter(task => task.id != action.payload);
+            state.filtredTasks = state.filtredTasks.filter(task => task.id != action.payload);
 
-            state.tasks = state.tasks.sort((a, b) => a.id - b.id)
+            state.tasks = state.tasks.sort((a, b) => a.id - b.id);
         },
         editTask: (state, action) => {
             state.tasks = state.tasks.filter(task => task.id != action.payload.id);

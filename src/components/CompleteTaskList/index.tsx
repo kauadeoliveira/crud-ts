@@ -23,6 +23,8 @@ export default function CompleteTaskList({ title }: AccordionProps) {
     const { filtredTasks } = useAppSelector(store => store.tasks);
     const { inputValue } = useAppSelector(store => store.searchBar);
     const { tasks } = useAppSelector(store => store.tasks);
+    const [tasksOnStorage, setTasksOnStorage] = useState<any>(localStorage.getItem('tasks'));
+
 
     const completeTasks = tasks.filter(task => task.completed);
     const handleExpand = () => setExpandAccordion(!expandAccordion);

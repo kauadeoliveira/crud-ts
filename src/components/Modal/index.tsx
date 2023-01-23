@@ -1,7 +1,7 @@
 import { useAppSelector } from "../../hooks/useAppSelector";
 import { useDispatch } from "react-redux";
 import { modalSlice } from "../../store/slices/modalSlice";
-import React, { createRef, useRef, useState, } from "react";
+import React, { createRef, useEffect, useRef, useState, } from "react";
 import { tasksSlice } from "../../store/slices/tasksSlice";
 import { abbreviateDate } from "../../utils/abbreviateDate";
 import { HiX } from "react-icons/hi"
@@ -18,12 +18,14 @@ import {
 import Input from "../Input";
 import Button from "../Button";
 import 'animate.css';
+import { store } from "../../store";
 
 export default function Modal() {
     const dispatch = useDispatch();
     const { openModalCreateTask } = modalSlice.actions;
     const { open } = useAppSelector(store => store.modal.modalCreateTask);
     const { addTask } = tasksSlice.actions;
+    const { tasks } = useAppSelector(store => store.tasks)
 
     const [priority, setPriority] = useState<string>();
     const [errorTitle, setErrorTitle] = useState<boolean>(false);
@@ -100,9 +102,8 @@ export default function Modal() {
             setErrorTitle(true);
         }
     }
-
+    
     const createTaskOnPressEnter = (e: React.KeyboardEvent<HTMLInputElement>) => e.key === 'Enter' ? createTask() : false
-
     return(
         <ModalBackdrop state={open}>
             <ModalContainer>
