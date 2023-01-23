@@ -32,5 +32,6 @@ Mobile  |
 - Animate.css (lib)
 - React-icons (lib)
 
-  ## Deploy:
-  https://crud-ts-ten.vercel.app
+  
+## Deploy:
+https://crud-ts-ten.vercel.app
